@@ -1,0 +1,55 @@
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #F8F9FA;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.main .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .logo img {
+  width: 200px;
+}
+
+.main ul {
+  list-style: none;
+  padding: 0;
+}
+
+.main .section {
+  padding: 1rem;
+}
+
+.main .section h5 {
+  text-align: start;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+/*# sourceMappingURL=Footer.module.css.map */

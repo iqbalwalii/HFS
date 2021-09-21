@@ -1,11 +1,17 @@
 import React from "react";
-import footer from "../styles/footer.module.css";
+import footer from "../styles/Footer.module.css";
+import Image from "next/image";
 
 const Footer = () => {
   return (
     <div className={footer.main}>
       <div className={footer.logo}>
-        <img src="./assets/images/logo.png" alt="Logo" />
+        <Image
+          src="/assets/images/logo.png"
+          alt="High Fashion Society"
+          width="130px"
+          height="70px"
+        />
       </div>
       <div className={footer.section}>
         <h5>COMPANY</h5>

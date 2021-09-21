@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navstyle from "../styles/Navbar.module.css";
 const Navigation = () => {
@@ -8,11 +9,17 @@ const Navigation = () => {
       <Navbar bg="light" expand="xxl">
         <Container>
           <Navbar.Brand href="#home" className={Navstyle.brand}>
-            <img
+            <Image
+              src="/assets/images/logo.png"
+              alt="High Fashion Society"
+              width="80px"
+              height="40px"
+            />
+            {/* <img
               src="./assets/images/logo.png"
               style={{ width: "80px", marginRight: ".2rem" }}
-            />
-            HIGH FASHION SOCIETY
+            /> */}
+            <h4>HIGH FASHION SOCIETY </h4>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

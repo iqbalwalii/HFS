@@ -30,20 +30,7 @@ export default function App() {
         <SwiperSlide>
           <div className="HeroCard"></div>
         </SwiperSlide>
-        <SwiperSlide>
-          <video
-            loop=""
-            autoplay=""
-            muted=""
-            playsinline=""
-            data-desktop="https://player.vimeo.com/external/599825504.hd.mp4?s=05452c22a91f4dcf424d174eb3da187d9e8a3029&amp;profile_id=175"
-            data-mobile="https://player.vimeo.com/external/600203431.sd.mp4?s=8616b1b45700c4e64edb079df3e6ba3aff427658&amp;profile_id=165"
-            id="video2"
-            class="vanilla-lazyload loaded"
-            data-was-processed="true"
-            src="https://player.vimeo.com/external/599825504.hd.mp4?s=05452c22a91f4dcf424d174eb3da187d9e8a3029&amp;profile_id=175"
-          ></video>
-        </SwiperSlide>
+        <SwiperSlide></SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
         <SwiperSlide>Slide 5</SwiperSlide>

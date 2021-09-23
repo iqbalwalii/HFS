@@ -1,0 +1,28 @@
+.main
+    border: 1px solid #00000025
+    border-radius: 10%
+    width: 220px
+    position: relative
+    & p
+        padding: 1rem
+    & .productImg
+        padding: 1rem
+    & .backdrop
+        position: absolute
+        right: 0
+        top: 0
+        background: #1C5D8C
+        height: 140px
+        width: 170px
+        border-bottom-left-radius: 50%
+        border-top-right-radius: 10%
+@media screen and (max-width: 480px)
+    .main
+        width: 180px
+        & p
+        padding: 2rem 0 0 0
+        & .backdrop
+            height: 150px
+            width: 140px
+            border-bottom-left-radius: 50%
+            border-top-right-radius: 10%

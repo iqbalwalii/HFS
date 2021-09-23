@@ -1,18 +1,65 @@
-.banner {
-  position: relative;
+.main {
+  height: 100vh !important;
 }
 
-.banner h1 {
+.main .HeroCard {
+  background-image: url(https://images.unsplash.com/photo-1542219550-37153d387c27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+  height: 90vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'roboto condensed, sans-serif';
+}
+
+.main .HeroCard .info {
+  margin: 2rem auto;
+  margin-bottom: 8rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main .HeroCard .info h1 {
+  color: #fff;
   text-align: center;
-  font-size: 150px;
-  margin-top: 3rem;
 }
 
-.banner img {
-  position: absolute;
-  left: 25%;
-  top: 15%;
-  -webkit-filter: drop-shadow(4px 3px 3px #000000ab);
-          filter: drop-shadow(4px 3px 3px #000000ab);
+.main .HeroCard .info .btnCard {
+  font-family: 'roboto condensed, sans-serif';
+  background: #212121;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-size: .8rem;
+  width: 150px;
+  height: 50px;
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    height: 50vh !important;
+  }
+  .main .HeroCard {
+    height: 50vh;
+    width: 100vw;
+  }
 }
 /*# sourceMappingURL=Slider.module.css.map */

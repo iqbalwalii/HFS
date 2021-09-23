@@ -1,14 +1,41 @@
-.banner
-    position: relative
+.main
+    height: 100vh !important
+    & .HeroCard
+        height: 90vh
+        width: 100vw
+        background-repeat: no-repeat
+        background-size: cover
+        background-position: center center
+        display: flex
+        font-family: 'roboto condensed, sans-serif'
+        & .info
+            margin: 2rem auto
+            margin-bottom: 8rem
+            align-self: flex-end
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-direction: column
+            
+            & h1
+                color: #fff
+                text-align: center
+            & .btnCard
+                font-family: 'roboto condensed, sans-serif'
+                background: #212121
+                outline: none
+                border: none
+                border-radius: 20px
+                color: #fff
+                cursor: pointer
+                font-size: .8rem
+                width: 150px
+                height: 50px
 
-    & h1
-        text-align: center
-        font-size: 150px
-        margin-top: 3rem
-    & img
-        position: absolute
-        left: 25%
-        top: 15%
-        margin:auto
-        filter: drop-shadow(4px 3px 3px #000000ab)
-  
+
+@media screen and (max-width:480px)
+    .main
+        height: 50vh !important
+        & .HeroCard
+            height: 50vh
+            width: 100vw

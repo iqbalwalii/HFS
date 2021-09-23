@@ -1,0 +1,39 @@
+.main {
+  border: 1px solid #00000025;
+  border-radius: 10%;
+  width: 220px;
+  position: relative;
+}
+
+.main p {
+  padding: 1rem;
+}
+
+.main .productImg {
+  padding: 1rem;
+}
+
+.main .backdrop {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #1C5D8C;
+  height: 140px;
+  width: 170px;
+  border-bottom-left-radius: 50%;
+  border-top-right-radius: 10%;
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    width: 180px;
+    padding: 2rem 0 0 0;
+  }
+  .main .backdrop {
+    height: 150px;
+    width: 140px;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 10%;
+  }
+}
+/*# sourceMappingURL=Card.module.css.map */

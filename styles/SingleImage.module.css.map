@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAC;EACF,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,KAAK;EACjB,eAAe,EAAE,YAAY;CAGE;;AANnC,AAII,KAJC,GAIG,GAAG,CAAC;EACJ,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,cAAc;CAAG",
+    "sources": [
+        "SingleImage.module.sass"
+    ],
+    "names": [],
+    "file": "SingleImage.module.css"
+}

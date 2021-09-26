@@ -1,0 +1,36 @@
+.left {
+  background: #c9d1e748;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.left .orders {
+  list-style: none;
+}
+
+.left .orders li {
+  opacity: .7;
+}
+
+.left .details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.right {
+  background: #c9d1e748;
+  padding: 2rem;
+  border-radius: 20px;
+}
+/*# sourceMappingURL=Profile.module.css.map */

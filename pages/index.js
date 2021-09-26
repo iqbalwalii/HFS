@@ -4,7 +4,12 @@ import Slide from "../components/Slider";
 import index from "../styles/Home.module.css";
 import Car from "../components/Card";
 import Blog from "../components/Bloghome";
+import SPA from "../components/SingleProduct";
 
 export default function Home() {
-  return <div className={index.Cards}></div>;
+  return (
+    <div className={index.Cards}>
+      <SPA />
+    </div>
+  );
 }

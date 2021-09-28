@@ -14,5 +14,4 @@ const _app = ({ Component, pageProps }) => {
     </div>
   );
 };
-
 export default _app;

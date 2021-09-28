@@ -9,7 +9,13 @@ import SPA from "../components/SingleProduct";
 export default function Home() {
   return (
     <div className={index.Cards}>
-      <SPA />
+      <Slide />
+      <h3 className="text-center mt-3">Trending</h3>
+      <Car />
+      <Blog />
+      <h3 className="text-center mt-3">Buy More</h3>
+
+      <Car />
     </div>
   );
 }

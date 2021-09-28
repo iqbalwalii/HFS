@@ -6,24 +6,35 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import Cards from "../styles/Card.module.css";
+import { Container } from "react-bootstrap";
 
 // import Swiper core and required modules
-import SwiperCore, { navigation, Keyboard, Mousewheel } from "swiper";
+import SwiperCore, {
+  Navigation,
+  Keyboard,
+  Mousewheel,
+  Pagination,
+} from "swiper";
 
 // install Swiper modules
-SwiperCore.use([navigation, Keyboard, Mousewheel]);
+SwiperCore.use([Navigation, Pagination, Keyboard, Mousewheel]);
 
 export default function App() {
   return (
-    <>
+    <Container>
       <Swiper
         navigation={true}
+        pagination={false}
         mousewheel={true}
         spaceBetween={30}
         keyboard={true}
         className="mySwiper"
         breakpoints={{
           320: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          390: {
             slidesPerView: 2,
             spaceBetween: 20,
           },
@@ -32,7 +43,7 @@ export default function App() {
             spaceBetween: 40,
           },
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 4,
             spaceBetween: 50,
           },
         }}
@@ -44,7 +55,7 @@ export default function App() {
             <Image
               src="/assets/images/shoes/jordan.png"
               width="200px"
-              height="120px"
+              height="170px"
               className={Cards.productImg}
             />
             <p>
@@ -59,7 +70,7 @@ export default function App() {
             <Image
               src="/assets/images/shoes/jordan.png"
               width="200px"
-              height="120px"
+              height="170px"
               className={Cards.productImg}
             />
             <p>
@@ -74,7 +85,7 @@ export default function App() {
             <Image
               src="/assets/images/shoes/jordan.png"
               width="200px"
-              height="120px"
+              height="170px"
               className={Cards.productImg}
             />
             <p>
@@ -89,7 +100,7 @@ export default function App() {
             <Image
               src="/assets/images/shoes/jordan.png"
               width="200px"
-              height="120px"
+              height="170px"
               className={Cards.productImg}
             />
             <p>
@@ -104,7 +115,7 @@ export default function App() {
             <Image
               src="/assets/images/shoes/jordan.png"
               width="200px"
-              height="120px"
+              height="170px"
               className={Cards.productImg}
             />
             <p>
@@ -119,7 +130,7 @@ export default function App() {
             <Image
               src="/assets/images/shoes/jordan.png"
               width="200px"
-              height="120px"
+              height="170px"
               className={Cards.productImg}
             />
             <p>
@@ -134,7 +145,7 @@ export default function App() {
             <Image
               src="/assets/images/shoes/jordan.png"
               width="200px"
-              height="120px"
+              height="170px"
               className={Cards.productImg}
             />
             <p>
@@ -149,7 +160,7 @@ export default function App() {
             <Image
               src="/assets/images/shoes/jordan.png"
               width="200px"
-              height="120px"
+              height="170px"
               className={Cards.productImg}
             />
             <p>
@@ -159,6 +170,6 @@ export default function App() {
           </div>
         </SwiperSlide>
       </Swiper>
-    </>
+    </Container>
   );
 }

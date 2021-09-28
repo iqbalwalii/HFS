@@ -1,0 +1,25 @@
+.cardMain {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cardMain .date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 auto;
+  opacity: .6rem;
+  width: 70%;
+  padding-top: 1rem;
+}
+
+.cardMain h5 {
+  text-transform: uppercase;
+}
+
+.cardMain p {
+  opacity: .9;
+}
+/*# sourceMappingURL=BlogCard.module.css.map */

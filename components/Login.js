@@ -1,4 +1,3 @@
-import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import signin from "../styles/Login.module.css";

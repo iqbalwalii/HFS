@@ -6,14 +6,14 @@ import { Container, Col, Row } from "react-bootstrap";
 
 const Bloghome = () => {
   return (
-    <div className={blog.main}>
+    <Container className={blog.main}>
       <h4>
         WHAT<i style={{ fontWeight: "100" }}>'s on</i>
       </h4>
       <p>Hello Worldksjd sdkjs dkjs dk </p>
       {/* Blog Cards */}
       {/* Blog Cards */}
-      <Container className={blog.cards}>
+      <div className={blog.cards}>
         <Row className="justify-content-center">
           <Col sm={8} md={6}>
             <BlogCard />
@@ -30,10 +30,10 @@ const Bloghome = () => {
             <BlogCard />
           </Col>
         </Row>
-      </Container>
+      </div>
       {/* Blog Cards */}
       {/* Blog Cards */}
-    </div>
+    </Container>
   );
 };
 

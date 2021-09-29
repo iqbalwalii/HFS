@@ -1,24 +1,28 @@
 import React from "react";
-import { Accordion, Container } from "react-bootstrap";
+import { Accordion, Col, Container, Row } from "react-bootstrap";
 
 const about = () => {
   return (
     <Container>
+      <Row>
+        <Col xs={12}>
+          <h3>About us</h3>
+          <p>
+            Bringing the luxury lifestyle to a fashionable society. We are a
+            member of explosive drip. Our goal is to bring high fashion to a
+            high class society. High style fashion, Expensive lifestyle,
+            Exclusive sneakers and Designer brands. The list is endless.
+          </p>
+        </Col>
+      </Row>
       <Accordion defaultActiveKey="0" color="dark" bg="dark">
         <Accordion.Item eventKey="0">
           <Accordion.Header>About Us</Accordion.Header>
           <Accordion.Body>
-            We started our journey as a small shoe manufacturing unit in Karnal,
-            manufacturing a humble 4 pairs a day. Today, manufacturing 50,000
-            pairs a day and being one of the leading manufacturers in the
-            leather footwear industry in India, we have indeed come a long way.
-            Be a part of the company that has ten brands that have been making
-            for a much e­ffortless journey for its customers. We have 400
-            exclusive showrooms across the length and breadth of India We have a
-            presence in more than 25 countries around the globe We are a 4,000
-            strong team We are No. 2 in the footwear industry We have set our
-            eyes on opening 1,000 exclusive showrooms in India and abroad, and
-            be closer to our 1000 Cr. vision
+            Bringing the luxury lifestyle to a fashionable society. We are a
+            member of explosive drip. Our goal is to bring high fashion to a
+            high class society. High style fashion, Expensive lifestyle,
+            Exclusive sneakers and Designer brands. The list is endless.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">

@@ -13,8 +13,8 @@ export default function Home() {
       <h3 className="text-center mt-3">Trending</h3>
       <Car />
       <Blog />
+      <SPA />
       <h3 className="text-center mt-3">Buy More</h3>
-
       <Car />
     </div>
   );

@@ -7,10 +7,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 // import Swiper core and required modules
-import SwiperCore, { Autoplay, Mousewheel, Pagination } from "swiper";
+import SwiperCore, { Autoplay, Mousewheel, Pagination, keyboard } from "swiper";
 
 // install Swiper modules
-SwiperCore.use([Autoplay, Mousewheel, Pagination]);
+SwiperCore.use([Autoplay, Mousewheel, keyboard, Pagination]);
 
 export default function App() {
   const address =
@@ -20,7 +20,8 @@ export default function App() {
       <Swiper
         autoHeight={true}
         direction={"vertical"}
-        mousewheel={true}
+        mousewheel={false}
+        keyboard={true}
         pagination={{
           clickable: true,
         }}

@@ -1,3 +1,7 @@
+.main {
+  margin-bottom: 3rem;
+}
+
 .main h4 {
   text-align: center;
   margin: 0;
@@ -8,6 +12,10 @@
   font-size: .9rem;
   padding: 0;
   margin: 0;
+}
+
+.main .cards {
+  margin: 2rem 0rem;
 }
 
 .main .blogcard {

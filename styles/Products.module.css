@@ -1,0 +1,24 @@
+.products {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 1rem;
+}
+
+.filters div {
+  padding: .2rem;
+  font-size: 1.2rem;
+}
+
+.filters div input {
+  margin-right: .6rem;
+}
+
+@media screen and (max-width: 480px) {
+  .products {
+    -ms-grid-columns: (minmax(180px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+/*# sourceMappingURL=Products.module.css.map */

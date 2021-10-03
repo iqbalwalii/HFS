@@ -2,7 +2,7 @@ import React from "react";
 import BlogCard from "../components/BlogCard.js";
 import blog from "../styles/Blog.module.css";
 
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Button } from "react-bootstrap";
 
 const Bloghome = () => {
   return (
@@ -28,6 +28,15 @@ const Bloghome = () => {
           </Col>
           <Col sm={8} md={6}>
             <BlogCard />
+          </Col>
+        </Row>
+        <Row style={{ margin: "2em 0rem" }}>
+          <Col
+            xs={{ span: 2, offset: 8 }}
+            md={{ span: 4, offset: 4 }}
+            className="d-flex justify-content-center"
+          >
+            <Button variant="dark">More</Button>
           </Col>
         </Row>
       </div>

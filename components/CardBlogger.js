@@ -10,17 +10,17 @@ const CardBlogger = () => {
           src="/assets/images/shoes/yeezy.png"
           width="250px"
           alt="Blog"
-          height="150px"
+          height="120px"
         />
       </div>
       <p className={blog.date}>
         <span>Aug 15 2021</span>
         <span>Josh Ford</span>
       </p>
-      <h5 className="text-center">
+      <h5 className="text-center p-1">
         NIKE KWAZEI PRO MAX ULTRA 5G NEW CONCEPT Z1 NEW
       </h5>
-      <p className="text-center">
+      <p className="text-center p-2">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores facere
         similique eveniet maxime eum minima non enim. Perspiciatis quia,
         sapiente aut fuga dolor quibusdam quam veniam, hhj cupiditate molestiae

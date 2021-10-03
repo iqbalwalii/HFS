@@ -3,6 +3,26 @@
   border-radius: 10%;
   width: 220px;
   position: relative;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+  margin: 1rem 0rem;
+  cursor: pointer;
+}
+
+.main a {
+  text-decoration: none;
+  color: #212121;
+}
+
+.main:hover {
+  -webkit-box-shadow: 3px 5px #00000025;
+          box-shadow: 3px 5px #00000025;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+.main h6 {
+  padding: 0rem 1rem;
 }
 
 .main p {

@@ -26,7 +26,7 @@ export default function App() {
           clickable: true,
         }}
         autoplay={{
-          delay: 25000000,
+          delay: 25000,
           disableOnInteraction: false,
         }}
         className={slider.main}

@@ -1,13 +1,23 @@
 .cardMain
     padding: 1rem
     margin-bottom: 2rem
+    border: 1px solid #ccc
+    cursor: pointer
+    border-radius: 20px
+    transition: all .2s linear
+    &:hover
+        transform: scale(1.01)
     & .date
         display: flex
         justify-content: space-around
-        margin: 0 auto
+        margin: 1rem auto
+        margin-bottom: 0
         opacity: .6rem
         width: 70%
-        padding-top: 1rem
+        // padding-top: 1rem
+        background: #ccc
+        border-radius: 10px
+        color: #212121
     & h5
         text-transform: uppercase
     & p

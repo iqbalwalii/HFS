@@ -1,8 +1,8 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navstyle from "../styles/Navbar.module.css";
+import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 const Navigation = () => {
   return (
     <div className={Navstyle.nav}>

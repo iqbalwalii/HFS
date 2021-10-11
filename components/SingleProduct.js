@@ -59,6 +59,9 @@ const SingleProduct = () => {
           </p>
           <div className="d-grid gap-2">
             <Button variant="dark" size="lg">
+              Add to Cart
+            </Button>
+            <Button variant="dark" size="lg">
               Pay
             </Button>
           </div>

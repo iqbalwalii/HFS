@@ -1,5 +1,6 @@
 .main {
   height: 100vh !important;
+  font-family: 'Roboto Condensed, sans-serif';
 }
 
 .main .HeroCard {
@@ -11,7 +12,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-family: 'roboto condensed, sans-serif';
 }
 
 .main .HeroCard .info {

@@ -1,10 +1,9 @@
 .main {
   margin-bottom: 3rem;
-}
-
-.main h4 {
-  text-align: center;
-  margin: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family-text-align: center;
+  font-family-margin: 0;
 }
 
 .main p {

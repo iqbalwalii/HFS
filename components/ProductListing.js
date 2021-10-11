@@ -6,10 +6,10 @@ const ProductListing = () => {
   return (
     <Container>
       <Row>
-        <Col md={3}>
+        <Col md={3} className={style.left}>
           <h3 className="text-center">FILTERS</h3>
           <Accordion>
-            <Accordion.Item eventKey="0">
+            <Accordion.Item eventKey="0" className={style.AccordionItem}>
               <Accordion.Header>Size</Accordion.Header>
               <Accordion.Body>
                 <div className={style.filters}>
@@ -36,7 +36,7 @@ const ProductListing = () => {
                 </div>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="1">
+            <Accordion.Item eventKey="1" className={style.AccordionItem}>
               <Accordion.Header>Color</Accordion.Header>
               <Accordion.Body>
                 <div className={style.filters}>
@@ -67,7 +67,7 @@ const ProductListing = () => {
                 </div>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="1">
+            <Accordion.Item eventKey="2" className={style.AccordionItem}>
               <Accordion.Header>SILHOUETTE</Accordion.Header>
               <Accordion.Body>
                 <div className={style.filters}>

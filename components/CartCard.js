@@ -18,6 +18,7 @@ const CartCard = () => {
           src="/assets/images/shoes/jordan.png"
           width="100px"
           height="100px"
+          alt="product image"
         />
       </Col>
       <Col className={cart.details} xs={{ span: 8, offset: 2 }} md={2}>

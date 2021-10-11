@@ -35,10 +35,17 @@
   font-weight: 400;
 }
 
+.ham {
+  border: none;
+}
+
 @media screen and (max-width: 700px) {
   .nav .brand {
     font-size: 1rem;
     width: 30%;
+  }
+  .nav .brand h4 {
+    display: none;
   }
   .nav .navBottom {
     -webkit-box-orient: vertical;

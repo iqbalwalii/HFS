@@ -43,25 +43,25 @@ const index = () => {
             </Col>
             <Col xs={10} md={2}>
               <div className={dashboard.card}>
-                <h6>ORDERS</h6>
+                <h6>PRODUCTS</h6>
                 <div className={dashboard.num}></div>
               </div>
             </Col>
             <Col xs={10} md={2}>
               <div className={dashboard.card}>
-                <h6>ORDERS</h6>
+                <h6>SUCCESSFUL</h6>
                 <div className={dashboard.num}></div>
               </div>
             </Col>
             <Col xs={10} md={2}>
               <div className={dashboard.card}>
-                <h6>ORDERS</h6>
+                <h6>DECLINED</h6>
                 <div className={dashboard.num}></div>
               </div>
             </Col>
             <Col xs={10} md={2}>
               <div className={dashboard.card}>
-                <h6>ORDERS</h6>
+                <h6>USERS</h6>
                 <div className={dashboard.num}></div>
               </div>
             </Col>

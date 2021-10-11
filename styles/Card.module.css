@@ -7,6 +7,7 @@
   transition: all .3s linear;
   margin: 1rem 0rem;
   cursor: pointer;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .main a {
@@ -23,6 +24,7 @@
 
 .main h6 {
   padding: 0rem 1rem;
+  font-weight: 700;
 }
 
 .main p {
@@ -43,12 +45,25 @@
 
 @media screen and (max-width: 480px) {
   .main {
-    width: 180px;
+    width: 160px;
     padding: 2rem 0 0 0;
   }
   .main .backdrop {
     height: 150px;
     width: 140px;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 10%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .main {
+    width: 140px;
+    padding: 2rem 0 0 0;
+  }
+  .main .backdrop {
+    height: 140px;
+    width: 100px;
     border-bottom-left-radius: 50%;
     border-top-right-radius: 10%;
   }

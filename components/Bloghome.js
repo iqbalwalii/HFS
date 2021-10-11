@@ -7,8 +7,8 @@ import { Container, Col, Row, Button } from "react-bootstrap";
 const Bloghome = () => {
   return (
     <Container className={blog.main}>
-      <h4>
-        WHAT<i style={{ fontWeight: "100" }}>'s on</i>
+      <h4 className="text-center">
+        WHAT<i style={{ fontWeight: "100" }}>&apos;s on</i>
       </h4>
       <p>Hello Worldksjd sdkjs dkjs dk </p>
       {/* Blog Cards */}

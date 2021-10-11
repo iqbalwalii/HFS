@@ -6,12 +6,28 @@
   padding: 1rem;
 }
 
-.filters div {
+.left {
+  margin-top: 2rem;
+}
+
+.left .AccordionItem {
+  border: none;
+}
+
+.left .AccordionItem h2 button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: #212121;
+}
+
+.left .filters div {
   padding: .2rem;
   font-size: 1.2rem;
 }
 
-.filters div input {
+.left .filters div input {
   margin-right: .6rem;
 }
 

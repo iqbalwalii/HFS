@@ -7,11 +7,11 @@ const ProductCard = () => {
     <div className={Cards.main}>
       <Link href="/single">
         <a>
-          <div className={Cards.backdrop}></div>
           <Image
             src="/assets/images/shoes/jordan.png"
             width="200px"
             height="170px"
+            alt="product image"
             className={Cards.productImg}
           />
           <h6>NIKE 200w SSR</h6>

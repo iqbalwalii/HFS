@@ -2,12 +2,23 @@
     display: grid
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
     padding: 1rem
-.filters
-    & div
-        padding: .2rem
-        font-size: 1.2rem
-        & input
-            margin-right: .6rem
+.left
+    margin-top: 2rem
+    & .AccordionItem
+        border: none
+        & h2
+            & button  
+                font-family: 'Poppins', sans-serif
+                font-weight: 400
+                font-size: 1.1rem
+                text-transform: uppercase
+                color: #212121
+    .filters
+        & div
+            padding: .2rem
+            font-size: 1.2rem
+            & input
+                margin-right: .6rem
 @media screen and (max-width:480px)
     .products
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr))

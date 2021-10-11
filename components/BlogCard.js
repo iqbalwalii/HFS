@@ -4,7 +4,12 @@ import Image from "next/image";
 const BlogCard = () => {
   return (
     <div className={blog.blogcard}>
-      <Image src="/assets/images/shoes/dd.png" height="150px" width="150px" />
+      <Image
+        src="/assets/images/shoes/dd.png"
+        height="150px"
+        width="150px"
+        alt="blog image"
+      />
       <div className={blog.container}>
         <h6>
           READ MORE: MODI DIES AT LAST WATCH HIS FINAL KRIYAKARAM BELOW LINK

@@ -25,7 +25,9 @@ const Login = () => {
               <div className="d-flex flex-column justify-content-center">
                 <Button variant="dark">Login</Button>
                 <Link href="">
-                  <a className="text-center">Don't have an account, Sign up</a>
+                  <a className="text-center">
+                    Don&apos;t have an account, Sign up
+                  </a>
                 </Link>
               </div>
             </Form>

@@ -6,7 +6,7 @@ const single = () => {
     <div>
       <Single />
       <h4 className="text-center">
-        WHAT<i style={{ fontWeight: "100" }}>'s Trending</i>
+        WHAT<i style={{ fontWeight: "100" }}>&apos;s Trending</i>
       </h4>
       <p className="text-center">Hello Worldksjd sdkjs dkjs dk </p>
       <Card />

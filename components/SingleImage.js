@@ -49,6 +49,7 @@ const SingleImage = () => {
             height="150px"
             width="150px"
             id="first"
+            alt="product image"
           />
         </div>
         <div onClick={onClickHandler}>
@@ -57,6 +58,7 @@ const SingleImage = () => {
             height="150px"
             width="150px"
             id="second"
+            alt="product image"
           />
         </div>
         <div onClick={onClickHandler}>
@@ -65,6 +67,7 @@ const SingleImage = () => {
             height="150px"
             width="150px"
             id="third"
+            alt="product image"
           />
         </div>
         <div onClick={onClickHandler}>
@@ -73,6 +76,7 @@ const SingleImage = () => {
             height="150px"
             width="150px"
             id="fourth"
+            alt="product image"
           />
         </div>
         <div onClick={onClickHandler}>
@@ -81,6 +85,7 @@ const SingleImage = () => {
             height="150px"
             width="150px"
             id="fifth"
+            alt="product image"
           />
         </div>
       </div>

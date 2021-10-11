@@ -72,15 +72,6 @@ export default function App() {
           <ProductCard />
         </SwiperSlide>
       </Swiper>
-      <Row>
-        <Col
-          xs={{ span: 2, offset: 8 }}
-          md={{ span: 4, offset: 4 }}
-          className="d-flex justify-content-center"
-        >
-          <Button variant="dark">More</Button>
-        </Col>
-      </Row>
     </Container>
   );
 }

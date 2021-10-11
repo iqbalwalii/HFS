@@ -7,6 +7,7 @@ import {
   FloatingLabel,
   Form,
 } from "react-bootstrap";
+import { Cart } from "react-bootstrap-icons";
 import basket from "../styles/Cart.module.css";
 import CartCard from "../components/CartCard";
 const cart = () => {
@@ -44,6 +45,23 @@ const cart = () => {
           </FloatingLabel>
         </Col>
       </Row>
+      <Row className={basket.total}>
+        <Col xs={6} md={4}>
+          Subtotal
+        </Col>
+        <Col xs={{ span: 4, offset: 2 }} md={{ span: 2, offset: 6 }}>
+          $1244
+        </Col>
+      </Row>
+      <Row>
+        <h6>Shipping and taxes calculated at checkout</h6>
+      </Row>
+      <div className="d-grid gap-2">
+        <Button variant="dark" size="lg">
+          <Cart />
+          &nbsp; CHECKOUT
+        </Button>
+      </div>
     </Container>
   );
 };

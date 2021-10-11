@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACH,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,KAAK;EACpB,SAAS,EAAE,MAAM;EACjB,WAAW,EAAE,GAAG;CAAG",
     "sources": [
         "Cart.module.sass"
     ],

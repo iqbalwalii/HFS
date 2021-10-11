@@ -1,0 +1,30 @@
+.cardMain
+    position: relative
+    font-family: 'poppins', 'sans-serif'
+    & .details
+        position: absolute
+        top: 40%
+        left: 10%
+        filter: drop-shadow(10px 10px 20px #000)
+        z-index: 1
+        & h4
+            font-size: 2rem
+            color: #fff
+            margin: 0
+            // text-shadow: 1px 1px #000
+        & p
+            padding: 0
+            margin: 0
+            color: #fff
+            opacity: .6
+            width: 50%
+@media screen and (max-width:480px)
+    .cardMain
+        & .details
+            top: 20%
+            & h4
+                font-size: 1.4rem
+            & p
+                width: 100%
+                font-size: .9rem
+            

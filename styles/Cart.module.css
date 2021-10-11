@@ -1,1 +1,7 @@
-/* No CSS *//*# sourceMappingURL=Cart.module.css.map */
+.total {
+  margin-top: 2rem;
+  margin-bottom: .3rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+/*# sourceMappingURL=Cart.module.css.map */

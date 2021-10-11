@@ -20,6 +20,10 @@
   margin: 0;
 }
 
+.nav .links a {
+  color: #000000d7;
+}
+
 .nav .navBottom {
   display: -webkit-box;
   display: -ms-flexbox;

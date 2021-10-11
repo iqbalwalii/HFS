@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import Image from "next/image";
 import Navstyle from "../styles/Navbar.module.css";
+import Link from "next/link";
 import { Bag, Person, Search } from "react-bootstrap-icons";
 const Navigation = () => {
   return (
@@ -28,9 +29,17 @@ const Navigation = () => {
             /> */}
             <h4>HIGH FASHION SOCIETY </h4>
           </Navbar.Brand>
-          <div className="">
-            <Person size={36} style={{ paddingRight: ".3rem" }} />
-            <Bag size={30} style={{ paddingRight: ".3rem" }} />
+          <div className={Navstyle.links}>
+            <Link href="profile">
+              <a>
+                <Person size={36} style={{ paddingRight: ".3rem" }} />
+              </a>
+            </Link>
+            <Link href="cart">
+              <a>
+                <Bag size={30} style={{ paddingRight: ".3rem" }} />
+              </a>
+            </Link>
           </div>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className={Navstyle.navBottom}>

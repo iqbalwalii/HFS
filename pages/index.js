@@ -5,23 +5,13 @@ import Slide from "../components/Slider";
 import index from "../styles/Home.module.css";
 import Card from "../components/ProductCard";
 import Blog from "../components/Bloghome";
+import VideoCard from "../components/VideoCard";
 import SPA from "../components/SingleProduct";
 import { Container, Row, Col, Button } from "react-bootstrap";
 export default function Home() {
   return (
     <div className={index.main}>
-      <ReactPlayer
-        url="/assets/videos/running_girl.mp4"
-        config={{ file: { attributes: { controlsList: "nodownload" } } }}
-        onContextMenu={(e) => e.preventDefault()}
-        width="100vw"
-        height="100%"
-        loop={true}
-        playing={true}
-        autoReady={true}
-        muted={true}
-        controls={false}
-      />
+      <VideoCard />
       {/* <Slide /> */}
       <h4 className="text-center">
         NEW<i style={{ fontWeight: "100" }}>&nbsp;Arrivals</i>

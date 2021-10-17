@@ -1,0 +1,58 @@
+.main
+    position: relative 
+    & a
+        color: #212121
+        text-decoration: none
+    & .left
+        border-right: 1px solid #ccc
+        & .profile
+           margin-top: 2rem
+           display: flex
+           flex-direction: column
+           justify-content: center
+           align-items: center
+           margin-bottom: 8rem
+           
+        & ul
+            text-decoration: none
+            list-style: none
+            padding: 0
+            margin-left: 3rem
+            & li
+                padding: 1rem 0
+                font-size: 1.4rem
+                position: relative
+                &::after
+                    transition: all .3s ease-in
+                    position: absolute
+                    content: ''
+                    width: 0px
+                    height: 2px
+                    background: #212121
+                    bottom: 20px
+                    left: 0
+                &:hover::after
+                    width: 100px
+                    
+    & .right 
+        margin-top: 2rem 
+    
+        & .item
+            display: flex
+            justify-content: space-between
+        & .posts
+            margin-bottom: 6rem 
+.pop
+    display: flex
+    justify-content: center
+.popup
+    position: fixed
+    right: 5%
+    top: 80%  
+    background: #206320
+    width: 59px
+    height: 59px
+    border-radius: 50%
+    display: flex
+    justify-content: center
+    align-items: center

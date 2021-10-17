@@ -12,7 +12,7 @@ const VideoCard = () => {
         <Button variant="dark">SHOP NOW</Button>
       </div>
       <ReactPlayer
-        url="/assets/videos/running_girl.mp4"
+        url="/assets/videos/guy.mp4"
         config={{ file: { attributes: { controlsList: "nodownload" } } }}
         onContextMenu={(e) => e.preventDefault()}
         width="100vw"

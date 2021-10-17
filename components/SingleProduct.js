@@ -55,13 +55,14 @@ const SingleProduct = () => {
             <Dropdown.Item href="#/action-3">10</Dropdown.Item>
           </DropdownButton>
           <p>
-            <strong>Availibilty:</strong> only 3 left at this price!
+            <strong>Availibilty:</strong>{" "}
+            <span style={{ color: "red" }}> Sold out!</span>
           </p>
           <div className="d-grid gap-2">
-            <Button variant="dark" size="lg">
+            <Button variant="outline-dark" size="lg">
               Add to Cart
             </Button>
-            <Button variant="dark" size="lg">
+            <Button variant="outline-dark" size="lg">
               Pay
             </Button>
           </div>
@@ -70,5 +71,4 @@ const SingleProduct = () => {
     </Container>
   );
 };
-
 export default SingleProduct;

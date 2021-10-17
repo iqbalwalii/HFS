@@ -14,9 +14,8 @@ export default function Home() {
       <VideoCard />
       {/* <Slide /> */}
       <h4 className="text-center">
-        NEW<i style={{ fontWeight: "100" }}>&nbsp;Arrivals</i>
+        NEW<i style={{ fontWeight: "100" }}>&nbsp;ARRIVALS</i>
       </h4>
-      <p className="text-center">Hello Worldksjd sdkjs dkjs dk </p>
       <Container className={index.cards}>
         <Card />
         <Card />
@@ -37,7 +36,10 @@ export default function Home() {
           md={{ span: 4, offset: 4 }}
           className="d-flex justify-content-center"
         >
-          <Button variant="dark"> View More</Button>
+          <Button variant="dark" classNeme="mb-2">
+            {" "}
+            View More
+          </Button>
         </Col>
       </Row>
       <Blog />
@@ -45,16 +47,29 @@ export default function Home() {
       <Slide />
 
       <h4 className="text-center">
-        DESIGNER<i style={{ fontWeight: "100" }}>&apos;s Choice</i>
+        LATEST<i style={{ fontWeight: "100" }}>DROP</i>
       </h4>
-      <p className="text-center mb-5">Hello Worldksjd sdkjs dkjs dk </p>
+
       <SPA />
 
       <h4 className="text-center mt-5">
         WHAT<i style={{ fontWeight: "100" }}>&apos;s new</i>
       </h4>
-      <p className="text-center">Hello Worldksjd sdkjs dkjs dk </p>
-      <Card />
+
+      <Container className={index.cards}>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </Container>
     </div>
   );
 }

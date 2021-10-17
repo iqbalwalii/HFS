@@ -1,78 +1,71 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
 import dashboard from "../../styles/Dashboard.module.css";
+import Products from "../../components/admin/Products";
+import Users from "../../components/admin/Users";
+import Main from "../../components/admin/Main";
+import Orders from "../../components/admin/Orders";
+import Blog from "../../components/admin/Blog";
 import {
   BagCheckFill,
   BorderAll,
   ListCheck,
   PersonFill,
+  JournalRichtext,
 } from "react-bootstrap-icons";
+import { Col, Row } from "react-bootstrap";
 
 const index = () => {
+  const [display, setDisplay] = useState("main");
   return (
     <div>
       <Row className={dashboard.main}>
-        <Col xs={10} md={3} className={dashboard.left}>
+        <Col xs={12} md={3} className={dashboard.left}>
           <h4>HFS</h4>
           <ul>
-            <li>
+            <li onClick={(e) => setDisplay("main")}>
               <BorderAll />
               &nbsp; Dashboard
             </li>
-            <li>
+            <li onClick={(e) => setDisplay("orders")}>
               <BagCheckFill />
               &nbsp; Orders
             </li>
-            <li>
+            <li onClick={(e) => setDisplay("users")}>
               <PersonFill />
               &nbsp; Users
             </li>
-            <li>
+            <li
+              onClick={(e) => setDisplay("products")}
+              style={{ borderBottom: "1px solid #ccc" }}
+            >
               <ListCheck />
               &nbsp; Products
             </li>
+            <li onClick={(e) => setDisplay("blog")}>
+              <JournalRichtext />
+              &nbsp; Blog
+            </li>
+            <li onClick={(e) => setDisplay("users")}>
+              <PersonFill />
+              &nbsp; Logout
+            </li>
           </ul>
         </Col>
-        <Col xs={10} md={8} className={dashboard.right}>
-          <Row>
-            <Col xs={10} md={{ span: 2, offset: 1 }}>
-              <div className={dashboard.card}>
-                <h6>ORDERS</h6>
-                <div className={dashboard.num}></div>
-              </div>
-            </Col>
-            <Col xs={10} md={2}>
-              <div className={dashboard.card}>
-                <h6>PRODUCTS</h6>
-                <div className={dashboard.num}></div>
-              </div>
-            </Col>
-            <Col xs={10} md={2}>
-              <div className={dashboard.card}>
-                <h6>SUCCESSFUL</h6>
-                <div className={dashboard.num}></div>
-              </div>
-            </Col>
-            <Col xs={10} md={2}>
-              <div className={dashboard.card}>
-                <h6>DECLINED</h6>
-                <div className={dashboard.num}></div>
-              </div>
-            </Col>
-            <Col xs={10} md={2}>
-              <div className={dashboard.card}>
-                <h6>USERS</h6>
-                <div className={dashboard.num}></div>
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={10} md={{ span: 4, offset: 2 }}></Col>
-          </Row>
+        <Col md={{ span: 8, offset: 0 }} xs={{ span: 8, offset: 2 }}>
+          {display === "main" ? (
+            <Main />
+          ) : display === "orders" ? (
+            <Orders />
+          ) : display === "users" ? (
+            <Users />
+          ) : display === "products" ? (
+            <Products />
+          ) : (
+            <Blog />
+          )}
         </Col>
       </Row>
     </div>
   );
 };
-
 export default index;

@@ -1,0 +1,105 @@
+.main {
+  position: relative;
+}
+
+.main a {
+  color: #212121;
+  text-decoration: none;
+}
+
+.main .left {
+  border-right: 1px solid #ccc;
+}
+
+.main .left .profile {
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 8rem;
+}
+
+.main .left ul {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  margin-left: 3rem;
+}
+
+.main .left ul li {
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  position: relative;
+}
+
+.main .left ul li::after {
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 2px;
+  background: #212121;
+  bottom: 20px;
+  left: 0;
+}
+
+.main .left ul li:hover::after {
+  width: 100px;
+}
+
+.main .right {
+  margin-top: 2rem;
+}
+
+.main .right .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main .right .posts {
+  margin-bottom: 6rem;
+}
+
+.pop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.popup {
+  position: fixed;
+  right: 5%;
+  top: 80%;
+  background: #206320;
+  width: 59px;
+  height: 59px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=Blogger.module.css.map */

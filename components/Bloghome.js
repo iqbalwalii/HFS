@@ -8,9 +8,9 @@ const Bloghome = () => {
   return (
     <Container className={blog.main}>
       <h4 className="text-center">
-        WHAT<i style={{ fontWeight: "100" }}>&apos;s on</i>
+        SNEAKER<i style={{ fontWeight: "100" }}>NEWS</i>
       </h4>
-      <p>Hello Worldksjd sdkjs dkjs dk </p>
+
       {/* Blog Cards */}
       {/* Blog Cards */}
       <div className={blog.cards}>

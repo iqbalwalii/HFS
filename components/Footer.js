@@ -7,10 +7,10 @@ const Footer = () => {
     <div className={footer.main}>
       <div className={footer.logo}>
         <Image
-          src="/assets/images/footerlogo.svg"
+          src="/assets/images/logo.png"
           alt="High Fashion Society"
-          width="130px"
-          height="120px"
+          width="110px"
+          height="50px"
         />
       </div>
       <div className={footer.section}>

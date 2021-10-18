@@ -7,20 +7,17 @@ const user = () => {
       <Form>
         <Form.Group as={Col} controlId="formGridText">
           <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter Shoe Name" />
+          <Form.Control type="text" placeholder="Enter Name" />
         </Form.Group>
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control type="email" placeholder="Enter Email Address" />
         </Form.Group>
-        <Form.Group as={Col} controlId="formGridText2">
-          <Form.Label>Desciption (short)</Form.Label>
-          <Form.Control type="text" placeholder="Shoe Description" />
+        <Form.Group as={Col} controlId="formGridPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Enter Password" />
         </Form.Group>
-        <Form.Group as={Col} controlId="formGridText3">
-          <Form.Label>Features</Form.Label>
-          <Form.Control type="text" placeholder="Full Features of Shoe" />
-        </Form.Group>
+
         <Form.Group controlId="formGridRole">
           <Form.Label>Select Role</Form.Label>
           <Form.Select id="role" name="role">

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
-const add = () => {
+const Add = () => {
   const onClickHandler = (e) => {
     e.preventDefault();
   };
   const [form, setForm] = useState("");
   return (
+    //Add Products
     <Container>
-      //Add products
       <h3 className="text-center mt-4 mb-2"> Add Product</h3>
       <Form>
         <Form.Group as={Col} controlId="formGridText">
@@ -44,4 +44,4 @@ const add = () => {
     </Container>
   );
 };
-export default add;
+export default Add;

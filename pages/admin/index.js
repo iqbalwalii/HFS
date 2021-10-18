@@ -14,7 +14,7 @@ import {
 } from "react-bootstrap-icons";
 import { Col, Row } from "react-bootstrap";
 
-const index = () => {
+const Home = () => {
   const [display, setDisplay] = useState("main");
   return (
     <div>
@@ -68,4 +68,4 @@ const index = () => {
     </div>
   );
 };
-export default index;
+export default Home;

@@ -3,7 +3,7 @@ import { Col, Container, Row, Button } from "react-bootstrap";
 import Pagination from "../../components/PaginationBasic";
 import Single from "../../components/SingleBlog";
 import Card from "../../components/Card";
-const blog = () => {
+const Blog = () => {
   return (
     <div>
       <Single />
@@ -31,4 +31,4 @@ const blog = () => {
   );
 };
 
-export default blog;
+export default Blog;

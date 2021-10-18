@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Button, Form, Col } from "react-bootstrap";
-const user = () => {
+const User = () => {
   return (
     <Container>
       <h3 className="text-center mt-4 mb-2"> ADD USER</h3>
@@ -35,4 +35,4 @@ const user = () => {
   );
 };
 
-export default user;
+export default User;

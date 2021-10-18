@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Row, Form, Col, Container, Button } from "react-bootstrap";
-const checkout = () => {
+const Checkout = () => {
   const [inputValues, setInputValues] = useState({
     country: "",
     firstName: "",
@@ -94,7 +94,7 @@ const checkout = () => {
                 </option>
                 <option value="CK">Cook Islands</option>
                 <option value="CR">Costa Rica</option>
-                <option value="CI">Cote D'Ivoire</option>
+                <option value="CI">Cote D&apos;Ivoire</option>
                 <option value="HR">Croatia</option>
                 <option value="CU">Cuba</option>
                 <option value="CW">Curacao</option>
@@ -158,13 +158,15 @@ const checkout = () => {
                 <option value="KE">Kenya</option>
                 <option value="KI">Kiribati</option>
                 <option value="KP">
-                  Korea, Democratic People's Republic of
+                  Korea, Democratic People&apos;s Republic of
                 </option>
                 <option value="KR">Korea, Republic of</option>
                 <option value="XK">Kosovo</option>
                 <option value="KW">Kuwait</option>
                 <option value="KG">Kyrgyzstan</option>
-                <option value="LA">Lao People's Democratic Republic</option>
+                <option value="LA">
+                  Lao People&apos;s Democratic Republic
+                </option>
                 <option value="LV">Latvia</option>
                 <option value="LB">Lebanon</option>
                 <option value="LS">Lesotho</option>
@@ -437,4 +439,4 @@ const checkout = () => {
     </Container>
   );
 };
-export default checkout;
+export default Checkout;

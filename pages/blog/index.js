@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import Card from "../../components/CardBlogger";
 
-const index = () => {
+const Home = () => {
   return (
     <Container>
       <h1 className="text-center text-transform-capitalize">
@@ -45,4 +45,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Home;

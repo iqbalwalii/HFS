@@ -1,6 +1,6 @@
 import React from "react";
 import Login from "../components/Logout";
-const auth = () => {
+const Auth = () => {
   return (
     <div>
       <Login />
@@ -8,4 +8,4 @@ const auth = () => {
   );
 };
 
-export default auth;
+export default Auth;

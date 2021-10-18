@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import dashboard from "../../styles/Dashboard.module.css";
 import Link from "next/link";
-const users = () => {
+const Users = () => {
   return (
     <Container>
       <Row className={dashboard.header}>
@@ -53,4 +53,4 @@ const users = () => {
   );
 };
 
-export default users;
+export default Users;

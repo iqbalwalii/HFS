@@ -13,7 +13,7 @@ import {
 import { Trash, PencilFill, PencilSquare } from "react-bootstrap-icons";
 import Image from "next/image";
 import blog from "../../styles/Blogger.module.css";
-const blogger = () => {
+const Blogger = () => {
   const popover = (
     <Popover id="popover-basic">
       <Popover.Header as="h3" style={{ background: "#ec7171", color: "#fff" }}>
@@ -36,7 +36,12 @@ const blogger = () => {
       <Row className={blog.main}>
         <Col XS={12} md={3} className={blog.left}>
           <div className={blog.profile}>
-            <Image src="/assets/images/guy.gif" width="90px" height="90px" />
+            <Image
+              src="/assets/images/guy.gif"
+              width="90px"
+              height="90px"
+              alt="profile"
+            />
             <h6 className={blog.username}>Iqbalwali</h6>
             <p>Iqbalwali786@gmail.com</p>
           </div>
@@ -52,7 +57,8 @@ const blogger = () => {
         <Col xs={12} md={8} className={blog.right}>
           <div className={blog.posts}>
             <h3 className="text-center">
-              <span style={{ color: "#5BD1E6" }}>Iqbalwali's</span> Latest Posts
+              <span style={{ color: "#5BD1E6" }}>Iqbalwali&apos;s</span> Latest
+              Posts
             </h3>
             <ListGroup>
               <ListGroup.Item className={blog.item}>
@@ -206,4 +212,4 @@ const blogger = () => {
   );
 };
 
-export default blogger;
+export default Blogger;

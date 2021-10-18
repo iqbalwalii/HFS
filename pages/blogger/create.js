@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Button, Container, FloatingLabel } from "react-bootstrap";
-const create = () => {
+const Create = () => {
   return (
     <Container>
       <h3 className="text-center">CREATE YOUR BLOG POST</h3>
@@ -46,4 +46,4 @@ const create = () => {
   );
 };
 
-export default create;
+export default Create;

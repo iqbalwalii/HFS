@@ -7,7 +7,7 @@ import { Container, Col, Row, Button } from "react-bootstrap";
 const Bloghome = () => {
   return (
     <Container className={blog.main}>
-      <h4 className="text-center">
+      <h4 className="text-center mt-5">
         SNEAKER<i style={{ fontWeight: "100" }}>NEWS</i>
       </h4>
 

@@ -13,7 +13,7 @@ export default function Home() {
     <div className={index.main}>
       <VideoCard />
       {/* <Slide /> */}
-      <h4 className="text-center">
+      <h4 className="text-center mt-5">
         NEW<i style={{ fontWeight: "100" }}>&nbsp;ARRIVALS</i>
       </h4>
       <Container className={index.cards}>
@@ -44,15 +44,14 @@ export default function Home() {
       </Row>
       <Blog />
 
-      <Slide />
-
-      <h4 className="text-center">
+      <VideoCard />
+      <h4 className="text-center my-5">
         LATEST<i style={{ fontWeight: "100" }}>DROP</i>
       </h4>
 
       <SPA />
 
-      <h4 className="text-center mt-5">
+      <h4 className="text-center my-5">
         WHAT<i style={{ fontWeight: "100" }}>&apos;s new</i>
       </h4>
 

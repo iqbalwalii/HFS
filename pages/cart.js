@@ -10,7 +10,7 @@ import {
 import { Cart } from "react-bootstrap-icons";
 import basket from "../styles/Cart.module.css";
 import CartCard from "../components/CartCard";
-const Cart = () => {
+const Bag = () => {
   return (
     <Container>
       <Row>
@@ -66,4 +66,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Bag;

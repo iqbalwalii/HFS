@@ -1,0 +1,27 @@
+import React from "react";
+import Cards from "../styles/Card.module.css";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+const ProductCard = ({ product }) => {
+  const router = useRouter();
+  return (
+    <div className={Cards.main}>
+      {product && (
+        <div onClick={(e) => router.push(`/products/${product.slug}`)}>
+          <Image
+            src="https://hips.hearstapps.com/harpersbazaaruk.cdnds.net/17/29/1500450899-cara-delevingne.jpg"
+            width="200px"
+            height="170px"
+            alt="product image"
+            className={Cards.productImg}
+          />
+          <h6>{product.name}</h6>
+          <p>{product.description}</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ProductCard;

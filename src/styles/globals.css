@@ -1,0 +1,22 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+html {
+  overflow-x: hidden !important;
+}
+.top {
+  margin-top: 2rem !important;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.main {
+  margin-top: 4rem !important;
+}

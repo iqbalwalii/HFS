@@ -1,0 +1,30 @@
+.main
+    display: flex
+    background: #d6d6d6b0
+    justify-content: space-around
+    font-family: 'Roboto Condensed', sans-serif
+    margin-top: 2rem
+    padding: 4rem initial
+    & .logo
+        display: flex
+        justify-content: center
+        align-items: center
+        & img      
+            width: 200px
+    & .section
+        padding: 1rem
+        & h5
+            text-align: start
+            font-weight: 600
+        & ul
+            list-style: none
+            padding: 0
+            & li
+                text-transform: capitalize
+
+        
+@media screen and (max-width:768px) 
+    .main
+        flex-direction: column
+        justify-content: center
+        align-items: center

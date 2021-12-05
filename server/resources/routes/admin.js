@@ -20,7 +20,7 @@ v2.config({
 	api_secret: process.env.CLOUD_SECRET,
 });
 
-const upload = multer();
+const mul = multer();
 
 // --- UPDATE ORDER STATUS --- //
 async function updateOrderStatus(req, res) {
@@ -216,28 +216,28 @@ async function updateProduct(req, res) {
 		try {
 			let data = {};
 			if (req.body.name) {
-				data.name = req.body.name;
+				data['name'] = req.body.name;
 			}
 			if (req.body.price) {
-				data.price = req.body.price;
+				data['price'] = req.body.price;
 			}
 			if (req.body.slug) {
-				data.slug = req.body.slug;
+				data['slug'] = req.body.slug;
 			}
 			if (req.body.category) {
-				data.category = req.body.category;
+				data['category'] = req.body.category;
 			}
 			if (req.body.brand) {
-				data.brand = req.body.brand;
+				data['brand'] = req.body.brand;
 			}
 			if (req.body.countInStock) {
-				data.countInStock = req.body.countInStock;
+				data['countInStock'] = req.body.countInStock;
 			}
-			if (req.body.image) {
-				data.image = req.body.image;
+			if (req.body.bannerImage) {
+				data['bannerImage'] = req.body.bannerImage;
 			}
 			if (req.body.description) {
-				data.description = req.body.description;
+				data['description'] = req.body.description;
 			}
 			await db.connect();
 			const product = await Product.findOneAndUpdate(
@@ -264,10 +264,13 @@ async function updateProduct(req, res) {
 }
 // UPLOAD TO CLOUDINARY
 async function uploadFile(req, res) {
+	// verifyUser(req, res);
+	console.log(' UPLOAD TO CLOUDINARY');
+	console.log(' UPLOAD TO CLOUDINARY', req.user);
 	if (req.user.extra) {
 		try {
 			const streamUpload = (req) => {
-				return Promise((resolve, reject) => {
+				return new Promise((resolve, reject) => {
 					const stream = v2.uploader.upload_stream(
 						(error, result) => {
 							result ? resolve(result) : reject(error);
@@ -279,6 +282,7 @@ async function uploadFile(req, res) {
 			const result = await streamUpload(req);
 			res.json({ status: 200, result });
 		} catch (err) {
+			console.log('catch', err);
 			res.json({ status: 500, message: err.toString() });
 		}
 	} else {
@@ -452,7 +456,7 @@ async function updateUser(req, res) {
 		});
 	}
 }
-router.route('/upload').post(verifyUser, upload.single('file'), uploadFile);
+router.route('/upload').post(mul.single('file'), verifyUser, uploadFile);
 router.route('/summary').get(verifyUser, getSummary);
 router.route('/users').get(verifyUser, getUsers);
 router

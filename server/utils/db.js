@@ -18,7 +18,7 @@ async function connect() {
 		await mongoose.disconnect();
 	}
 	const db = await mongoose.connect(
-		'mongodb+srv://irfan:%40HFS.com@main.7wcgt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+		'mongodb+srv://irfan:HFSSCOM@main.7wcgt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
 		{
 			useNewUrlParser: true,
 			useUnifiedTopology: true,

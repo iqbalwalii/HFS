@@ -7,8 +7,13 @@ const Add = () => {
     description: "",
     price: "",
     category: "",
-    main: "",
-    other: "",
+    file: "",
+    first: "",
+    second: "",
+    third: "",
+    fourth: "",
+    fifth: "",
+    sixth: "",
   });
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -85,16 +90,79 @@ const Add = () => {
           <Form.Control
             type="file"
             accept="image/png"
-            value={inputValues.main}
+            value={inputValues.file}
             onChange={(e) =>
-              setInputValues({ ...inputValues, main: e.target.value })
+              setInputValues({ ...inputValues, file: e.target.value })
             }
           />
         </Form.Group>
-        <Form.Group controlId="formFileMultiple" className="mb-3">
-          <Form.Label>Additional Images of the shoe</Form.Label>
-          <Form.Control type="file" multiple accept="image/png" />
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Additional First Image</Form.Label>
+          <Form.Control
+            type="file"
+            accept="image/png"
+            value={inputValues.one}
+            onChange={(e) =>
+              setInputValues({ ...inputValues, one: e.target.value })
+            }
+          />
         </Form.Group>
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Additional Second Image</Form.Label>
+          <Form.Control
+            type="file"
+            accept="image/png"
+            value={inputValues.six}
+            onChange={(e) =>
+              setInputValues({ ...inputValues, six: e.target.value })
+            }
+          />
+        </Form.Group>
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Additional Third Image</Form.Label>
+          <Form.Control
+            type="file"
+            accept="image/png"
+            value={inputValues.two}
+            onChange={(e) =>
+              setInputValues({ ...inputValues, two: e.target.value })
+            }
+          />
+        </Form.Group>
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Additional Fourth Image</Form.Label>
+          <Form.Control
+            type="file"
+            accept="image/png"
+            value={inputValues.three}
+            onChange={(e) =>
+              setInputValues({ ...inputValues, three: e.target.value })
+            }
+          />
+        </Form.Group>
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Additional Fifth Image</Form.Label>
+          <Form.Control
+            type="file"
+            accept="image/png"
+            value={inputValues.four}
+            onChange={(e) =>
+              setInputValues({ ...inputValues, four: e.target.value })
+            }
+          />
+        </Form.Group>
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Additional Sixth Image</Form.Label>
+          <Form.Control
+            type="file"
+            accept="image/png"
+            value={inputValues.five}
+            onChange={(e) =>
+              setInputValues({ ...inputValues, five: e.target.value })
+            }
+          />
+        </Form.Group>
+
         <div className="d-grid mb-4">
           <Button
             variant="dark"

@@ -32,21 +32,23 @@ app.prepare().then(async () => {
 	// const corsOptions = {
 	// 	origin: '*',
 	// };
-	var allowlist = [
-		'http://localhost:3000',
-		'https://hfsociety.herokuapp.com/',
-	];
-	var corsOptionsDelegate = function (req, callback) {
-		var corsOptions;
-		if (allowlist.indexOf(req.header('Origin')) !== -1) {
-			corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
-		} else {
-			corsOptions = { origin: false }; // disable CORS for this request
-		}
-		callback(null, corsOptions); // callback expects two parameters: error and options
-	};
+	// var allowlist = [
+	// 	'http://localhost:3000',
+	// 	'https://hfsociety.herokuapp.com/',
+	// ];
+	// var corsOptionsDelegate = function (req, callback) {
+	// 	var corsOptions;
+	// 	if (allowlist.indexOf(req.header('Origin')) !== -1) {
+	// 		corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+	// 	} else {
+	// 		corsOptions = { origin: false }; // disable CORS for this request
+	// 	}
+	// 	callback(null, corsOptions); // callback expects two parameters: error and options
+	// };
 
-	server.use(cors(corsOptionsDelegate));
+	server.use(cors());
+
+	// server.use(cors(corsOptionsDelegate));
 	server.use(json());
 	server.use(urlencoded({ extended: true }));
 	server.use(express.static('./src/public'));

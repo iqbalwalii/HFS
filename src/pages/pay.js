@@ -17,5 +17,4 @@ const pay = () => {
     </Container>
   );
 };
-
 export default pay;

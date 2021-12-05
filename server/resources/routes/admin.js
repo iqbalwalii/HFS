@@ -15,9 +15,9 @@ const { v2 } = require('cloudinary');
 
 // cloudinary.config
 v2.config({
-	cloud_name: process.env.CLOUD_NAME,
-	api_key: process.env.CLOUD_KEY,
-	api_secret: process.env.CLOUD_SECRET,
+	cloud_name: 'dropoutdevz',
+	api_key: 951115463887189,
+	api_secret: 'tKSHflaaSKSmVT73pH9nbDFJ9ZE',
 });
 
 const mul = multer();
@@ -184,27 +184,27 @@ async function getProduct(req, res) {
 	console.log('id', req.query);
 	console.log('id', req.params);
 	const { productId } = req.params;
-	if (req.user.extra) {
-		try {
-			await db.connect();
-			const product = await Product.findOne({ _id: productId }).exec();
-			await db.disconnect();
-			if (!product) {
-				return res.json({ status: 404, message: 'No product Found' });
-			}
-			res.json({ status: 200, product: product });
-		} catch (err) {
-			res.json({
-				status: 500,
-				message: err,
-			});
+	// if (req.user.extra) {
+	try {
+		await db.connect();
+		const product = await Product.findOne({ _id: productId }).exec();
+		await db.disconnect();
+		if (!product) {
+			return res.json({ status: 404, message: 'No product Found' });
 		}
-	} else {
+		res.json({ status: 200, product: product });
+	} catch (err) {
 		res.json({
-			status: 401,
-			message: 'You are not authorized',
+			status: 500,
+			message: err,
 		});
 	}
+	// } else {
+	// 	res.json({
+	// 		status: 401,
+	// 		message: 'You are not authorized',
+	// 	});
+	// }
 }
 
 //----UPDATE SINGLE PRODUCT  ----//
@@ -212,125 +212,126 @@ async function updateProduct(req, res) {
 	const { productId } = req.params;
 	console.log('id', productId);
 
-	if (req.user.extra) {
-		try {
-			let data = {};
-			if (req.body.name) {
-				data['name'] = req.body.name;
-			}
-			if (req.body.price) {
-				data['price'] = req.body.price;
-			}
-			if (req.body.slug) {
-				data['slug'] = req.body.slug;
-			}
-			if (req.body.category) {
-				data['category'] = req.body.category;
-			}
-			if (req.body.brand) {
-				data['brand'] = req.body.brand;
-			}
-			if (req.body.countInStock) {
-				data['countInStock'] = req.body.countInStock;
-			}
-			if (req.body.bannerImage) {
-				data['bannerImage'] = req.body.bannerImage;
-			}
-			if (req.body.description) {
-				data['description'] = req.body.description;
-			}
-			await db.connect();
-			const product = await Product.findOneAndUpdate(
-				{ _id: productId },
-				data,
-				{ new: true }
-			);
-			await db.disconnect();
-			console.log('product', product);
-			res.json({ status: 200, product });
-		} catch (err) {
-			await db.disconnect();
-			res.json({
-				status: 500,
-				message: err.toString(),
-			});
+	// if (req.user.extra) {
+	try {
+		let data = {};
+		if (req.body.name) {
+			data['name'] = req.body.name;
 		}
-	} else {
+		if (req.body.price) {
+			data['price'] = req.body.price;
+		}
+		if (req.body.slug) {
+			data['slug'] = req.body.slug;
+		}
+		if (req.body.category) {
+			data['category'] = req.body.category;
+		}
+		if (req.body.brand) {
+			data['brand'] = req.body.brand;
+		}
+		if (req.body.countInStock) {
+			data['countInStock'] = req.body.countInStock;
+		}
+		if (req.body.bannerImage) {
+			data['bannerImage'] = req.body.bannerImage;
+		}
+		if (req.body.images) {
+			data['images'] = req.body.images;
+		}
+		if (req.body.description) {
+			data['description'] = req.body.description;
+		}
+		await db.connect();
+		const product = await Product.findOneAndUpdate(
+			{ _id: productId },
+			data,
+			{ new: true }
+		);
+		await db.disconnect();
+		console.log('product', product);
+		res.json({ status: 200, product });
+	} catch (err) {
+		await db.disconnect();
 		res.json({
-			status: 401,
-			message: 'Unauthorized access',
+			status: 500,
+			message: err.toString(),
 		});
 	}
+	// } else {
+	// 	res.json({
+	// 		status: 401,
+	// 		message: 'Unauthorized access',
+	// 	});
+	// }
 }
 // UPLOAD TO CLOUDINARY
 async function uploadFile(req, res) {
 	// verifyUser(req, res);
 	console.log(' UPLOAD TO CLOUDINARY');
 	console.log(' UPLOAD TO CLOUDINARY', req.user);
-	if (req.user.extra) {
-		try {
-			const streamUpload = (req) => {
-				return new Promise((resolve, reject) => {
-					const stream = v2.uploader.upload_stream(
-						(error, result) => {
-							result ? resolve(result) : reject(error);
-						}
-					);
-					streamifier.createReadStream(req.file.buffer).pipe(stream);
+	// if (req.user.extra) {
+	try {
+		const streamUpload = (req) => {
+			return new Promise((resolve, reject) => {
+				const stream = v2.uploader.upload_stream((error, result) => {
+					result ? resolve(result) : reject(error);
 				});
-			};
-			const result = await streamUpload(req);
-			res.json({ status: 200, result });
-		} catch (err) {
-			console.log('catch', err);
-			res.json({ status: 500, message: err.toString() });
-		}
-	} else {
-		res.json({
-			status: 401,
-			message: 'Unauthorized access',
-		});
+				streamifier.createReadStream(req.file.buffer).pipe(stream);
+			});
+		};
+		const result = await streamUpload(req);
+		res.json({ status: 200, result });
+	} catch (err) {
+		console.log('catch', err);
+		res.json({ status: 500, message: err.toString() });
 	}
+	// } else {
+	// 	res.json({
+	// 		status: 401,
+	// 		message: 'Unauthorized access',
+	// 	});
+	// }
 }
 
 //---- CREATE PRODUCT  ----//
 async function createProduct(req, res) {
 	{
-		const { name, brand, slug, price, image, description, category } =
-			req.body;
+		// const { name, brand, slug, price, image, description, category } =
+		// 	req.body;
 		const data = {
-			name: 'sample-name' + Math.random(),
+			name: 'sample-name',
 			brand: 'sample-brand',
-			price: 'sample-price',
+			price: 0,
 			category: 'sample-category',
-			slug: 'sample-slug',
-			image: 'sample-image',
+			slug: 'sample-slug' + Math.random(),
+			bannerImage: 'sample-image',
+			isActive: 0,
 			description: 'sample-description',
 			rating: 0,
 			numRevier: 0,
 			countInStock: 0,
 		};
 
-		if (req.user.extra) {
-			try {
-				await db.connect();
-
-				const product = await Product.create(data);
-				await db.disconnect();
-				console.log('product', product);
-				res.json({ status: 201, data: product });
-			} catch (err) {
-				res.json({
-					status: 500,
-					message: err,
-				});
-			}
-		} else {
+		// if (req.user.extra) {
+		try {
+			await db.connect();
+			const product = await Product.create(data);
+			await db.disconnect();
+			console.log('product', product);
+			res.json({ status: 201, data: product });
+		} catch (err) {
 			res.json({
-				status: 401,
-				message: 'Unauthorized access',
+				status: 500,
+				message: err,
 			});
 		}
+		// } else {
+		// 	res.json({
+		// 		status: 401,
+		// 		message: 'Unauthorized access',
+		// 	});
+		// }
 	}
 }
 
@@ -456,7 +457,7 @@ async function updateUser(req, res) {
 		});
 	}
 }
-router.route('/upload').post(mul.single('file'), verifyUser, uploadFile);
+router.route('/upload').post(mul.single('file'), uploadFile);
 router.route('/summary').get(verifyUser, getSummary);
 router.route('/users').get(verifyUser, getUsers);
 router
@@ -466,13 +467,10 @@ router
 router.route('/orders').get(verifyUser, getOrders);
 router
 	.route('/products/:productId')
-	.get(verifyUser, getProduct)
-	.put(verifyUser, updateProduct)
+	.get(getProduct)
+	.put(updateProduct)
 	.delete(verifyUser, deleteProduct);
-router
-	.route('/products')
-	.get(verifyUser, getProducts)
-	.post(verifyUser, createProduct);
+router.route('/products').get(getProducts).post(createProduct);
 router.route('/orders/delivery/:orderId').put(verifyUser, updateOrderStatus);
 // router.route('/:orderId').get(getOne).put(updateOne).delete(deleteOne);
 

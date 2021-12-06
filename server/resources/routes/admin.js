@@ -305,7 +305,6 @@ async function createProduct(req, res) {
 			price: 0,
 			category: 'sample-category',
 			slug: 'sample-slug' + Math.random(),
-			bannerImage: 'sample-image',
 			isActive: 0,
 			description: 'sample-description',
 			rating: 0,

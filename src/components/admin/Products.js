@@ -15,6 +15,8 @@ import {
 import { Trash, PencilFill, PencilSquare } from 'react-bootstrap-icons';
 import dashboard from '../../styles/Dashboard.module.css';
 const Products = () => {
+	const router = useRouter();
+
 	const [product, setProduct] = useState('');
 	const router = useRouter();
 	async function addNewProductHandler() {

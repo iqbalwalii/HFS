@@ -71,7 +71,7 @@ async function getOne(req, res) {
 		await db.disconnect();
 		console.log('post', post);
 		if (!post) {
-			return res.json({ status: 404, message: 'No post Found' });
+			return res.json({ status: 404, message: 'No post found' });
 		}
 		res.json({ status: 200, post });
 	} catch (err) {
@@ -94,7 +94,7 @@ async function deleteOne(req, res) {
 			await db.disconnect();
 			console.log('post', post);
 			if (!post) {
-				return res.json({ status: 404, message: 'No post Found' });
+				return res.json({ status: 404, message: 'No post found' });
 			}
 			res.json({ status: 200, post });
 		} catch (err) {

@@ -28,7 +28,9 @@ const reducer = (state = initialState, action) => {
     }
 
     // User Logout
-    case ACTIONS.userLogout: {
+    // 9906440708 gulab.jeweller
+    case ACTIONS.logOutUser: {
+      console.log("object");
       Cookies.remove("userData");
       Cookies.remove("cartItems");
       Cookies.remove("shippingAddress");

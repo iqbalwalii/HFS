@@ -11,7 +11,7 @@ import { Cart } from "react-bootstrap-icons";
 import basket from "../styles/Cart.module.css";
 import CartCard from "../components/CartCard";
 import { connect } from "react-redux";
-import Image from "next/image";
+import Image from "next/Image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 const Bag = (props) => {

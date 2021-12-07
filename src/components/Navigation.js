@@ -27,7 +27,7 @@ const Navigation = (props) => {
 
   return (
     <div className={Navstyle.nav}>
-      <Navbar bg="light" expand="xxl" fixed="top">
+      <Navbar bg="light" expand="xxxl" fixed="top">
         <Container>
           <div className="">
             <Navbar.Toggle
@@ -53,7 +53,7 @@ const Navigation = (props) => {
             /> */}
           </Navbar.Brand>
           <div className={Navstyle.links}>
-            <Link href="/signin">
+            <Link href="/auth">
               <a>
                 <Person size={36} style={{ paddingRight: ".3rem" }} />
               </a>

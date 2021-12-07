@@ -3,7 +3,14 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import account from "../styles/Profile.module.css";
 import Image from "next/image";
 import Link from "next/link";
-const Profile = () => {
+import { connect } from "react-redux";
+const Profile = (props) => {
+  const LogoutHandler = () => {
+    console.log("lllll");
+    props.dispatch({
+      type: "LOGOUT_USER",
+    });
+  };
   return (
     <Container>
       <Row>
@@ -19,12 +26,25 @@ const Profile = () => {
                 height="50px"
                 alt="profile picture"
               />
-              <h4 className="m-0 text-center">IQBAL WALI</h4>
-              <p className="text-center">iqbalwali420@gmail.com</p>
+              <h4 className="m-0 text-center">{props.userData.name}</h4>
+              <p className="text-center">{props.userData.email}</p>
               <div className="d-flex justify-content-center">
                 <Link href="/user/update">
                   <a>
                     <Button variant="dark">Edit</Button>
+                  </a>
+                </Link>
+              </div>
+              <div className="d-flex justify-content-center">
+                <Link href="/">
+                  <a>
+                    <Button
+                      variant="dark"
+                      className="mt-2"
+                      onClick={LogoutHandler}
+                    >
+                      Logout
+                    </Button>
                   </a>
                 </Link>
               </div>
@@ -61,5 +81,8 @@ const Profile = () => {
     </Container>
   );
 };
+const mapStateToProps = (state) => {
+  return { userData: state.userData };
+};
 
-export default Profile;
+export default connect(mapStateToProps)(Profile);

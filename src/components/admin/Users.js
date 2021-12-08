@@ -49,5 +49,4 @@ const Users = () => {
     </Container>
   );
 };
-
 export default Users;

@@ -4,7 +4,19 @@ import { useRouter } from "next/router";
 import Axios from "../../../utils/axios";
 const Add = ({ productId }) => {
   const [images, setImages] = useState({});
+  const [active, setActive] = useState("on");
   const router = useRouter();
+  const onActiveHandler = (e) => {
+    if (active === "off") {
+      setActive("on");
+      e.target.value = "Turn On";
+      e.target.style.background = "#BB2D3B";
+    } else {
+      setActive("off");
+      e.target.style.background = "#157347";
+      e.target.value = "Turn off";
+    }
+  };
   const [inputValues, setInputValues] = useState({
     brand: "",
     name: "",
@@ -12,12 +24,9 @@ const Add = ({ productId }) => {
     price: "",
     category: "Footwear",
     file: "",
+    visibility: active,
     availibeSizes: [],
   });
-  const onClickHandler = (e) => {
-    e.preventDefault();
-    console.log(inputValues);
-  };
 
   async function onSubmitHandler(e) {
     // closeSnackbar();
@@ -94,7 +103,8 @@ const Add = ({ productId }) => {
             price: data.product.price,
             category: data.product.category,
             file: data.product.bannerImage,
-            availibeSizes: data.product.availibeSizes,
+            // visibility: data.product.visibility,
+            // availibeSizes: data.product.availibeSizes,
           });
 
           data.product.images.forEach((imgUrl, idx) => {
@@ -249,149 +259,19 @@ const Add = ({ productId }) => {
         {inputValues.category === "Footwear" ? (
           <Form.Group as={Col} controlId="formCheckbox">
             <Form.Label> Availible Sizes</Form.Label>
-            <Form.Check
-              type="checkbox"
-              label="5"
-              value="5"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="5.5"
-              value="5.5"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="6"
-              value="6"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="6.5"
-              value="6.5"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="7"
-              value="7"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="7.5"
-              value="7.5"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="8"
-              value="8"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="8.5"
-              value="8.5"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="9"
-              value="9"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="9.5"
-              value="9.5"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="10"
-              value="10"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="10.5"
-              value="10.5"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
-            <Form.Check
-              type="checkbox"
-              label="11"
-              value="11"
-              onClickHandler={() =>
-                setInputValues({
-                  ...inputValues,
-                  availibeSizes: [...availibleSizes, e.target.value],
-                })
-              }
-            />
+            <Form.Check type="checkbox" label="5" value="5" />
+            <Form.Check type="checkbox" label="5.5" value="5.5" />
+            <Form.Check type="checkbox" label="6" value="6" />
+            <Form.Check type="checkbox" label="6.5" value="6.5" />
+            <Form.Check type="checkbox" label="7" value="7" />
+            <Form.Check type="checkbox" label="7.5" value="7.5" />
+            <Form.Check type="checkbox" label="8" value="8" />
+            <Form.Check type="checkbox" label="8.5" value="8.5" />
+            <Form.Check type="checkbox" label="9" value="9" />
+            <Form.Check type="checkbox" label="9.5" value="9.5" />
+            <Form.Check type="checkbox" label="10" value="10" />
+            <Form.Check type="checkbox" label="10.5" value="10.5" />
+            <Form.Check type="checkbox" label="11" value="11" />
           </Form.Group>
         ) : (
           <Form.Group controlId="formShirts" className="mb-3">
@@ -404,6 +284,19 @@ const Add = ({ productId }) => {
             <Form.Check label="XXXL" value="XXXL" />
           </Form.Group>
         )}
+        <Form.Group as={Col} controlId="formGridToggler">
+          <Form.Label>
+            Product Visibility&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </Form.Label>
+          <Button
+            variant="danger"
+            onClick={onActiveHandler}
+            size="sm"
+            value="Turn Off"
+          >
+            {active == "on" ? "Disable" : "Enable"}
+          </Button>
+        </Form.Group>
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Main Image</Form.Label>
           <Form.Control

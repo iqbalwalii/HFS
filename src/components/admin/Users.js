@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import dashboard from "../../styles/Dashboard.module.css";
+import Axios from "../../utils/axios";
 import Link from "next/link";
 const Users = () => {
+  const [users, setUsers] = useState([]);
+  useEffect(async () => {
+    const { data } = await Axios.get("/api/users");
+    setUsers(data.users);
+    console.log(data.users);
+  }, []);
   return (
     <Container>
       <Row className={dashboard.header}>
@@ -24,28 +31,18 @@ const Users = () => {
               <th>#</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Contact</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mark Raffalo</td>
-              <td>markraffalo@gmail.com </td>
-              <td>7006554446</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jon Snow</td>
-              <td>JonSnow@gmail.com</td>
-              <td>7006554446</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>John Wick</td>
-              <td>johnwick@babayaga.com</td>
-              <td>7006554446</td>
-            </tr>
+            {users.map((user, index) => {
+              return (
+                <tr>
+                  <th>{index + 1}</th>
+                  <th>{user.name}</th>
+                  <th>{user.email}</th>
+                </tr>
+              );
+            })}
           </tbody>
         </Table>
       </Row>

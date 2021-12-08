@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Axios from "../../utils/axios";
 import {
   Button,
   ButtonGroup,
@@ -11,6 +12,11 @@ import {
 import dashboard from "../../styles/Dashboard.module.css";
 import Link from "next/link";
 const Orders = () => {
+  const [orders, setOrders] = useState([]);
+  useEffect(async () => {
+    const { data } = await Axios.get("/api/orders");
+    setOrders(data.orders);
+  }, []);
   const onUpdateHandler = () => {
     const router = useRouter;
     router.push({
@@ -32,48 +38,45 @@ const Orders = () => {
             <tr>
               <th>#</th>
               <th>Product</th>
-              <th>User</th>
+              <th>Payment</th>
               <th>Date</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>@Mark</td>
-              <td>Ottoman Empire</td>
-              <td>7006554446</td>
-              <td>
-                <ButtonGroup>
-                  <Link href="/admin/update">
-                    <a>
+            {orders.map((order, index) => {
+              return (
+                <tr>
+                  <td>{index + 1}</td>
+                  <td>
+                    {order.orderItems.map((prod) => {
+                      return prod.name;
+                    })}
+                  </td>
+                  <td>{order.isPaid == true ? "Paid" : "Not Paid"}</td>
+                  <td>7006554446</td>
+                  <td>
+                    <ButtonGroup>
                       <Link href="/admin/update">
                         <a>
-                          <Button variant="success" onClick={onUpdateHandler}>
-                            Update
-                          </Button>
+                          <Link href="/admin/update">
+                            <a>
+                              <Button
+                                variant="success"
+                                onClick={onUpdateHandler}
+                              >
+                                Update
+                              </Button>
+                            </a>
+                          </Link>
                         </a>
                       </Link>
-                    </a>
-                  </Link>
-                  <Button variant="danger">Delete</Button>
-                </ButtonGroup>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>@Mark</td>
-              <td>Ottoman Empire</td>
-              <td>7006554446</td>
-              <td>7006554446</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>@Mark</td>
-              <td>Ottoman Empire</td>
-              <td>7006554446</td>
-              <td>7006554446</td>
-            </tr>
+                      <Button variant="danger">Delete</Button>
+                    </ButtonGroup>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </Table>
       </Row>

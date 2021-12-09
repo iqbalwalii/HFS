@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-async function jwtTokenGenerator(payload) {
-	console.log('payload', payload);
+async function jwtTokenGenerator(payload) { 
 	const token = await jwt.sign(
 		{
 			email: payload.email,

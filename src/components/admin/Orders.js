@@ -35,8 +35,8 @@ const Orders = () => {
               <th>#</th>
               <th>Product</th>
               <th>Payment</th>
+              <th>Order No.</th>
               <th>Date</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -45,7 +45,7 @@ const Orders = () => {
                 <tr style={{ cursor: "pointer" }}>
                   <td>{index + 1}</td>
                   <td>
-                    <Link href="/admin/orderDetail" symbol={order.id}>
+                    <Link href={`/admin/update/${order._id}`}>
                       <a>
                         {order.orderItems.map((prod) => {
                           return prod.name;
@@ -54,17 +54,8 @@ const Orders = () => {
                     </Link>
                   </td>
                   <td>{order.isPaid == true ? "Paid" : "Not Paid"}</td>
-                  <td>7006554446</td>
-                  <td>
-                    <ButtonGroup>
-                      <Button variant="warning">Reject</Button>
-                      <Button variant="success">Approve</Button>
-                      <Button variant="danger">Delete</Button>
-                      <Button variant="primary" onClick={onUpdateHandler}>
-                        Shipped
-                      </Button>
-                    </ButtonGroup>
-                  </td>
+                  <td>{order._id}</td>
+                  <td>{order.createdAt.slice(0, 10)}</td>
                 </tr>
               );
             })}

@@ -19,6 +19,10 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const onDeleteHandler = () => {
     // console.log(product);
+    try {
+    } catch (error) {
+      console.log(error, "delete error");
+    }
   };
 
   useEffect(async () => {
@@ -85,18 +89,17 @@ const Products = () => {
             return (
               <ListGroup.Item className={dashboard.listItem}>
                 <h6>{product.name}</h6>
-                <ButtonGroup aria-label="are you sure">
-                  <Button variant="danger" size="sm" onClick={onDeleteHandler}>
-                    Delete
-                  </Button>
-                  <Link href="admin/new" key={product.id}>
-                    <a>
-                      <Button variant="success" size="sm">
-                        Update
-                      </Button>
-                    </a>
-                  </Link>
-                </ButtonGroup>
+                <Link href={`/admin/new/${product._id}`}>
+                  <a>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={onDeleteHandler}
+                    >
+                      Edit
+                    </Button>
+                  </a>
+                </Link>
               </ListGroup.Item>
             );
           })}

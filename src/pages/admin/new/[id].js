@@ -1,20 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Form,
+  Popover,
+  OverlayTrigger,
+  ButtonGroup,
+} from "react-bootstrap";
 import { useRouter } from "next/router";
 import Axios from "../../../utils/axios";
 const Add = ({ productId }) => {
   const [images, setImages] = useState({});
-  const [active, setActive] = useState("on");
+  const [active, setActive] = useState(null);
   const router = useRouter();
+  const onCheckHandler = (e) => {
+    console.log(e);
+  };
   const onActiveHandler = (e) => {
-    if (active === "off") {
-      setActive("on");
-      e.target.value = "Turn On";
-      e.target.style.background = "#BB2D3B";
+    if (active === 0) {
+      setActive(1);
+      //   e.target.style.background = "#BB2D3B";
     } else {
-      setActive("off");
-      e.target.style.background = "#157347";
-      e.target.value = "Turn off";
+      setActive(0);
+      //   e.target.style.background = "#157347";
     }
   };
   const [inputValues, setInputValues] = useState({
@@ -28,6 +38,37 @@ const Add = ({ productId }) => {
     availibeSizes: [],
   });
 
+  const popover = (
+    <Popover id="popover-basic">
+      <Popover.Header as="h3" style={{ background: "#BB2D3B", color: "#fff" }}>
+        Delete Product
+      </Popover.Header>
+      <Popover.Body>
+        Are You sure you want to delete this product? This action is
+        irreversible
+        <div className="d-flex justify-content-center">
+          <ButtonGroup>
+            <Button variant="danger" onClick={onDeleteHandler}>
+              Yes
+            </Button>
+            <Button variant="success" onClick={() => document.body.click()}>
+              No
+            </Button>
+          </ButtonGroup>
+        </div>
+      </Popover.Body>
+    </Popover>
+  );
+
+  async function onDeleteHandler(e) {
+    try {
+      const { data } = await Axios.delete(`/api/admin/products/${productId}`);
+      console.log("delete api resp", data);
+      if (data.status === 200) return router.push("/admin");
+    } catch (error) {
+      console.log("delete catch err", error);
+    }
+  }
   async function onSubmitHandler(e) {
     // closeSnackbar();
     e.preventDefault();
@@ -42,6 +83,7 @@ const Add = ({ productId }) => {
         `/api/admin/products/${productId}`,
         {
           ...inputValues,
+          isActive: active,
           bannerImage: inputValues.file,
           images: Object.values(images),
         }
@@ -103,10 +145,10 @@ const Add = ({ productId }) => {
             price: data.product.price,
             category: data.product.category,
             file: data.product.bannerImage,
-            // visibility: data.product.visibility,
+            // isActive: data.product.isActive,
             // availibeSizes: data.product.availibeSizes,
           });
-
+          setActive(data.product.isActive);
           data.product.images.forEach((imgUrl, idx) => {
             setImages({ ...images, [idx]: imgUrl });
           });
@@ -174,7 +216,22 @@ const Add = ({ productId }) => {
   return (
     //Add Products
     <Container>
-      <h3 className="text-center mt-4 mb-2"> Add Product</h3>
+      <h3 className="text-center mt-5 mb-2 "> Update/Edit Product</h3>
+      <Row>
+        <Col xs={{ span: 3, offset: 9 }} md={{ span: 1, offset: 11 }}>
+          <OverlayTrigger
+            trigger="click"
+            placement="left"
+            overlay={popover}
+            container={this}
+            rootClose
+          >
+            <Button variant="danger" size="md" className="mt-3">
+              Delete
+            </Button>
+          </OverlayTrigger>
+        </Col>
+      </Row>
       <Form>
         <Form.Group as={Col} controlId="formGridText">
           <Form.Label>Brand</Form.Label>
@@ -259,7 +316,12 @@ const Add = ({ productId }) => {
         {inputValues.category === "Footwear" ? (
           <Form.Group as={Col} controlId="formCheckbox">
             <Form.Label> Availible Sizes</Form.Label>
-            <Form.Check type="checkbox" label="5" value="5" />
+            <Form.Check
+              type="checkbox"
+              label="5"
+              value="5"
+              onClick={onCheckHandler}
+            />
             <Form.Check type="checkbox" label="5.5" value="5.5" />
             <Form.Check type="checkbox" label="6" value="6" />
             <Form.Check type="checkbox" label="6.5" value="6.5" />
@@ -289,12 +351,11 @@ const Add = ({ productId }) => {
             Product Visibility&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </Form.Label>
           <Button
-            variant="danger"
+            variant={active == 1 ? "danger" : "success"}
             onClick={onActiveHandler}
             size="sm"
-            value="Turn Off"
           >
-            {active == "on" ? "Disable" : "Enable"}
+            {active == 1 ? "Disable" : "Enable"}
           </Button>
         </Form.Group>
         <Form.Group controlId="formFile" className="mb-3">

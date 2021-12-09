@@ -222,13 +222,15 @@ async function updateProduct(req, res) {
     if (req.body.price) {
       data["price"] = req.body.price;
     }
-    s;
 
     if (req.body.category) {
       data["category"] = req.body.category;
     }
     if (req.body.brand) {
       data["brand"] = req.body.brand;
+    }
+    if (req.body.isActive) {
+      data["isActive"] = req.body.isActive;
     }
     if (req.body.countInStock) {
       data["countInStock"] = req.body.countInStock;
@@ -339,26 +341,27 @@ async function createProduct(req, res) {
 async function deleteProduct(req, res) {
   const { productId } = req.params;
   console.log("delete product Id", productId);
-  if (req.user.extra) {
-    try {
-      await db.connect();
-      const product = await Product.findOneAndDelete({ _id: productId });
-      await db.disconnect();
-      console.log("delete response", product);
-      res.json({ status: 200, message: " Product deleted successfully" });
-    } catch (err) {
-      await db.disconnect();
-      res.json({
-        status: 500,
-        message: err.toString(),
-      });
-    }
-  } else {
+  // if (req.user.extra) {
+  try {
+    await db.connect();
+    const product = await Product.findOneAndDelete({ _id: productId });
+    await db.disconnect();
+    console.log("delete response", product);
+
+    res.json({ status: 200, message: " Product deleted successfully" });
+  } catch (err) {
+    await db.disconnect();
     res.json({
-      status: 401,
-      message: "Unauthorized access",
+      status: 500,
+      message: err.toString(),
     });
   }
+  // } else {
+  // 	res.json({
+  // 		status: 401,
+  // 		message: 'Unauthorized access',
+  // 	});
+  // }
 }
 //---- GET ALL USERs  ----/ /
 async function getUsers(req, res) {
@@ -469,7 +472,7 @@ router
   .route("/products/:productId")
   .get(getProduct)
   .put(updateProduct)
-  .delete(verifyUser, deleteProduct);
+  .delete(deleteProduct);
 router.route("/products").get(getProducts).post(createProduct);
 router.route("/orders/delivery/:orderId").put(verifyUser, updateOrderStatus);
 // router.route('/:orderId').get(getOne).put(updateOne).delete(deleteOne);

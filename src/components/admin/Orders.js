@@ -42,12 +42,16 @@ const Orders = () => {
           <tbody>
             {orders.map((order, index) => {
               return (
-                <tr>
+                <tr style={{ cursor: "pointer" }}>
                   <td>{index + 1}</td>
                   <td>
-                    {order.orderItems.map((prod) => {
-                      return prod.name;
-                    })}
+                    <Link href="/admin/orderDetail" symbol={order.id}>
+                      <a>
+                        {order.orderItems.map((prod) => {
+                          return prod.name;
+                        })}
+                      </a>
+                    </Link>
                   </td>
                   <td>{order.isPaid == true ? "Paid" : "Not Paid"}</td>
                   <td>7006554446</td>

@@ -25,8 +25,7 @@ const Home = (props) => {
   //     : null;
   // }, []);
   const [display, setDisplay] = useState("main");
-  return Object.keys(props.userData).length === 0 &&
-    props.userData?.isAdmin == false ? (
+  return props.userData?.isAdmin == false ? (
     <Spinner animation="border" />
   ) : (
     <Row className={dashboard.main}>

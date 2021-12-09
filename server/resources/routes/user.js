@@ -137,6 +137,7 @@ async function deleteOne(req, res) {
 // ---- USER SIGNIN HANDLER --- //
 async function signIn(req, res) {
 	const { password, email } = req.body;
+	console.log('email', password);
 
 	try {
 		await db.connect();
@@ -157,7 +158,7 @@ async function signIn(req, res) {
 			});
 		}
 		const token = await generateToken(user);
-
+		console.log('token');
 		if (token) {
 			return res.json({
 				status: 200,
@@ -171,9 +172,10 @@ async function signIn(req, res) {
 			});
 		}
 	} catch (err) {
+		console.log('err', err);
 		res.json({
 			status: 500,
-			message: err,
+			message: err.toString(),
 		});
 	}
 }

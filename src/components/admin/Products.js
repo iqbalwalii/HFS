@@ -17,9 +17,9 @@ import dashboard from "../../styles/Dashboard.module.css";
 const Products = () => {
   const router = useRouter();
   const [products, setProducts] = useState([]);
-  // const onDeleteHandler = () => {
-  //   console.log(product);
-  // };
+  const onDeleteHandler = () => {
+    // console.log(product);
+  };
 
   useEffect(async () => {
     const { data } = await Axios.get("/api/products");
@@ -86,11 +86,7 @@ const Products = () => {
               <ListGroup.Item className={dashboard.listItem}>
                 <h6>{product.name}</h6>
                 <ButtonGroup aria-label="are you sure">
-                  <Button
-                    variant="danger"
-                    size="sm"
-                    // onClick={onDeleteHandler}
-                  >
+                  <Button variant="danger" size="sm" onClick={onDeleteHandler}>
                     Delete
                   </Button>
                   <Link href="admin/new" key={product.id}>

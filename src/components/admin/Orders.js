@@ -16,14 +16,10 @@ const Orders = () => {
   useEffect(async () => {
     const { data } = await Axios.get("/api/orders");
     setOrders(data.orders);
+    console.log(data.orders);
   }, []);
-  const onUpdateHandler = () => {
-    const router = useRouter;
-    router.push({
-      asPath: "/admin/update",
-      pathname: "/Appointment/bookingstep1",
-      query: { value: "order" },
-    });
+  const onUpdateHandler = (e) => {
+    console.log(e);
   };
   return (
     <Container>
@@ -57,21 +53,12 @@ const Orders = () => {
                   <td>7006554446</td>
                   <td>
                     <ButtonGroup>
-                      <Link href="/admin/update">
-                        <a>
-                          <Link href="/admin/update">
-                            <a>
-                              <Button
-                                variant="success"
-                                onClick={onUpdateHandler}
-                              >
-                                Update
-                              </Button>
-                            </a>
-                          </Link>
-                        </a>
-                      </Link>
+                      <Button variant="warning">Reject</Button>
+                      <Button variant="success">Approve</Button>
                       <Button variant="danger">Delete</Button>
+                      <Button variant="primary" onClick={onUpdateHandler}>
+                        Shipped
+                      </Button>
                     </ButtonGroup>
                   </td>
                 </tr>

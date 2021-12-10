@@ -20,3 +20,7 @@ a {
 .main {
   margin-top: 4rem !important;
 }
+.imageCon {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}

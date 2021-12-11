@@ -88,7 +88,12 @@ const Products = () => {
           {products.map((product) => {
             return (
               <ListGroup.Item className={dashboard.listItem}>
-                <h6>{product.name}</h6>
+                <Link href={`/admin/product/${product.slug}`}>
+                  <a>
+                    <h6>{product.name}</h6>
+                  </a>
+                </Link>
+
                 <Link href={`/admin/new/${product._id}`}>
                   <a>
                     <Button

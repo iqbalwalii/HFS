@@ -29,38 +29,40 @@ const Orders = () => {
         </Col>
       </Row>
       <Row>
-        <Table striped bordered hover className={dashboard.table}>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Product</th>
-              <th>Payment</th>
-              <th>Order No.</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order, index) => {
-              return (
-                <tr style={{ cursor: "pointer" }}>
-                  <td>{index + 1}</td>
-                  <td>
-                    <Link href={`/admin/update/${order._id}`}>
-                      <a>
-                        {order.orderItems.map((prod) => {
-                          return prod.name;
-                        })}
-                      </a>
-                    </Link>
-                  </td>
-                  <td>{order.isPaid == true ? "Paid" : "Not Paid"}</td>
-                  <td>{order._id}</td>
-                  <td>{order.createdAt.slice(0, 10)}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </Table>
+        <Col xs={12}>
+          <Table striped bordered hover className={dashboard.table}>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Payment</th>
+                <th>Order No.</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map((order, index) => {
+                return (
+                  <tr style={{ cursor: "pointer" }}>
+                    <td>{index + 1}</td>
+                    <td>
+                      <Link href={`/admin/update/${order._id}`}>
+                        <a>
+                          {order.orderItems.map((prod) => {
+                            return prod.name;
+                          })}
+                        </a>
+                      </Link>
+                    </td>
+                    <td>{order.isPaid == true ? "Paid" : "Not Paid"}</td>
+                    <td>{order._id}</td>
+                    <td>{order.createdAt.slice(0, 10)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </Col>
       </Row>
     </Container>
   );

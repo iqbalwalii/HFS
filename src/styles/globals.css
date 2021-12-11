@@ -23,4 +23,11 @@ a {
 .imageCon {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+.red {
+  color: #f00;
+}
+.primary {
+  color: rgb(27, 27, 190);
 }

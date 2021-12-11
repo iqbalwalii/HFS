@@ -4,9 +4,11 @@ const router = require('express').Router();
 
 //---- GET ALL PRODUCTs  ----//
 async function getAll(req, res) {
+	const { category } = req.query;
+	const qry = category ? { category } : {};
 	try {
 		await db.connect();
-		const products = await Product.find().lean();
+		const products = await Product.find(qry).lean();
 		await db.disconnect();
 		res.json({ status: 200, products: products });
 	} catch (err) {
@@ -18,7 +20,8 @@ async function getAll(req, res) {
 }
 //---- CREATE PRODUCT  ----//
 async function createOne(req, res) {
-	const { name, brand, slug, price, image, description, category } = req.body;
+	const { name, brand, slug, price, image, description, masterCategory } =
+		req.body;
 	const data = {};
 
 	if (name) {
@@ -30,8 +33,8 @@ async function createOne(req, res) {
 	if (slug) {
 		data.slug = slug;
 	}
-	if (category) {
-		data.category = category;
+	if (masterCategory) {
+		data.masterCategory = masterCategory;
 	}
 	if (price) {
 		data.price = price;
@@ -105,7 +108,7 @@ async function updateOne(req, res) {
 	} catch (err) {
 		res.json({
 			status: 500,
-			message: err,
+			message: err.toString(),
 		});
 	}
 }

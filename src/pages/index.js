@@ -69,7 +69,7 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-	const { data } = await Axios.get('/api/products');
+	const { data } = await Axios.get('/api/products?category=footwear');
 	console.log('index', data);
 	if (data && data.products) {
 		return {

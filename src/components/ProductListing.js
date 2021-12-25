@@ -7,20 +7,19 @@ import { connect } from "react-redux";
 const ProductListing = (props) => {
   const [products, setProducts] = useState([]);
   console.log("prospss", props);
-
+  const searchTerm = props.term;
   useEffect(() => {
-    const { searchTerm } = props;
-    const fetchProducts = async () => {
-      const { data } = await Axios.get("/api/products");
-
+    const fetchProducts = async (searchTerm) => {
+      const { data } = await Axios.get(`/api/products/?query=${searchTerm}`);
+      console.log(data);
       if (data.message) {
         setProducts([]);
         return;
       } else {
-        const prods = data.products.filter((prod) => {
+        const prods = data?.products?.filter((prod) => {
           if (
-            prod.name?.toUpperCase().includes(searchTerm.toUpperCase()) ||
-            prod.description?.toUpperCase().includes(searchTerm.toUpperCase())
+            prod?.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            prod?.description?.toLowerCase().includes(searchTerm.toLowerCase())
           ) {
             return prod;
           }
@@ -28,9 +27,10 @@ const ProductListing = (props) => {
         setProducts(prods);
       }
     };
-    fetchProducts();
-  }, []);
-
+    props.dispatch({ type: "SEARCH", payload: searchTerm });
+    // fetchProducts(searchTerm);
+    console.log(props.searchTerm);
+  }, [searchTerm]);
   return (
     <Container>
       <Row>

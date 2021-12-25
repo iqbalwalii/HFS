@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
     }
 
     // User Logout
-    // 9906440708 gulab.jeweller
+
     case ACTIONS.logOutUser: {
       console.log("object");
       Cookies.remove("userData");
@@ -47,9 +47,10 @@ const reducer = (state = initialState, action) => {
 
       return { ...state, cart: [] };
     }
-    // set searc hterm
+
+    // set search `term
     case ACTIONS.setSearch: {
-      console.log("setting", payload);
+      console.log("setttttttttttttttttting", payload);
       return { ...state, searchTerm: payload };
     }
 
@@ -67,7 +68,7 @@ const reducer = (state = initialState, action) => {
         },
       ];
       Cookies.set("cartItems", JSON.stringify(newItems));
-
+      // console.log("Payloadddddddddddddd", payload);
       return {
         ...state,
         cart: newItems,

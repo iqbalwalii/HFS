@@ -1,57 +1,88 @@
-import React, { useState } from "react";
-import { Navbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Container,
+  Button,
+  Form,
+  InputGroup,
+  FormControl,
+} from "react-bootstrap";
 import Image from "next/image";
+import Axios from "../utils/axios";
 import Navstyle from "../styles/Navbar.module.css";
 import Link from "next/link";
 import { connect } from "react-redux";
-import { Bag, Person, Search } from "react-bootstrap-icons";
+import { Bag, Person, Search, XLg } from "react-bootstrap-icons";
 import ACTIONS from "../utils/store/actions";
 import { useRouter } from "next//router";
 const Navigation = (props) => {
-  const [term, setTerm] = useState("");
   const router = useRouter();
   console.log("props", props);
-  const onClickHandler = (e) => {};
-  // props.dispatch({
-  //   type: ACTIONS.loginUser,
-  //   payload: { name: "iqbal", id: "123" },
-  // });
+  const [page, setPage] = useState("");
+  const [box, setBox] = useState(false);
 
-  function onSearchHandler() {
-    props.dispatch({
-      type: "SEARCH",
-      payload: term,
-    });
-    router.push("/shop");
-  }
+  const onSearchHandler = (e) => {
+    if (e.key === "Enter") {
+      props.dispatch({
+        type: "SEARCH",
+        payload: e.target.value,
+      });
+
+      router.push({
+        pathname: "/shop",
+        query: { query: e.target.value },
+      });
+    }
+  };
 
   return (
     <div className={Navstyle.nav}>
+      {/* {console.log(term)} */}
       <Navbar bg="light" expand="xxxl" fixed="top">
         <Container>
           <div className="">
             <Navbar.Toggle
-              aria-controls="basic-navbar-nav"
+              aria-controls="basic-navb ar-nav"
               className={Navstyle.ham}
             />
-            <Search
-              onClick={onSearchHandler}
-              size={32}
-              style={{ paddingLeft: ".6rem" }}
-            />
+            {box === true ? (
+              <XLg
+                onClick={() => setBox(false)}
+                size={32}
+                style={{ paddingLeft: ".6rem" }}
+              />
+            ) : (
+              <Search
+                onClick={() => setBox(true)}
+                size={32}
+                style={{ paddingLeft: ".6rem" }}
+              />
+            )}
           </div>
-          <Navbar.Brand href="/" className={Navstyle.brand}>
-            <Image
-              src="/assets/images/logo.png"
-              alt="High Fashion Society"
-              width="100px"
-              height="40px"
-            />
-            {/* <img
-              src="./assets/images/logo.png"
-              style={{ width: "80px", marginRight: ".2rem" }}
-            /> */}
-          </Navbar.Brand>
+          {box === true ? (
+            <Form className={Navstyle.search}>
+              <InputGroup size="sm" className="mt-1">
+                <FormControl
+                  aria-label="Small"
+                  aria-describedby="inputGroup-sizing-sm"
+                  placeholder="Search HFS"
+                  onKeyDown={onSearchHandler}
+                />
+              </InputGroup>
+            </Form>
+          ) : (
+            <Navbar.Brand href="/" className={Navstyle.brand}>
+              <Image
+                src="/assets/images/logo.png"
+                alt="High Fashion Society"
+                width="100px"
+                height="40px"
+              />
+            </Navbar.Brand>
+          )}
+
           <div className={Navstyle.links}>
             <Link href="/auth">
               <a>
@@ -61,22 +92,20 @@ const Navigation = (props) => {
             <Link href="/cart">
               <a>
                 <Bag size={30} style={{ paddingRight: ".3rem" }} />
-                {props.cart.length || ""}
+                {/* {props.cart.length || ""} */}
               </a>
             </Link>
           </div>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className={Navstyle.navBottom}>
-              <Nav.Link href="#home">NEW ARRIVALS</Nav.Link>
+              <Nav.Link href="/">NEW ARRIVALS</Nav.Link>
               <Nav.Link href="#link">BEST SELLERS</Nav.Link>
-              <Nav.Link href="#link">AIR JORDANS</Nav.Link>
+              <Nav.Link value="Jordan">AIR JORDANS</Nav.Link>
               <Nav.Link href="#link">NIKE</Nav.Link>
               <Nav.Link href="#link">YEEZY</Nav.Link>
               <Nav.Link href="#link">KIDS TRAINERS</Nav.Link>
               <Nav.Link href="#link">OFF WHITE</Nav.Link>
               <Nav.Link href="#link">NEW BALANCE</Nav.Link>
-              {/* <Nav.Link href="#link">KID TRAINERS</Nav.Link> */}
-              {/* <Nav.Link href="#link">SHOE CARE</Nav.Link> */}
               <Nav.Link href="#link">CLOTHING</Nav.Link>
               <Nav.Link href="#link">WOMEN</Nav.Link>
             </Nav>
@@ -88,7 +117,7 @@ const Navigation = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { ...state };
+  return { searchTerm: state.searchTerm };
 };
 
 export default connect(mapStateToProps)(Navigation);

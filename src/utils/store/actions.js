@@ -13,6 +13,5 @@ const ACTIONS = {
   userLogout: "LOGOUT",
   clearCart: "CLEAR_CART",
   saveShippingAddress: "ADD_SHIPPING_ADDRESS",
-  setSearch: "SEARCH",
 };
 export default ACTIONS;

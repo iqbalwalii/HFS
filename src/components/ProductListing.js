@@ -6,12 +6,12 @@ import Axios from "../utils/axios";
 import { connect } from "react-redux";
 const ProductListing = (props) => {
   const [products, setProducts] = useState([]);
-  console.log("prospss", props);
-  const searchTerm = props.term;
+  const { searchTerm } = props;
+  console.log("searchTerm", searchTerm);
   useEffect(() => {
     const fetchProducts = async (searchTerm) => {
       const { data } = await Axios.get(`/api/products/?query=${searchTerm}`);
-      console.log(data);
+      console.log("data", data);
       if (data.message) {
         setProducts([]);
         return;
@@ -28,8 +28,7 @@ const ProductListing = (props) => {
       }
     };
     props.dispatch({ type: "SEARCH", payload: searchTerm });
-    // fetchProducts(searchTerm);
-    console.log(props.searchTerm);
+    fetchProducts(searchTerm);
   }, [searchTerm]);
   return (
     <Container>
@@ -137,6 +136,6 @@ const ProductListing = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { searchTerm: state.searchTerm };
+  return { store: state };
 };
 export default connect(mapStateToProps)(ProductListing);

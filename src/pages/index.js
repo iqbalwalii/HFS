@@ -8,13 +8,9 @@ import VideoCard from "../components/VideoCard";
 import SPA from "../components/SingleProduct";
 // import data from "../utils/data";
 import Axios from "../utils/axios";
-
 import { Container, Row, Col, Button } from "react-bootstrap";
 export default function Home(props) {
   const { error, products } = props;
-  // if (error) {
-  //   return;
-  // }
   return (
     <div className={index.main}>
       <VideoCard />

@@ -24,16 +24,9 @@ const Navigation = (props) => {
   const [box, setBox] = useState(false);
 
   const onSearchHandler = (e) => {
+    console.log("value", e.target.value);
     if (e.key === "Enter") {
-      props.dispatch({
-        type: "SEARCH",
-        payload: e.target.value,
-      });
-
-      router.push({
-        pathname: "/shop",
-        query: { query: e.target.value },
-      });
+      router.push({ pathname: "/shop", query: { searchTerm: e.target.value } });
     }
   };
 
@@ -100,14 +93,16 @@ const Navigation = (props) => {
             <Nav className={Navstyle.navBottom}>
               <Nav.Link href="/">NEW ARRIVALS</Nav.Link>
               <Nav.Link href="#link">BEST SELLERS</Nav.Link>
-              <Nav.Link value="Jordan">AIR JORDANS</Nav.Link>
-              <Nav.Link href="#link">NIKE</Nav.Link>
-              <Nav.Link href="#link">YEEZY</Nav.Link>
-              <Nav.Link href="#link">KIDS TRAINERS</Nav.Link>
-              <Nav.Link href="#link">OFF WHITE</Nav.Link>
-              <Nav.Link href="#link">NEW BALANCE</Nav.Link>
-              <Nav.Link href="#link">CLOTHING</Nav.Link>
-              <Nav.Link href="#link">WOMEN</Nav.Link>
+              <Nav.Link value="Jordan" href="/jordans">
+                AIR JORDANS
+              </Nav.Link>
+              <Nav.Link href="/nike">NIKE</Nav.Link>
+              <Nav.Link href="/yeezy">YEEZY</Nav.Link>
+              <Nav.Link href="/Kids">KIDS TRAINERS</Nav.Link>
+              <Nav.Link href="/off-white">OFF WHITE</Nav.Link>
+              <Nav.Link href="/new-balance">NEW BALANCE</Nav.Link>
+              <Nav.Link href="/clothing">CLOTHING</Nav.Link>
+              <Nav.Link href="/women">WOMEN</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -116,8 +111,4 @@ const Navigation = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return { searchTerm: state.searchTerm };
-};
-
-export default connect(mapStateToProps)(Navigation);
+export default Navigation;

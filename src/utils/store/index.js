@@ -48,12 +48,6 @@ const reducer = (state = initialState, action) => {
       return { ...state, cart: [] };
     }
 
-    // set search `term
-    case ACTIONS.setSearch: {
-      console.log("setttttttttttttttttting", payload);
-      return { ...state, searchTerm: payload };
-    }
-
     // Add new item to cart
     case ACTIONS.addToCart: {
       const exist = state.cart.find((item) => item.slug == payload.slug);

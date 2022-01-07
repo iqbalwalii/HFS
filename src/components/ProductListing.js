@@ -3,32 +3,50 @@ import style from "../styles/Products.module.css";
 import Card from "../components/ProductCard";
 import { Container, Row, Col, Accordion } from "react-bootstrap";
 import Axios from "../utils/axios";
-import { connect } from "react-redux";
 const ProductListing = (props) => {
   const [products, setProducts] = useState([]);
   const { searchTerm } = props;
   console.log("searchTerm", searchTerm);
   useEffect(() => {
-    const fetchProducts = async (searchTerm) => {
-      const { data } = await Axios.get(`/api/products/?query=${searchTerm}`);
-      console.log("data", data);
+    const searchProducts = async (searchTerm, brand) => {
+      if (brand) {
+        const { data } = await Axios.get(`/api/products/?query=${searchTerm}`);
+        console.log("data", data);
+        if (data.message) {
+          setProducts([]);
+          return;
+        } else {
+          const prods = data?.products?.filter((prod) => {
+            if (
+              prod?.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              prod?.description
+                ?.toLowerCase()
+                .includes(searchTerm.toLowerCase())
+            ) {
+              return prod;
+            } else {
+              return data?.products;
+            }
+          });
+          setProducts(prods);
+        }
+      }
+    };
+    const fetchProducts = async () => {
+      const { data } = await Axios.get(`/api/products`);
       if (data.message) {
         setProducts([]);
         return;
       } else {
-        const prods = data?.products?.filter((prod) => {
-          if (
-            prod?.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            prod?.description?.toLowerCase().includes(searchTerm.toLowerCase())
-          ) {
-            return prod;
-          }
-        });
-        setProducts(prods);
+        setProducts(data.products);
+        console.log("All Products", data.products);
       }
     };
-    props.dispatch({ type: "SEARCH", payload: searchTerm });
-    fetchProducts(searchTerm);
+    if (searchTerm) {
+      searchProducts(searchTerm);
+    } else {
+      fetchProducts();
+    }
   }, [searchTerm]);
   return (
     <Container>
@@ -134,8 +152,4 @@ const ProductListing = (props) => {
     </Container>
   );
 };
-
-const mapStateToProps = (state) => {
-  return { store: state };
-};
-export default connect(mapStateToProps)(ProductListing);
+export default ProductListing;

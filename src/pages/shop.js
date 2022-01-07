@@ -8,13 +8,15 @@ const Shop = (props) => {
     </div>
   );
 };
+
 // const mapStateToProps = (state) => {
 //   return { ...state };
 // };
 
 export async function getServerSideProps(_ctx) {
-  console.log("xxx", _ctx);
-  const { searchTerm } = _ctx.query;
+  let { searchTerm } = await _ctx.query;
+  console.log("xxx", searchTerm);
+  searchTerm == undefined ? (searchTerm = "") : (searchTerm = searchTerm);
   return {
     props: {
       searchTerm,

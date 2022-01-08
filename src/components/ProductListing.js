@@ -2,15 +2,41 @@ import React, { useEffect, useState } from "react";
 import style from "../styles/Products.module.css";
 import Card from "../components/ProductCard";
 import { Container, Row, Col, Accordion } from "react-bootstrap";
+import Image from "next/image";
 import Axios from "../utils/axios";
 const ProductListing = (props) => {
   const [products, setProducts] = useState([]);
   const { searchTerm } = props;
+  const { brand } = props;
   console.log("searchTerm", searchTerm);
   useEffect(() => {
     const searchProducts = async (searchTerm, brand) => {
       if (brand) {
         const { data } = await Axios.get(`/api/products/?query=${searchTerm}`);
+        console.log("data", data);
+        if (data.message) {
+          setProducts([]);
+          return;
+        } else {
+          const prods = data?.products?.filter((prod) => {
+            if (
+              prod?.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              prod?.description
+                ?.toLowerCase()
+                .includes(searchTerm.toLowerCase())
+            ) {
+              return prod;
+            } else {
+              return data?.products;
+            }
+          });
+          setProducts(prods);
+        }
+      }
+    };
+    const fetchBrands = async (searchTerm) => {
+      if (brand) {
+        const { data } = await Axios.get(`/api/products/?brand=${searchTerm}`);
         console.log("data", data);
         if (data.message) {
           setProducts([]);
@@ -44,6 +70,8 @@ const ProductListing = (props) => {
     };
     if (searchTerm) {
       searchProducts(searchTerm);
+    } else if (brand) {
+      fetchBrands(brand);
     } else {
       fetchProducts();
     }
@@ -145,7 +173,15 @@ const ProductListing = (props) => {
               ))}
             </div>
           ) : (
-            <div className={style.products}>No Prods </div>
+            <div className={style.box}>
+              <h1>NO PRODUCTS</h1>
+              <Image
+                alt="empty box"
+                src="/assets/images/box.svg"
+                width="300px"
+                height="300px"
+              />
+            </div>
           )}
         </Col>
       </Row>

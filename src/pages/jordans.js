@@ -9,13 +9,4 @@ const jordans = () => {
   );
 };
 
-export async function getServerSideProps(_ctx) {
-  console.log("xxx", _ctx);
-  const { searchTerm } = _ctx.query;
-  return {
-    props: {
-      searchTerm,
-    },
-  };
-}
 export default jordans;

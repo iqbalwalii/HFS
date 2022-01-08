@@ -22,14 +22,12 @@ const Navigation = (props) => {
   console.log("props", props);
   const [page, setPage] = useState("");
   const [box, setBox] = useState(false);
-
   const onSearchHandler = (e) => {
     console.log("value", e.target.value);
     if (e.key === "Enter") {
       router.push({ pathname: "/shop", query: { searchTerm: e.target.value } });
     }
   };
-
   return (
     <div className={Navstyle.nav}>
       {/* {console.log(term)} */}
@@ -91,18 +89,65 @@ const Navigation = (props) => {
           </div>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className={Navstyle.navBottom}>
-              <Nav.Link href="/">NEW ARRIVALS</Nav.Link>
-              <Nav.Link href="#link">BEST SELLERS</Nav.Link>
-              <Nav.Link value="Jordan" href="/jordans">
-                AIR JORDANS
-              </Nav.Link>
-              <Nav.Link href="/nike">NIKE</Nav.Link>
-              <Nav.Link href="/yeezy">YEEZY</Nav.Link>
-              <Nav.Link href="/Kids">KIDS TRAINERS</Nav.Link>
-              <Nav.Link href="/off-white">OFF WHITE</Nav.Link>
-              <Nav.Link href="/new-balance">NEW BALANCE</Nav.Link>
-              <Nav.Link href="/clothing">CLOTHING</Nav.Link>
-              <Nav.Link href="/women">WOMEN</Nav.Link>
+              <Link href="/shop">
+                <a style={{ color: "#707071" }}>NEW ARRIVALS</a>
+              </Link>
+              <Link href="/shop">
+                <a style={{ color: "#707071" }}>BEST SELLERS</a>
+              </Link>
+              <Link
+                href={{
+                  pathname: "/shop",
+                  query: { brand: "jordan" },
+                }}
+              >
+                <a style={{ color: "#707071" }}> AIR JORDANS</a>
+              </Link>
+              <Link
+                href={{
+                  pathname: "/shop",
+                  query: { brand: "nike" },
+                }}
+              >
+                <a style={{ color: "#707071" }}>NIKES</a>
+              </Link>
+              <Link
+                href={{
+                  pathname: "/shop",
+                  query: { brand: "yeezy" },
+                }}
+              >
+                <a style={{ color: "#707071" }}>YEEZY</a>
+              </Link>
+              <Link
+                href={{
+                  pathname: "/shop",
+                  query: { brand: "off white" },
+                }}
+              >
+                <a style={{ color: "#707071" }}>OFF-WHITE</a>
+              </Link>
+              <Link
+                href={{
+                  pathname: "/shop",
+                  query: { brand: "new balance" },
+                }}
+              >
+                <a style={{ color: "#707071" }}>NEW BALANCE</a>
+              </Link>
+              <Link href="/shop">
+                <a>
+                  <Link href="/shop">
+                    <a style={{ color: "#707071" }}> KIDS TRAINERS</a>
+                  </Link>
+                </a>
+              </Link>{" "}
+              <Link href="/shop">
+                <a style={{ color: "#707071" }}>CLOTHING</a>
+              </Link>
+              <Link href="/shop">
+                <a style={{ color: "#707071" }}>WOMEN</a>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

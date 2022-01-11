@@ -20,6 +20,12 @@
   margin: 0;
 }
 
+.nav .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .nav .links a {
   color: #000000d7;
 }

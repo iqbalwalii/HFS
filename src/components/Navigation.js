@@ -9,6 +9,7 @@ import {
   InputGroup,
   FormControl,
 } from "react-bootstrap";
+import axios from "axios";
 import Image from "next/image";
 import Axios from "../utils/axios";
 import Navstyle from "../styles/Navbar.module.css";
@@ -17,11 +18,44 @@ import { connect } from "react-redux";
 import { Bag, Person, Search, XLg } from "react-bootstrap-icons";
 import ACTIONS from "../utils/store/actions";
 import { useRouter } from "next//router";
+import { countries } from "./Countries";
 const Navigation = (props) => {
   const router = useRouter();
   console.log("props", props);
   const [page, setPage] = useState("");
   const [box, setBox] = useState(false);
+  const [country, setCountry] = useState("");
+
+  useEffect(() => {
+    try {
+      fetch(
+        "https://geolocation-db.com/json/d802faa0-10bd-11ec-b2fe-47a0872c6708",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((response) => {
+          if (response.country_name) {
+            setCountry(response.country_name);
+            console.log("geo respoinse ", response);
+            // console.log(
+            // 	'after check if country from fetch, ',
+            // 	response.country_name
+            // );
+            // const country = response.country_name;
+          }
+        })
+        .catch((err) => {
+          console.log("geolocation Request failed", err);
+        });
+    } catch (err) {
+      console.log("outter geolocation trycatch", err);
+    }
+  }, []);
   const onSearchHandler = (e) => {
     console.log("value", e.target.value);
     if (e.key === "Enter") {

@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import footer from "../styles/Footer.module.css";
 import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 import Link from "next/link";
-import CountryDropdown from "country-dropdown-with-flags-for-react";
+ 
 const Footer = () => {
+
   return (
     <Row className={footer.main}>
       <Col className={footer.logo}>
@@ -69,13 +70,7 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <CountryDropdown
-              id="UNIQUE_ID"
-              className="YOUR_CSS_CLASS"
-              preferredCountries={["gb", "us"]}
-              value=""
-              handleChange={(e) => console.log(e.target.value)}
-            ></CountryDropdown>
+         
           </li>
           <li>Blog</li>
           {/* <li>Careers</li> */}

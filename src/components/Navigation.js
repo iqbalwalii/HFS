@@ -19,12 +19,15 @@ import { Bag, Person, Search, XLg } from "react-bootstrap-icons";
 import ACTIONS from "../utils/store/actions";
 import { useRouter } from "next//router";
 import { countries } from "./Countries";
+import ReactFlagsSelect from "react-flags-select";
 const Navigation = (props) => {
   const router = useRouter();
   console.log("props", props);
   const [page, setPage] = useState("");
   const [box, setBox] = useState(false);
   const [country, setCountry] = useState("");
+  const [code, setCode] = useState("");
+  const [selected, setSelected] = useState(code);
 
   useEffect(() => {
     try {
@@ -41,7 +44,8 @@ const Navigation = (props) => {
         .then((response) => {
           if (response.country_name) {
             setCountry(response.country_name);
-            console.log("geo respoinse ", response);
+            setCode(response.country_code);
+            console.log("geo respoinse ");
             // console.log(
             // 	'after check if country from fetch, ',
             // 	response.country_name
@@ -109,6 +113,12 @@ const Navigation = (props) => {
           )}
 
           <div className={Navstyle.links}>
+            <ReactFlagsSelect
+              selected={selected}
+              onSelect={(code) => setSelected(code)}
+              placeholder={country}
+              className={Navstyle.location}
+            />
             <Link href="/auth">
               <a>
                 <Person size={36} style={{ paddingRight: ".3rem" }} />

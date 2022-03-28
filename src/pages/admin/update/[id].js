@@ -54,7 +54,7 @@ const Update = (props) => {
                 );
               })}
               <tr>
-                <td colspan={3}>
+                <td colSpan={3}>
                   <h6 className="text-end px-5">
                     <strong>TAX</strong>
                   </h6>
@@ -64,7 +64,7 @@ const Update = (props) => {
                 </td>
               </tr>
               <tr>
-                <td colspan={3}>
+                <td colSpan={3}>
                   <h6 className="text-end px-5">
                     <strong>TOTAL</strong>
                   </h6>

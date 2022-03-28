@@ -45,7 +45,7 @@ const Update = (props) => {
             <tbody>
               {items?.orderItems?.map((prod, index) => {
                 return (
-                  <tr>
+                  <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{prod.name}</td>
                     <td>{prod.quantity}</td>

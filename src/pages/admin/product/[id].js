@@ -3,7 +3,7 @@ import { Table, Container, Row, Col, Button, ListGroup } from "react-bootstrap";
 import Axios from "../../../utils/axios";
 import Image from "next/image";
 import Link from "next/link";
-const orderDetail = (props) => {
+const OrderDetail = (props) => {
   const [items, setItems] = useState({});
   useEffect(() => {
     async function fetchOrder(slug) {
@@ -97,7 +97,7 @@ const orderDetail = (props) => {
     </Container>
   );
 };
-export default orderDetail;
+export default OrderDetail;
 export async function getServerSideProps({ params }) {
   console.log("Productssssss", params);
   return {

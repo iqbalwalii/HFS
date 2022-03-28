@@ -43,7 +43,7 @@ const Orders = () => {
             <tbody>
               {orders.map((order, index) => {
                 return (
-                  <tr style={{ cursor: "pointer" }}>
+                  <tr style={{ cursor: "pointer" }} key={index}>
                     <td>{index + 1}</td>
                     <td>
                       <Link href={`/admin/update/${order._id}`}>

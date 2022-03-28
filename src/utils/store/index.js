@@ -90,6 +90,10 @@ const reducer = (state = initialState, action) => {
         },
       };
     }
+    case ACTIONS.setCurrency: {
+      Cookies.set("currency", payload);
+      return { ...state, currency: payload };
+    }
 
     // Update existing Cart Item
     case ACTIONS.updateProduct: {

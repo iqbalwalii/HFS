@@ -13,5 +13,6 @@ const ACTIONS = {
   userLogout: "LOGOUT",
   clearCart: "CLEAR_CART",
   saveShippingAddress: "ADD_SHIPPING_ADDRESS",
+  setCurrency: "SET_CURRENCY",
 };
 export default ACTIONS;

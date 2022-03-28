@@ -3,7 +3,6 @@ import SingleCard from "../../components/SingleProduct";
 import Card from "../../components/Card";
 import Axios from "../../utils/axios";
 import Head from "next/head";
-
 export default function Single(props) {
   let product = null;
   if (!props.error) {

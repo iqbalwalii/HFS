@@ -85,9 +85,9 @@ const Products = () => {
       </Row>
       <Row className={dashboard.products}>
         <ListGroup variant="flush">
-          {products.map((product) => {
+          {products.map((product, idx) => {
             return (
-              <ListGroup.Item className={dashboard.listItem}>
+              <ListGroup.Item className={dashboard.listItem} key={idx}>
                 <Link href={`/admin/product/${product.slug}`}>
                   <a>
                     <h6>{product.name}</h6>

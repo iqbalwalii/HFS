@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table, Container, Row, Col, Button, ListGroup } from "react-bootstrap";
 import Axios from "../../../utils/axios";
 import Image from "next/image";
-const orderDetail = (props) => {
+const Update = (props) => {
   const [items, setItems] = useState({});
   useEffect(() => {
     async function fetchOrder(id) {
@@ -11,7 +11,7 @@ const orderDetail = (props) => {
       console.log(data.order);
     }
     fetchOrder(props.orderId);
-  }, []);
+  }, [props?.orderId]);
   return (
     <Container>
       <h3 className="text-center mt-3">Order Details</h3>
@@ -19,13 +19,14 @@ const orderDetail = (props) => {
       <Row>
         <Col xs={12} md={3}>
           <div className="imageCon">
-            {items?.orderItems?.map((prod) => {
+            {items?.orderItems?.map((prod, index) => {
               return (
                 <Image
                   src={prod.image}
                   width="100px"
                   height="100px"
                   alt="product image"
+                  key={index}
                 />
               );
             })}
@@ -108,7 +109,7 @@ const orderDetail = (props) => {
     </Container>
   );
 };
-export default orderDetail;
+export default Update;
 export async function getServerSideProps({ params }) {
   console.log("orderrrrrrrrr", params);
   return {

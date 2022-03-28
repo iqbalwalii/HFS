@@ -19,7 +19,6 @@ import { Bag, Person, Search, XLg } from "react-bootstrap-icons";
 import ACTIONS from "../utils/store/actions";
 import { useRouter } from "next//router";
 import { countries } from "./Countries";
-import ReactFlagsSelect from "react-flags-select";
 const Navigation = (props) => {
   const router = useRouter();
   console.log("props", props);
@@ -27,39 +26,7 @@ const Navigation = (props) => {
   const [box, setBox] = useState(false);
   const [country, setCountry] = useState("");
   const [code, setCode] = useState("");
-  const [selected, setSelected] = useState(code);
 
-  useEffect(() => {
-    try {
-      fetch(
-        "https://geolocation-db.com/json/d802faa0-10bd-11ec-b2fe-47a0872c6708",
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-          },
-        }
-      )
-        .then((res) => res.json())
-        .then((response) => {
-          if (response.country_name) {
-            setCountry(response.country_name);
-            setCode(response.country_code);
-            console.log("geo respoinse ");
-            // console.log(
-            // 	'after check if country from fetch, ',
-            // 	response.country_name
-            // );
-            // const country = response.country_name;
-          }
-        })
-        .catch((err) => {
-          console.log("geolocation Request failed", err);
-        });
-    } catch (err) {
-      console.log("outter geolocation trycatch", err);
-    }
-  }, []);
   const onSearchHandler = (e) => {
     console.log("value", e.target.value);
     if (e.key === "Enter") {
@@ -113,12 +80,6 @@ const Navigation = (props) => {
           )}
 
           <div className={Navstyle.links}>
-            <ReactFlagsSelect
-              selected={selected}
-              onSelect={(code) => setSelected(code)}
-              placeholder={country}
-              className={Navstyle.location}
-            />
             <Link href="/auth">
               <a>
                 <Person size={36} style={{ paddingRight: ".3rem" }} />

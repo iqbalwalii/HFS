@@ -36,7 +36,7 @@ const Users = () => {
           <tbody>
             {users.map((user, index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <th>{index + 1}</th>
                   <th>{user.name}</th>
                   <th>{user.email}</th>

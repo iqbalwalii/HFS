@@ -1,10 +1,42 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import footer from "../styles/Footer.module.css";
 import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 import Link from "next/link";
- 
+import ReactFlagsSelect from "react-flags-select";
 const Footer = () => {
+  const [selected, setSelected] = useState("US");
+  useEffect(() => {
+    try {
+      fetch(
+        "https://geolocation-db.com/json/d802faa0-10bd-11ec-b2fe-47a0872c6708",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((response) => {
+          if (response.country_name) {
+            setCountry(response.country_name);
+            setCode(response.country_code);
+            console.log("geo respoinse ");
+            // console.log(
+            // 	'after check if country from fetch, ',
+            // 	response.country_name
+            // );
+            // const country = response.country_name;
+          }
+        })
+        .catch((err) => {
+          console.log("geolocation Request failed", err);
+        });
+    } catch (err) {
+      console.log("outter geolocation trycatch", err);
+    }
+  }, []);
 
   return (
     <Row className={footer.main}>
@@ -69,9 +101,7 @@ const Footer = () => {
               <a>My Account</a>
             </Link>
           </li>
-          <li>
-         
-          </li>
+          <li></li>
           <li>Blog</li>
           {/* <li>Careers</li> */}
           <li>Laybuy</li>
@@ -99,6 +129,12 @@ const Footer = () => {
           <li>Youtube</li>
           <li>Dribbble</li>
           <li>Pinterest</li>
+          <ReactFlagsSelect
+            selected={selected}
+            onSelect={(code) => setSelected(code)}
+            // placeholder={country}
+            // className={Navstyle.location}
+          />
         </ul>
       </Col>
     </Row>

@@ -14,7 +14,7 @@ const SingleImage = ({ productImages }) => {
           width="350px"
           height="350px"
         /> */}
-        <ReactImageMagnify
+        {/* <ReactImageMagnify
           style={{ zIndex: "1" }}
           {...{
             smallImage: {
@@ -29,7 +29,7 @@ const SingleImage = ({ productImages }) => {
               height: 1800,
             },
           }}
-        />
+        /> */}
       </div>
       <div className={single.side}>
         {productImages.map((imgUrl, idx) => {

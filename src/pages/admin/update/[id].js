@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table, Container, Row, Col, Button, ListGroup } from "react-bootstrap";
+import { Table, Container, Row, Col, ListGroup } from "react-bootstrap";
 import Axios from "../../../utils/axios";
 import Image from "next/image";
 const Update = (props) => {

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "react-bootstrap";
 import blog from "../styles/BlogCard.module.css";
+import Link from "next/link";
 const CardBlogger = () => {
   return (
     <div className={blog.cardMain}>
@@ -27,7 +28,9 @@ const CardBlogger = () => {
         officia doloremqu huy kdsd kk
       </p>
       <div className="d-flex justify-content-center">
-        <Button variant="dark"> See more</Button>
+        <Link href="/blog/blogg">
+          <Button variant="dark"> See more</Button>
+        </Link>
       </div>
     </div>
   );

@@ -8,15 +8,10 @@ import ProductCard from "../components/ProductCard";
 // import data from "../utils/data";
 
 // import Swiper core and required modules
-import SwiperCore, {
-  Navigation,
-  Keyboard,
-  Mousewheel,
-  Pagination,
-} from "swiper";
+import SwiperCore, { Navigation, Mousewheel, Pagination } from "swiper";
 
 // install Swiper modules
-SwiperCore.use([Navigation, Pagination, Keyboard, Mousewheel]);
+SwiperCore.use([Navigation, Pagination, Mousewheel]);
 
 export default function Card(props) {
   console.log("Props", props);
@@ -28,7 +23,6 @@ export default function Card(props) {
         pagination={false}
         mousewheel={true}
         spaceBetween={30}
-        keyboard={true}
         className="mySwiper"
         breakpoints={{
           320: {

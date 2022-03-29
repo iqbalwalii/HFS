@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
 import single from "../styles/Single.module.css";
-import SingleImage from "./SingleImage";
+// import SingleImage from "./SingleImage";
 import Image from "next/image";
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
@@ -36,7 +36,7 @@ const SingleProduct = (props) => {
     <Container>
       <Row>
         <Col xs={10} md={5}>
-          <SingleImage productImages={product.images} />
+          {/* <SingleImage productImages={product.images} /> */}
         </Col>
         <Col
           xs={10}

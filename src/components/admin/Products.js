@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Axios from "../../utils/axios";
+// import Axios from "../../utils/axios";
 import {
   Container,
   Row,
@@ -25,11 +25,11 @@ const Products = () => {
     }
   };
 
-  useEffect(async () => {
-    const { data } = await Axios.get("/api/products");
-    setProducts(data.products);
-    console.log(products);
-  }, []);
+  // useEffect(async () => {
+  //   const { data } = await Axios.get("/api/products");
+  //   setProducts(data.products);
+  //   console.log(products);
+  // }, []);
   async function addNewProductHandler() {
     try {
       // dispatch({ type: 'CREATE_REQUEST ' });

@@ -1,7 +1,7 @@
 import React from "react";
 import SingleCard from "../../components/SingleProduct";
 import Card from "../../components/Card";
-import Axios from "../../utils/axios";
+// import Axios from "../../utils/axios";
 import Head from "next/head";
 export default function Single(props) {
   let product = null;
@@ -31,7 +31,8 @@ export default function Single(props) {
 
 // Prefetch Product from server
 export async function getServerSideProps(_ctx) {
-  const { data } = await Axios.get(`/api/products/${_ctx.params.slug}`);
+  // const { data } = await Axios.get(`/api/products/${_ctx.params.slug}`);
+  data = {};
   if (data && data.status === 200) {
     return {
       props: {

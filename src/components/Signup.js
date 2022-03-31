@@ -5,7 +5,7 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import signin from "../styles/Login.module.css";
 import ACTIONS from "../utils/store/actions";
 import { connect } from "react-redux";
-import Axios from "../utils/axios";
+// import Axios from "../utils/axios";
 const Signup = (props, { dispatch }) => {
   console.log("SIGNNNNNNN", props);
   const router = useRouter();

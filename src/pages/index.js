@@ -7,7 +7,7 @@ import Blog from "../components/Bloghome";
 import VideoCard from "../components/VideoCard";
 import SPA from "../components/SingleProduct";
 // import data from "../utils/data";
-import Axios from "../utils/axios";
+// import Axios from "../utils/axios";
 import { Container, Row, Col, Button } from "react-bootstrap";
 export default function Home(props) {
   const { error, products } = props;
@@ -20,7 +20,7 @@ export default function Home(props) {
         NEW<i style={{ fontWeight: "100" }}>&nbsp;ARRIVALS</i>
       </h4>
       <Container className={index.cards}>
-        {products.map((prod) => (
+        {products?.map((prod) => (
           <Card product={prod} key={prod.id} />
         ))}
       </Container>
@@ -62,20 +62,20 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps() {
-  const { data } = await Axios.get("/api/products?category=footwear");
-  console.log("index", data);
-  if (data && data.products) {
-    return {
-      props: {
-        products: data.products,
-      },
-    };
-  } else {
-    return {
-      props: {
-        error: data.message,
-      },
-    };
-  }
-}
+// export async function getServerSideProps() {
+//   const { data } = await Axios.get("/api/products?category=footwear");
+//   console.log("index", data);
+//   if (data && data.products) {
+//     return {
+//       props: {
+//         products: data.products,
+//       },
+//     };
+//   } else {
+//     return {
+//       props: {
+//         error: data.message,
+//       },
+//     };
+//   }
+// }

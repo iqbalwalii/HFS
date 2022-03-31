@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Table, Container, Row, Col, Button, ListGroup } from "react-bootstrap";
-import Axios from "../../../utils/axios";
+// import Axios from "../../../utils/axios";
 import Image from "next/image";
 import Link from "next/link";
 const OrderDetail = (props) => {
   const [items, setItems] = useState({});
   useEffect(() => {
     async function fetchOrder(slug) {
-      const { data } = await Axios.get(`/api/products/${slug}`);
+      // const { data } = await Axios.get(`/api/products/${slug}`);
+      data = {};
       setItems(data.product);
       console.log(data.product);
     }

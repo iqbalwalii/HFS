@@ -15,7 +15,7 @@ import {
 } from "react-bootstrap-icons";
 import { useRouter } from "next/router";
 import { Col, Row, Spinner } from "react-bootstrap";
-import Axios from "../../utils/axios";
+// import Axios from "../../utils/axios";
 const Home = (props) => {
   const router = useRouter();
   // useEffect(() => {

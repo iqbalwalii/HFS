@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import Axios from "../../utils/axios";
+// import Axios from "../../utils/axios";
 import {
   Button,
   ButtonGroup,
@@ -13,11 +13,11 @@ import dashboard from "../../styles/Dashboard.module.css";
 import Link from "next/link";
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-  useEffect(async () => {
-    const { data } = await Axios.get("/api/orders");
-    setOrders(data.orders);
-    console.log(data.orders);
-  }, []);
+  // useEffect(async () => {
+  //   const { data } = await Axios.get("/api/orders");
+  //   setOrders(data.orders);
+  //   console.log(data.orders);
+  // }, []);
   const onUpdateHandler = (e) => {
     console.log(e);
   };

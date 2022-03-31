@@ -19,7 +19,7 @@ const Checkout = (props) => {
     if (userData && userData.shippingAddress) {
       setInputValues(userData.shippingAddress);
     }
-  }, []);
+  }, [userData]);
 
   const onClickHandler = (e) => {
     e.preventDefault();

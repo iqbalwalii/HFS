@@ -10,7 +10,7 @@ const Login = (props) => {
   const router = useRouter();
   useEffect(() => {
     props.userData && props.userData.email ? router.push("/") : null;
-  }, []);
+  });
   const [user, setUser] = useState({
     email: "",
     password: "",

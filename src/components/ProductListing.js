@@ -78,7 +78,7 @@ const ProductListing = (props) => {
     } else {
       fetchProducts();
     }
-  }, [searchTerm]);
+  }, [searchTerm, brand]);
   return (
     <Container>
       <Row>

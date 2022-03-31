@@ -28,7 +28,7 @@ const CardBlogger = () => {
         officia doloremqu huy kdsd kk
       </p>
       <div className="d-flex justify-content-center">
-        <Link href="/blog/blogg">
+        <Link href="/blog/blogg" passHref>
           <Button variant="dark"> See more</Button>
         </Link>
       </div>

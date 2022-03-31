@@ -13,7 +13,7 @@ const OrderDetail = (props) => {
       console.log(data.product);
     }
     fetchOrder(props.productSlug);
-  }, []);
+  }, [props.productSlug]);
   return (
     <Container>
       <Row>
@@ -24,12 +24,42 @@ const OrderDetail = (props) => {
       <Row>
         <Col xs={12} md={3}>
           <div className="imageCon">
-            <Image src="/assets/images/pant1.jpg" width="50px" height="80px" />
-            <Image src="/assets/images/pant1.jpg" width="50px" height="80px" />
-            <Image src="/assets/images/pant1.jpg" width="50px" height="80px" />
-            <Image src="/assets/images/pant1.jpg" width="50px" height="80px" />
-            <Image src="/assets/images/pant1.jpg" width="50px" height="80px" />
-            <Image src="/assets/images/pant1.jpg" width="50px" height="80px" />
+            <Image
+              src="/assets/images/pant1.jpg"
+              width="50px"
+              alt="image"
+              height="80px"
+            />
+            <Image
+              src="/assets/images/pant1.jpg"
+              width="50px"
+              alt="image"
+              height="80px"
+            />
+            <Image
+              src="/assets/images/pant1.jpg"
+              width="50px"
+              alt="image"
+              height="80px"
+            />
+            <Image
+              src="/assets/images/pant1.jpg"
+              width="50px"
+              alt="image"
+              height="80px"
+            />
+            <Image
+              src="/assets/images/pant1.jpg"
+              width="50px"
+              alt="image"
+              height="80px"
+            />
+            <Image
+              src="/assets/images/pant1.jpg"
+              width="50px"
+              alt="image"
+              height="80px"
+            />
           </div>
           {/* {items?.images.map(
               (img)=>{

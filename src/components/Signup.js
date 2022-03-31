@@ -16,7 +16,7 @@ const Signup = (props, { dispatch }) => {
   });
   useEffect(() => {
     props?.userData?.email && router.push("/");
-  }, []);
+  }, [props?.userData?.email, router]);
   const onClickHandler = async (e) => {
     e.preventDefault();
     try {

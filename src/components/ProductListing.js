@@ -3,7 +3,7 @@ import style from "../styles/Products.module.css";
 import Card from "../components/ProductCard";
 import { Container, Row, Col, Accordion } from "react-bootstrap";
 import Image from "next/image";
-// import Axios from "../utils/axios";
+import Axios from "../utils/axios";
 const ProductListing = (props) => {
   const [products, setProducts] = useState([]);
   const { searchTerm } = props;
@@ -12,8 +12,7 @@ const ProductListing = (props) => {
   useEffect(() => {
     const searchProducts = async (searchTerm, brand) => {
       if (brand) {
-        // const { data } = await Axios.get(`/api/products/?query=${searchTerm}`);
-        data = {};
+        const { data } = await Axios.get(`/api/products/?query=${searchTerm}`);
         console.log("data", data);
         if (data.message) {
           setProducts([]);

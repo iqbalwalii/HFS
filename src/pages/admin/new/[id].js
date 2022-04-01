@@ -10,7 +10,7 @@ import {
   ButtonGroup,
 } from "react-bootstrap";
 import { useRouter } from "next/router";
-// import Axios from "../../../utils/axios";
+import Axios from "../../../utils/axios";
 const Add = ({ productId }) => {
   const [images, setImages] = useState({});
   const [active, setActive] = useState(null);
@@ -83,58 +83,58 @@ const Add = ({ productId }) => {
   async function onSubmitHandler(e) {
     e.preventDefault();
 
-    // try {
-    //   // dispatch({ type: 'UPDAT_REQUEST' });
+    try {
+      dispatch({ type: "UPDAT_REQUEST" });
 
-    //   // const { data } = await Axios.put(
-    //   //   `/api/admin/products/${productId}`,
-    //   //   {
-    //   //     ...inputValues,
-    //   //     isActive: active,
-    //   //     bannerImage: inputValues.file,
-    //   //     images: Object.values(images),
-    //   //   }
-    //   //   // { headers: { authorization: `Bearer ${userInfo.token}` } }
-    //   // );
-    //   if (data.message) {
-    //     // dispatch({ type: 'UPDATE_FAIL' });
-    //     console.log("res product update message", data.message);
+      const { data } = await Axios.put(
+        `/api/admin/products/${productId}`,
+        {
+          ...inputValues,
+          isActive: active,
+          bannerImage: inputValues.file,
+          images: Object.values(images),
+        }
+        // { headers: { authorization: `Bearer ${userInfo.token}` } }
+      );
+      if (data.message) {
+        dispatch({ type: "UPDATE_FAIL" });
+        console.log("res product update message", data.message);
 
-    //     // enqueueSnackbar(data.message, { variant: 'error' });
-    //     return;
-    //   } else {
-    //     // dispatch({ type: 'UPDATE_SUCCESS' });
+        enqueueSnackbar(data.message, { variant: "error" });
+        return;
+      } else {
+        dispatch({ type: "UPDATE_SUCCESS" });
 
-    //     // enqueueSnackbar('Product updated successfully', {
-    //     // variant: 'success',
-    //     // });
-    //     console.log("res product update else", data);
-    //     router.push("/admin/products");
-    //   }
-    // } catch (error) {
-    //   // dispatch({ type: 'UPDATE_FAIL' });
+        enqueueSnackbar("Product updated successfully", {
+          variant: "success",
+        });
+        console.log("res product update else", data);
+        router.push("/admin/products");
+      }
+    } catch (error) {
+      dispatch({ type: "UPDATE_FAIL" });
 
-    //   console.log("save catch errrrrr", error);
-    //   // enqueueSnackbar(error.message, { variant: 'error' });
-    // }
+      console.log("save catch errrrrr", error);
+      enqueueSnackbar(error.message, { variant: "error" });
+    }
   }
 
   useEffect(() => {
-    // if (!userInfo) {
-    // 	router.push('/login?redirect=/products');
-    // 	return;
-    // } else {
+    if (!userInfo) {
+    	router.push('/login?redirect=/products');
+    	return;
+    } else {
     async function fetchProduct() {
       try {
-        // dispatch({ type: 'FETCH_REQUEST' });
-        // const { data } = await Axios.get(
-        // `/api/admin/products/${productId}`
-        // {
-        // 	 headers: {
-        // 	 	authorization: `Bearer ${userInfo.token}`,
-        // 	 },
-        // }
-        // );
+        dispatch({ type: 'FETCH_REQUEST' });
+        const { data } = await Axios.get(
+        `/api/admin/products/${productId}`
+        {
+        	 headers: {
+        	 	authorization: `Bearer ${userInfo.token}`,
+        	 },
+        }
+        );
         if (data.status === 200) {
           console.log("use effeft  product trues", data);
           // setValue('name', data.product.name);
@@ -179,44 +179,44 @@ const Add = ({ productId }) => {
     const file = e.target.files[0];
     let bodyFormData = new FormData();
     bodyFormData.append("file", file);
-    //   try {
-    //     // dispatch({ type: 'UPLOAD_REQUEST' });
-    //     // const { data } = await Axios.post("/api/admin/upload", bodyFormData, {
-    //       "Content-Type": "multipart/form-data",
-    //     });
-    //     console.log("resp", data);
-    //     if (data.message) {
-    //       console.log("messa", data.message);
-    //       // enqueueSnackbar(data.message, { variant: 'error' });
-    //       // dispatch({ type: 'UPLOAD_FAILED', payload: data.message });
-    //     } else {
-    //       console.log("resp succ", data);
+      try {
+        // dispatch({ type: 'UPLOAD_REQUEST' });
+        // const { data } = await Axios.post("/api/admin/upload", bodyFormData, {
+          "Content-Type": "multipart/form-data",
+        });
+        console.log("resp", data);
+        if (data.message) {
+          console.log("messa", data.message);
+          // enqueueSnackbar(data.message, { variant: 'error' });
+          // dispatch({ type: 'UPLOAD_FAILED', payload: data.message });
+        } else {
+          console.log("resp succ", data);
 
-    //       // setValue('bannerImage', data.result.secure_url);
-    //       // dispatch({ type: 'UPLOAD_SUCCESS' });
-    //       // enqueueSnackbar('Uploaded successfully', {
-    //       // variant: 'success',
-    //       // });
+          // setValue('bannerImage', data.result.secure_url);
+          // dispatch({ type: 'UPLOAD_SUCCESS' });
+          // enqueueSnackbar('Uploaded successfully', {
+          // variant: 'success',
+          // });
 
-    //       if (e.target.id == "formFile") {
-    //         setInputValues({
-    //           ...inputValues,
-    //           file: data.result.secure_url,
-    //         });
-    //       } else {
-    //         setImages({
-    //           ...images,
-    //           [e.target.id]: data.result.secure_url,
-    //         });
-    //       }
-    //     }
-    //   } catch (error) {
-    //     console.log("error upload", error);
-    //     // dispatch({ type: 'UPLOAD_FAILED', payload: error.message });
+          if (e.target.id == "formFile") {
+            setInputValues({
+              ...inputValues,
+              file: data.result.secure_url,
+            });
+          } else {
+            setImages({
+              ...images,
+              [e.target.id]: data.result.secure_url,
+            });
+          }
+        }
+      } catch (error) {
+        console.log("error upload", error);
+        // dispatch({ type: 'UPLOAD_FAILED', payload: error.message });
 
-    //     // enqueueSnackbar(error.message, { variant: 'error' });
-    //   }
-    // }
+        // enqueueSnackbar(error.message, { variant: 'error' });
+      }
+    }
 
     return (
       //Add Products

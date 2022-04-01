@@ -4,7 +4,7 @@ import signin from "../styles/Login.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import ACTIONS from "../utils/store/actions";
-// import Axios from "../utils/axios";
+import Axios from "../utils/axios";
 import { connect } from "react-redux";
 const Login = (props) => {
   const router = useRouter();
@@ -18,10 +18,9 @@ const Login = (props) => {
   const onClickHandler = async (e) => {
     e.preventDefault();
     try {
-      // const { data } = await Axios.post("/api/users/auth/login", {
-      //   ...user,
-      // });
-      data = {};
+      const { data } = await Axios.post("/api/users/auth/login", {
+        ...user,
+      });
       console.log("resp.data", data);
       if (data.message) {
         console.log("error", data.message);

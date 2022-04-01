@@ -54,14 +54,14 @@ export default function Card(props) {
   );
 }
 
-// export async function getServerSideProps() {
-//   const { data } = await Axios.get("/api/products");
+export async function getServerSideProps() {
+  const { data } = await Axios.get("/api/products");
 
-//   if (data && data.status == 200) {
-//     return {
-//       props: {
-//         products: data.products,
-//       },
-//     };
-//   }
-// }
+  if (data && data.status == 200) {
+    return {
+      props: {
+        products: data.products,
+      },
+    };
+  }
+}

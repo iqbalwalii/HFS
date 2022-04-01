@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import dashboard from "../../styles/Dashboard.module.css";
-// import Axios from "../../utils/axios";
+import Axios from "../../utils/axios";
 import Link from "next/link";
 const Users = () => {
   const [users, setUsers] = useState([]);
-  // useEffect(async () => {
-  //   const { data } = await Axios.get("/api/users");
-  //   setUsers(data.users);
-  //   console.log(data.users);
-  // }, []);
+  useEffect(async () => {
+    const { data } = await Axios.get("/api/users");
+    setUsers(data.users);
+    console.log(data.users);
+  }, []);
   return (
     <Container>
       <Row className={dashboard.header}>

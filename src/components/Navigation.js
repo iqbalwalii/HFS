@@ -10,7 +10,7 @@ import {
   FormControl,
 } from "react-bootstrap";
 import Image from "next/image";
-// import Axios from "../utils/axios";
+import Axios from "../utils/axios";
 import Navstyle from "../styles/Navbar.module.css";
 import Link from "next/link";
 import { connect } from "react-redux";

@@ -7,7 +7,7 @@ const OrderDetail = (props) => {
   const [items, setItems] = useState({});
   useEffect(() => {
     async function fetchOrder(slug) {
-      // const { data } = await Axios.get(`/api/products/${slug}`);
+      const { data } = await Axios.get(`/api/products/${slug}`);
       data = {};
       setItems(data.product);
       console.log(data.product);

@@ -15,15 +15,15 @@ import {
 } from "react-bootstrap-icons";
 import { useRouter } from "next/router";
 import { Col, Row, Spinner } from "react-bootstrap";
-// import Axios from "../../utils/axios";
+import Axios from "../../utils/axios";
 const Home = (props) => {
   const router = useRouter();
-  // useEffect(() => {
-  //   console.log("User Details", props.userData);
-  //   Object.keys(props.userData).length === 0 || props.userData?.isAdmin == true
-  //     ? router.push("/")
-  //     : null;
-  // }, []);
+  useEffect(() => {
+    console.log("User Details", props.userData);
+    Object.keys(props.userData).length === 0 || props.userData?.isAdmin == true
+      ? router.push("/")
+      : null;
+  }, []);
   const [display, setDisplay] = useState("main");
   return props.userData?.isAdmin == false ? (
     <Spinner animation="border" />

@@ -6,8 +6,7 @@ import Card from "../components/ProductCard";
 import Blog from "../components/Bloghome";
 import VideoCard from "../components/VideoCard";
 import SPA from "../components/SingleProduct";
-// import data from "../utils/data";
-// import Axios from "../utils/axios";
+import Axios from "../utils/axios";
 import { Container, Row, Col, Button } from "react-bootstrap";
 export default function Home(props) {
   const { error, products } = props;
@@ -62,20 +61,20 @@ export default function Home(props) {
   );
 }
 
-// export async function getServerSideProps() {
-//   const { data } = await Axios.get("/api/products?category=footwear");
-//   console.log("index", data);
-//   if (data && data.products) {
-//     return {
-//       props: {
-//         products: data.products,
-//       },
-//     };
-//   } else {
-//     return {
-//       props: {
-//         error: data.message,
-//       },
-//     };
-//   }
-// }
+export async function getServerSideProps() {
+  const { data } = await Axios.get("/api/products?category=footwear");
+  console.log("index", data);
+  if (data && data.products) {
+    return {
+      props: {
+        products: data.products,
+      },
+    };
+  } else {
+    return {
+      props: {
+        error: data.message,
+      },
+    };
+  }
+}

@@ -32,7 +32,6 @@ export default function Single(props) {
 // Prefetch Product from server
 export async function getServerSideProps(_ctx) {
   const { data } = await Axios.get(`/api/products/${_ctx.params.slug}`);
-  data = {};
   if (data && data.status === 200) {
     return {
       props: {

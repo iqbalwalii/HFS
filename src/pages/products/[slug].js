@@ -3,6 +3,7 @@ import SingleCard from "../../components/SingleProduct";
 import Card from "../../components/Card";
 import Axios from "../../utils/axios";
 import Head from "next/head";
+import FullLayout from "../../layout/fullLayout";
 export default function Single(props) {
   let product = null;
   if (!props.error) {
@@ -10,22 +11,25 @@ export default function Single(props) {
   }
   if (!product)
     return (
-      <div style={{ minHeight: "60vh" }}>
-        <Head>
-          <title>404 - Not found</title>
-        </Head>
-        <h2>No Product Found</h2>
-      </div>
+      <FullLayout>
+        <div style={{ minHeight: "60vh" }}>
+          <Head>
+            <title>404 - Not found</title>
+          </Head>
+          <h2>No Product Found</h2>
+        </div>
+      </FullLayout>
     );
   return (
-    <div>
-      <SingleCard product={product} />
-      <h4 className="text-center">
-        WHAT<i style={{ fontWeight: "100" }}>&apos;s Trending</i>
-      </h4>
-
-      {/* <Card /> */}
-    </div>
+    <FullLayout>
+      <div>
+        <SingleCard product={product} />
+        <h4 className="text-center">
+          WHAT<i style={{ fontWeight: "100" }}>&apos;s Trending</i>
+        </h4>
+        <Card />
+      </div>
+    </FullLayout>
   );
 }
 

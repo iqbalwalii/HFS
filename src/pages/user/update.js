@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Form, Container, Col, Row, Button } from "react-bootstrap";
+import { Form, Col, Row, Button } from "react-bootstrap";
+import FullLayout from "../../layout/fullLayout";
 const Update = () => {
   const [field, setField] = useState({
     name: "",
@@ -10,7 +11,7 @@ const Update = () => {
     console.log(field);
   };
   return (
-    <Container>
+    <FullLayout>
       <Row>
         <Col xs={12} md={{ span: 6, offset: 3 }}>
           <h4 className="text-center mt-4">Update User</h4>
@@ -56,7 +57,7 @@ const Update = () => {
           </Form>
         </Col>
       </Row>
-    </Container>
+    </FullLayout>
   );
 };
 export default Update;

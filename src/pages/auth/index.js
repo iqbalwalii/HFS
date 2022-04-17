@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from "react";
-import Login from "../components/Login";
-import Profile from "../components/Profile";
+import Login from "../../components/Login";
+import Profile from "../../components/Profile";
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
+import FullLayout from "../../layout/fullLayout";
 const Auth = (props) => {
-  const [isLogged, setIsLogged] = useState(false);
+  console.log(props);
+  const { userData } = props;
   const router = useRouter();
-  useEffect(() => {
-    Object.keys(props.userData).length > 0
-      ? setIsLogged(true)
-      : setIsLogged(false);
-  }, [props]);
-  return isLogged ? (
-    props.userData.isAdmin === true ? (
-      router.push("/admin")
-    ) : (
-      <Profile />
-    )
-  ) : (
-    <Login />
+  return (
+    <FullLayout>
+      {userData?.token ? (
+        userData.isAdmin === true ? (
+          router.push("/admin")
+        ) : (
+          <Profile />
+        )
+      ) : (
+        <Login />
+      )}
+    </FullLayout>
   );
 };
 const mapStateToProps = (state) => {

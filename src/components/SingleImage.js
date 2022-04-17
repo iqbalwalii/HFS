@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import single from "../styles/SingleImage.module.css";
 import Image from "next/image";
-// import ReactImageMagnify from 'react-image-magnify';
+import ReactImageMagnify from "react-image-magnify";
 const SingleImage = ({ productImages }) => {
   console.log(productImages, "productimged");
   const [source, setSource] = useState(productImages[0]);
@@ -9,12 +9,7 @@ const SingleImage = ({ productImages }) => {
   return (
     <div>
       <div>
-        {/* <Image
-          src={`/assets/images/shoes/${source}`}
-          width="350px"
-          height="350px"
-        /> */}
-        {/* <ReactImageMagnify
+        <ReactImageMagnify
           style={{ zIndex: "1" }}
           {...{
             smallImage: {
@@ -29,7 +24,7 @@ const SingleImage = ({ productImages }) => {
               height: 1800,
             },
           }}
-        /> */}
+        />
       </div>
       <div className={single.side}>
         {productImages.map((imgUrl, idx) => {

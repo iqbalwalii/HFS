@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import signin from "../styles/Login.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -7,6 +7,8 @@ import ACTIONS from "../utils/store/actions";
 import Axios from "../utils/axios";
 import { connect } from "react-redux";
 const Login = (props) => {
+  const { alert, userData } = props;
+  console.log("alert", props);
   const router = useRouter();
   useEffect(() => {
     props.userData && props.userData.email ? router.push("/") : null;
@@ -24,8 +26,15 @@ const Login = (props) => {
       console.log("resp.data", data);
       if (data.message) {
         console.log("error", data.message);
+        props.dispatch({
+          type: ACTIONS.SET_ALERT,
+          payload: {
+            message: data.message,
+            variant: "danger",
+          },
+        });
       } else {
-        console.log("resp success");
+        console.log("resp success", data);
 
         props.dispatch({
           type: "ADD_USER",
@@ -52,8 +61,11 @@ const Login = (props) => {
           </Col>
         </Row>
         <Row>
-          <Col xs={10} md={{ span: 6, offset: 3 }}>
+          <Col xs={12} md={{ span: 6, offset: 3 }}>
             <Form>
+              {alert?.message && (
+                <Alert variant="danger">{alert?.message}</Alert>
+              )}
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
@@ -86,7 +98,7 @@ const Login = (props) => {
                 <Button variant="dark" onClick={onClickHandler}>
                   Login
                 </Button>
-                <Link href="">
+                <Link href="auth/signup">
                   <a className="text-center">
                     Don&apos;t have an account, Sign up
                   </a>
@@ -100,6 +112,6 @@ const Login = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { userData: state.userData };
+  return { userData: state.userData, alert: state.alert };
 };
 export default connect(mapStateToProps)(Login);

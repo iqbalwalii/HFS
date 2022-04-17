@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import signin from "../styles/Login.module.css";
-import ACTIONS from "../utils/store/actions";
+import signin from "../../styles/Login.module.css";
+import ACTIONS from "../../utils/store/actions";
 import { connect } from "react-redux";
-import Axios from "../utils/axios";
+import Axios from "../../utils/axios";
 const Signup = (props, { dispatch }) => {
   console.log("SIGNNNNNNN", props);
   const router = useRouter();
@@ -26,7 +26,7 @@ const Signup = (props, { dispatch }) => {
       if (data.message) {
         console.log(data.message);
       } else {
-        router.push("/signin");
+        router.push("auth/signin");
       }
     } catch (error) {
       console.log(error);
@@ -93,7 +93,7 @@ const Signup = (props, { dispatch }) => {
                 <Button variant="dark" onClick={onClickHandler}>
                   Sign Up
                 </Button>
-                <Link href="/signin">
+                <Link href="/auth">
                   <a className="text-center">
                     Already have an account, Sign in
                   </a>

@@ -44,8 +44,8 @@ const Footer = () => {
         <Image
           src="/assets/images/logo.png"
           alt="High Fashion Society"
-          width="50px"
-          height="20px"
+          width={100}
+          height={50}
         />
       </Col>
       <Col className={footer.section}>
@@ -97,38 +97,57 @@ const Footer = () => {
         <h5>INFORMATION</h5>
         <ul>
           <li>
-            <Link href="profile">
+            <Link href="/auth">
               <a>My Account</a>
             </Link>
           </li>
           <li></li>
           <li>Blog</li>
           {/* <li>Careers</li> */}
-          <li>Laybuy</li>
+          {/* <li>Laybuy</li>
           <li>Klarna</li>
-          <li>Reviews</li>
+          <li>Reviews</li> */}
         </ul>
       </Col>
       <Col className={footer.section}>
         <h5>TOP COLLECTIONS</h5>
         <ul>
-          <li>Nike Dunk</li>
-          <li>Air jordan 1</li>
-          <li>Fear of god</li>
-          <li>Yeezy</li>
-          <li>Air force 1</li>
-          <li>OFF-White</li>
+          <Link href="/shop?searchTerm=Nike+dunk">
+            <li>Nike Dunk</li>
+          </Link>
+          <Link href="/shop?searchTerm=Air+Jordan+1">
+            <li>Air Jordan 1</li>
+          </Link>
+          <Link href="/shop?searchTerm=Fear+Of+God">
+            <li>Fear Of God</li>
+          </Link>
+          <Link href="/shop?searchTerm=yeezy">
+            <li>yeezy</li>
+          </Link>
+          <Link href="/shop?searchTerm=Air+force+1">
+            <li>Air Force 1</li>
+          </Link>
+          <Link href="/shop?searchTerm=Off+white">
+            <li>Off White</li>
+          </Link>
         </ul>
       </Col>
       <Col className={footer.section}>
         <h5>FOLLOW US</h5>
         <ul>
-          <li>instagram</li>
-          <li>Facebook</li>
-          <li>Twitter</li>
-          <li>Youtube</li>
-          <li>Dribbble</li>
-          <li>Pinterest</li>
+          <Link href="https://instagram.com/highfashionsociety">
+            <li>Instagram</li>
+          </Link>
+          <Link href="https://facebook.com/highfashionsociety">
+            <li>Facebook</li>
+          </Link>
+          <Link href="https://twitter.com/highfashionsociety">
+            <li>Twitter</li>
+          </Link>
+          <Link href="https://youtube.com/highfashionsociety">
+            <li>Youtube</li>
+          </Link>
+
           {/* <ReactFlagsSelect
             selected={selected}
             onSelect={(code) => setSelected(code)}

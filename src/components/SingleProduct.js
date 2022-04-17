@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
 import single from "../styles/Single.module.css";
-// import SingleImage from "./SingleImage";
+import SingleImage from "./SingleImage";
 import Image from "next/image";
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
-import ACTION from "../utils/store/actions";
 const SingleProduct = (props) => {
   const router = useRouter();
   const { product } = props;
@@ -36,7 +35,7 @@ const SingleProduct = (props) => {
     <Container>
       <Row>
         <Col xs={10} md={5}>
-          {/* <SingleImage productImages={product.images} /> */}
+          <SingleImage productImages={product.images} />
         </Col>
         <Col
           xs={10}
@@ -119,6 +118,8 @@ const SingleProduct = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  return state;
+  return {
+    ...state,
+  };
 };
 export default connect(mapStateToProps)(SingleProduct);

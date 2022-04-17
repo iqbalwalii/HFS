@@ -13,11 +13,9 @@ const _app = ({ Component, pageProps }) => {
   // }, [click])
   return (
     <Provider store={store} style={{ overflowX: "hidden" }}>
-      <Navbar />
       <main className="main">
         <Component {...pageProps} />
       </main>
-      <Footer />
     </Provider>
   );
 };

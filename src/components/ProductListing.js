@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "../styles/Products.module.css";
 import Card from "../components/ProductCard";
-import { Container, Row, Col, Accordion } from "react-bootstrap";
+import { Container, Row, Col, Accordion, Button } from "react-bootstrap";
 import Image from "next/image";
 import Axios from "../utils/axios";
 const ProductListing = (props) => {
@@ -13,7 +13,6 @@ const ProductListing = (props) => {
     const searchProducts = async (searchTerm, brand) => {
       if (brand) {
         const { data } = await Axios.get(`/api/products/?query=${searchTerm}`);
-        console.log("data", data);
         if (data.message) {
           setProducts([]);
           return;
@@ -36,7 +35,7 @@ const ProductListing = (props) => {
     };
     const fetchBrands = async (searchTerm) => {
       if (brand) {
-        // const { data } = await Axios.get(`/api/products/?brand=${searchTerm}`);
+        const { data } = await Axios.get(`/api/products/?brand=${searchTerm}`);
         data = {};
         console.log("data", data);
         if (data.message) {
@@ -60,7 +59,7 @@ const ProductListing = (props) => {
       }
     };
     const fetchProducts = async () => {
-      // const { data } = await Axios.get(`/api/products`);
+      const { data } = await Axios.get(`/api/products`);
       data = {};
       if (data.message) {
         setProducts([]);
@@ -166,6 +165,7 @@ const ProductListing = (props) => {
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
+          <Button>Apply</Button>
         </Col>
         <Col md={9}>
           {products && products.length > 0 ? (

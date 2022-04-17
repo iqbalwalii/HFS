@@ -31,7 +31,6 @@
 }
 
 .main .section h5 {
-  text-align: start;
   font-weight: 600;
 }
 
@@ -42,6 +41,7 @@
 
 .main .section ul li {
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
@@ -56,6 +56,21 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .section {
+    padding: 1rem;
+  }
+  .section h5 {
+    text-align: center;
+    font-weight: 600;
+  }
+  .section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .section ul li {
+    text-transform: capitalize;
+    text-align: center;
   }
 }
 /*# sourceMappingURL=Footer.module.css.map */

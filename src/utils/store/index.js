@@ -94,6 +94,12 @@ const reducer = (state = initialState, action) => {
       Cookies.set("currency", payload);
       return { ...state, currency: payload };
     }
+    case ACTIONS.setAlert: {
+      return { ...state, alert: payload };
+    }
+    case ACTIONS.clearAlert: {
+      return { ...state, alert: "" };
+    }
 
     // Update existing Cart Item
     case ACTIONS.updateProduct: {
@@ -110,6 +116,9 @@ const reducer = (state = initialState, action) => {
         ...state,
         cart: newItems,
       };
+    }
+    case ACTIONS.getProducts: {
+      return { ...state, products: payload };
     }
 
     // Default Case

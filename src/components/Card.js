@@ -1,19 +1,25 @@
-import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Container, Button, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import ProductCard from "../components/ProductCard";
-// import data from "../utils/data";
-
-// import Swiper core and required modules
+import Axios from "../utils/axios";
 import SwiperCore, { Navigation, Mousewheel, Pagination } from "swiper";
-
-// install Swiper modules
+import { getProducts } from "../services/product";
+import { useEffect } from "react";
+import { connect } from "react-redux";
 SwiperCore.use([Navigation, Pagination, Mousewheel]);
 
-export default function Card(props) {
+function Card(props) {
+  useEffect(() => {
+    getProducts().then((res) => {
+      props.dispatch({
+        type: "GET_PRODUCTS",
+        payload: res.products,
+      });
+    });
+  }, []);
   console.log("Props", props);
   const { products } = props;
   return (
@@ -54,14 +60,10 @@ export default function Card(props) {
   );
 }
 
-export async function getServerSideProps() {
-  const { data } = await Axios.get("/api/products");
-
-  if (data && data.status == 200) {
-    return {
-      props: {
-        products: data.products,
-      },
-    };
-  }
-}
+const mapStateToProps = (state) => {
+  console.log("issssssssss", state);
+  return {
+    products: state.products,
+  };
+};
+export default connect(mapStateToProps)(Card);

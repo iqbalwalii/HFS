@@ -73,7 +73,7 @@ const Add = ({ productId }) => {
 
   async function onDeleteHandler(e) {
     try {
-      // const { data } = await Axios.delete(`/api/admin/products/${productId}`);
+      const { data } = await Axios.delete(`/api/admin/products/${productId}`);
       console.log("delete api resp", data);
       if (data.status === 200) return router.push("/admin");
     } catch (error) {
@@ -82,9 +82,9 @@ const Add = ({ productId }) => {
   }
   async function onSubmitHandler(e) {
     e.preventDefault();
-
+    console.log("L", inputValues);
     try {
-      dispatch({ type: "UPDAT_REQUEST" });
+      // dispatch({ type: 'UPDAT_REQUEST' });
 
       const { data } = await Axios.put(
         `/api/admin/products/${productId}`,
@@ -97,79 +97,74 @@ const Add = ({ productId }) => {
         // { headers: { authorization: `Bearer ${userInfo.token}` } }
       );
       if (data.message) {
-        dispatch({ type: "UPDATE_FAIL" });
+        // dispatch({ type: 'UPDATE_FAIL' });
         console.log("res product update message", data.message);
 
-        enqueueSnackbar(data.message, { variant: "error" });
+        // enqueueSnackbar(data.message, { variant: 'error' });
         return;
       } else {
-        dispatch({ type: "UPDATE_SUCCESS" });
+        // dispatch({ type: 'UPDATE_SUCCESS' });
 
-        enqueueSnackbar("Product updated successfully", {
-          variant: "success",
-        });
+        // enqueueSnackbar('Product updated successfully', {
+        // variant: 'success',
+        // });
         console.log("res product update else", data);
         router.push("/admin/products");
       }
     } catch (error) {
-      dispatch({ type: "UPDATE_FAIL" });
+      // dispatch({ type: 'UPDATE_FAIL' });
 
       console.log("save catch errrrrr", error);
-      enqueueSnackbar(error.message, { variant: "error" });
+      // enqueueSnackbar(error.message, { variant: 'error' });
     }
   }
 
   useEffect(() => {
-    if (!userInfo) {
-      router.push("/login?redirect=/products");
-      return;
-    } else {
-      async function fetchProduct() {
-        try {
-          dispatch({ type: "FETCH_REQUEST" });
-          const { data } = await Axios.get(`/api/admin/products/${productId}`, {
-            headers: {
-              authorization: `Bearer ${userInfo.token}`,
-            },
+    // if (!userInfo) {
+    // 	router.push('/login?redirect=/products');
+    // 	return;
+    // } else {
+    async function fetchProduct() {
+      try {
+        // dispatch({ type: 'FETCH_REQUEST' });
+        const { data } = await Axios.get(
+          `/api/admin/products/${productId}`
+          // {
+          // 	 headers: {
+          // 	 	authorization: `Bearer ${userInfo.token}`,
+          // 	 },
+          // }
+        );
+        if (data.status === 200) {
+          console.log("use effeft  product trues", data);
+
+          setInputValues({
+            brand: data.product.brand || "",
+            name: data.product.name || "",
+            description: data.product.description || "",
+            price: data.product.price || 0,
+            masterCategory: data.product.masterCategory || "",
+            file: data.product.bannerImage || "",
+            // isActive: data.product.isActive,
+            availableColors: data.product.availableColors || [],
+            material: data.product.material || "",
+            subCategory: data.product.subCategory || "",
+            availibeSizes: data.product.availibeSizes || [],
           });
-          if (data.status === 200) {
-            console.log("use effeft  product trues", data);
-            // setValue('name', data.product.name);
-            // setValue('brand', data.product.brand);
-            // setValue('slug', data.product.slug);
-            // setValue('price', data.product.price);
-            // setValue('bannerImage', data.product.bannerImage);
-            // setValue('category', data.product.category);
-            // setValue('countInStock', data.product.countInStock);
-            // setValue('description', data.product.description);
-            setInputValues({
-              brand: data.product.brand || "",
-              name: data.product.name || "",
-              description: data.product.description || "",
-              price: data.product.price || 0,
-              masterCategory: data.product.masterCategory || "",
-              file: data.product.bannerImage || "",
-              // isActive: data.product.isActive,
-              availableColors: data.product.availableColors || [],
-              material: data.product.material || "",
-              subCategory: data.product.subCategory || "",
-              availibeSizes: data.product.availibeSizes || [],
-            });
-            setActive(data.product.isActive);
-            data.product.images.forEach((imgUrl, idx) => {
-              setImages({ ...images, [idx]: imgUrl });
-            });
-          } else {
-            console.log(data.message);
-          }
-        } catch (err) {
-          console.log(err);
-          dispatch({ type: "FETCH_FAILED", payload: error.message });
+          setActive(data.product.isActive);
+          data.product.images.forEach((imgUrl, idx) => {
+            setImages({ ...images, [idx]: imgUrl });
+          });
+        } else {
+          console.log(data.message);
         }
+      } catch (err) {
+        console.log(err);
+        // dispatch({ type: 'FETCH_FAILED', payload: error.message });
       }
-      fetchProduct();
     }
-  }, [productId, images, router]);
+    fetchProduct();
+  }, [productId]);
 
   // UPLOAD HANDLER
   async function uploadHandler(e) {
@@ -484,6 +479,7 @@ const Add = ({ productId }) => {
     </Container>
   );
 };
+
 export async function getServerSideProps({ params }) {
   console.log("passed ed e de  d", params);
   return {
@@ -492,4 +488,5 @@ export async function getServerSideProps({ params }) {
     },
   };
 }
+
 export default Add;

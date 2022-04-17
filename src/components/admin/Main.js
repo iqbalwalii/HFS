@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import dashboard from "../../styles/Dashboard.module.css";
-// import Axios from "../../utils/axios";
+import Axios from "../../utils/axios";
 const Main = () => {
   const [product, setProduct] = useState("");
   const [users, setUsers] = useState("");

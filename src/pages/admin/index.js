@@ -6,6 +6,7 @@ import Main from "../../components/admin/Main";
 import Orders from "../../components/admin/Orders";
 import Blog from "../../components/admin/Blog";
 import { connect } from "react-redux";
+import AuthLayout from "../../layout/authLayout";
 import {
   BagCheckFill,
   BorderAll,
@@ -15,66 +16,67 @@ import {
 } from "react-bootstrap-icons";
 import { useRouter } from "next/router";
 import { Col, Row, Spinner } from "react-bootstrap";
-import Axios from "../../utils/axios";
+import Header from "../../layout/header/adminHeader";
 const Home = (props) => {
   const router = useRouter();
-  useEffect(() => {
-    console.log("User Details", props.userData);
-    Object.keys(props.userData).length === 0 || props.userData?.isAdmin == true
-      ? router.push("/")
-      : null;
-  }, []);
+  const { userData } = props;
+  // useEffect(() => {
+  //   userData.length === 0 || props.userData?.isAdmin == false
+  //     ? null
+  //     : router.push("/");
+  // }, []);
   const [display, setDisplay] = useState("main");
-  return props.userData?.isAdmin == false ? (
+  return userData?.isAdmin == true ? (
     <Spinner animation="border" />
   ) : (
-    <Row className={dashboard.main}>
-      <Col xs={12} md={3} className={dashboard.left}>
-        <h4>HFS</h4>
-        <ul>
-          <li onClick={(e) => setDisplay("main")}>
-            <BorderAll />
-            &nbsp; Dashboard
-          </li>
-          <li onClick={(e) => setDisplay("orders")}>
-            <BagCheckFill />
-            &nbsp; Orders
-          </li>
-          <li onClick={(e) => setDisplay("users")}>
-            <PersonFill />
-            &nbsp; Users
-          </li>
-          <li
-            onClick={(e) => setDisplay("products")}
-            style={{ borderBottom: "1px solid #ccc" }}
-          >
-            <ListCheck />
-            &nbsp; Products
-          </li>
-          <li onClick={(e) => setDisplay("blog")}>
-            <JournalRichtext />
-            &nbsp; Blog
-          </li>
-          <li onClick={(e) => setDisplay("users")}>
-            <PersonFill />
-            &nbsp; Logout
-          </li>
-        </ul>
-      </Col>
-      <Col md={{ span: 8, offset: 0 }} xs={{ span: 8, offset: 2 }}>
-        {display === "main" ? (
-          <Main />
-        ) : display === "orders" ? (
-          <Orders />
-        ) : display === "users" ? (
-          <Users />
-        ) : display === "products" ? (
-          <Products />
-        ) : (
-          <Blog />
-        )}
-      </Col>
-    </Row>
+    <AuthLayout>
+      <Row className={dashboard.main}>
+        <Col xs={12} md={3} className={dashboard.left}>
+          <ul>
+            <li onClick={(e) => setDisplay("main")}>
+              <BorderAll />
+              &nbsp; Dashboard
+            </li>
+            <li onClick={(e) => setDisplay("orders")}>
+              <BagCheckFill />
+              &nbsp; Orders
+            </li>
+            <li onClick={(e) => setDisplay("users")}>
+              <PersonFill />
+              &nbsp; Users
+            </li>
+            <li
+              onClick={(e) => setDisplay("products")}
+              style={{ borderBottom: "1px solid #ccc" }}
+            >
+              <ListCheck />
+              &nbsp; Products
+            </li>
+            <li onClick={(e) => setDisplay("blog")}>
+              <JournalRichtext />
+              &nbsp; Blog
+            </li>
+            <li onClick={(e) => setDisplay("users")}>
+              <PersonFill />
+              &nbsp; Logout
+            </li>
+          </ul>
+        </Col>
+        <Col xs={12} md={8}>
+          {display === "main" ? (
+            <Main />
+          ) : display === "orders" ? (
+            <Orders />
+          ) : display === "users" ? (
+            <Users />
+          ) : display === "products" ? (
+            <Products />
+          ) : (
+            <Blog />
+          )}
+        </Col>
+      </Row>
+    </AuthLayout>
   );
 
   //

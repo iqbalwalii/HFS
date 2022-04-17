@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table, Container, Row, Col, ListGroup } from "react-bootstrap";
-import Axios from "../../../utils/axios";
 import Image from "next/image";
+import Axios from "../../../utils/axios";
 const Update = (props) => {
   const [items, setItems] = useState({});
   useEffect(() => {

@@ -1,11 +1,12 @@
 import React from "react";
 import Shopping from "../components/ProductListing";
+import FullLayout from "../layout/fullLayout";
 const Shop = (props) => {
   console.log("shop log", props);
   return (
-    <div>
+    <FullLayout>
       <Shopping searchTerm={props?.searchTerm} brand={props?.brand} />
-    </div>
+    </FullLayout>
   );
 };
 export async function getServerSideProps(_ctx) {

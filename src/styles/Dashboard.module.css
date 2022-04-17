@@ -3,7 +3,7 @@
 }
 
 .main .left {
-  padding: 1rem;
+  padding: 1rems;
   font-family: 'poppins';
   border-right: 1px solid #ccc;
 }
@@ -96,5 +96,11 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media screen and (max-width: 368px) {
+  .left {
+    display: none;
+  }
 }
 /*# sourceMappingURL=Dashboard.module.css.map */

@@ -21,8 +21,8 @@ export default function Home(props) {
               NEW<i style={{ fontWeight: "100" }}>&nbsp;ARRIVALS</i>
             </h4>
             {products?.map((prod) => (
-              <Col xs={6} md={3}>
-                <Card product={prod} key={prod.id} />
+              <Col xs={6} md={3} key={prod.id}>
+                <Card product={prod} />
               </Col>
             ))}
           </Row>
@@ -52,8 +52,8 @@ export default function Home(props) {
               WHATs<i style={{ fontWeight: "100" }}>&nbsp;NEW</i>
             </h4>
             {products?.map((prod) => (
-              <Col xs={{ span: 5 }} md={3}>
-                <Card product={prod} key={prod.id} />
+              <Col xs={{ span: 5 }} md={3} key={prod.id}>
+                <Card product={prod} />
               </Col>
             ))}
           </Row>

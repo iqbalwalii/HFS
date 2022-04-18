@@ -24,9 +24,9 @@ const Signup = (props, { dispatch }) => {
         ...user,
       });
       if (data.message) {
-        console.log(data.message);
+        console.log("kkkkk", data.message);
       } else {
-        router.push("/signin");
+        router.push("/auth");
       }
     } catch (error) {
       console.log(error);

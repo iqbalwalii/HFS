@@ -80,7 +80,7 @@ const ProductListing = (props) => {
   return (
     <Container>
       <Row>
-        <Col md={3} className={style.left}>
+        <Col md={2} className={style.left}>
           <h3 className="text-center">FILTERS</h3>
           <Accordion>
             <Accordion.Item eventKey="0" className={style.AccordionItem}>

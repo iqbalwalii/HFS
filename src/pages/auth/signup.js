@@ -26,7 +26,7 @@ const Signup = (props, { dispatch }) => {
       if (data.message) {
         console.log(data.message);
       } else {
-        router.push("auth/signin");
+        router.push("/auth");
       }
     } catch (error) {
       console.log(error);

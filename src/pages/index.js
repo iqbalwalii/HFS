@@ -13,15 +13,15 @@ export default function Home(props) {
   const { error, products } = props;
   return (
     <FullLayout>
-      <Container fluid>
+      <div>
         <VideoCard />
         <Container>
           <Row>
             <h4 className="text-center mt-5">
               NEW<i style={{ fontWeight: "100" }}>&nbsp;ARRIVALS</i>
             </h4>
-            {products?.map((prod, idx) => (
-              <Col xs={{ span: 5 }} md={3} className={index.card} key={idx}>
+            {products?.map((prod) => (
+              <Col xs={6} md={3}>
                 <Card product={prod} key={prod.id} />
               </Col>
             ))}
@@ -41,11 +41,6 @@ export default function Home(props) {
         <Blog />
 
         <VideoCard />
-        {/* <h4 className="text-center my-5">
-          LATEST<i style={{ fontWeight: "100" }}>DROP</i>
-        </h4>
-
-        <SPA /> */}
 
         <h4 className="text-center my-5">
           WHAT<i style={{ fontWeight: "100" }}>&apos;s new</i>
@@ -56,14 +51,14 @@ export default function Home(props) {
             <h4 className="text-center mt-5">
               WHATs<i style={{ fontWeight: "100" }}>&nbsp;NEW</i>
             </h4>
-            {products?.map((prod, index) => (
-              <Col xs={{ span: 5 }} md={3} className={index.card} key={index}>
+            {products?.map((prod) => (
+              <Col xs={{ span: 5 }} md={3}>
                 <Card product={prod} key={prod.id} />
               </Col>
             ))}
           </Row>
         </Container>
-      </Container>
+      </div>
     </FullLayout>
   );
 }

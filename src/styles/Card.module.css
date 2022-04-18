@@ -1,7 +1,7 @@
 .main {
   border: 1px solid #00000025;
   border-radius: 10%;
-  width: 220px;
+  width: 200px;
   position: relative;
   -webkit-transition: all .3s linear;
   transition: all .3s linear;
@@ -73,7 +73,7 @@
 
 @media screen and (max-width: 320px) {
   .main {
-    width: 140px;
+    width: 110px;
     padding: 2rem 0 0 0;
   }
   .main .backdrop {

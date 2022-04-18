@@ -13,17 +13,19 @@ export default function Home(props) {
   const { error, products } = props;
   return (
     <FullLayout>
-      <div className={index.main}>
+      <Container fluid>
         <VideoCard />
-
-        {/* <Slide /> */}
-        <h4 className="text-center mt-5">
-          NEW<i style={{ fontWeight: "100" }}>&nbsp;ARRIVALS</i>
-        </h4>
-        <Container className={index.cards}>
-          {products?.map((prod) => (
-            <Card product={prod} key={prod.id} />
-          ))}
+        <Container>
+          <Row>
+            <h4 className="text-center mt-5">
+              NEW<i style={{ fontWeight: "100" }}>&nbsp;ARRIVALS</i>
+            </h4>
+            {products?.map((prod) => (
+              <Col xs={{ span: 5 }} md={3} className={index.card}>
+                <Card product={prod} key={prod.id} />
+              </Col>
+            ))}
+          </Row>
         </Container>
         <Row>
           <Col
@@ -49,16 +51,19 @@ export default function Home(props) {
           WHAT<i style={{ fontWeight: "100" }}>&apos;s new</i>
         </h4>
 
-        <Container className={index.cards}>
-          {products && products.length > 0 ? (
-            products.map((prod) => <Card product={prod} key={prod._id} />)
-          ) : (
-            <div>
-              <h2>No data Found</h2>{" "}
-            </div>
-          )}
+        <Container>
+          <Row>
+            <h4 className="text-center mt-5">
+              WHATs<i style={{ fontWeight: "100" }}>&nbsp;NEW</i>
+            </h4>
+            {products?.map((prod) => (
+              <Col xs={{ span: 5 }} md={3} className={index.card}>
+                <Card product={prod} key={prod.id} />
+              </Col>
+            ))}
+          </Row>
         </Container>
-      </div>
+      </Container>
     </FullLayout>
   );
 }

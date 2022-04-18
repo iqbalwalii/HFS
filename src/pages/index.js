@@ -1,14 +1,10 @@
-import Head from "next/head";
-import ReactPlayer from "react-player";
-import Slide from "../components/Slider";
-import index from "../styles/Home.module.css";
 import Card from "../components/ProductCard";
 import Blog from "../components/Bloghome";
 import VideoCard from "../components/VideoCard";
-import SPA from "../components/SingleProduct";
 import Axios from "../utils/axios";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import FullLayout from "../layout/fullLayout";
+import Link from "next/link";
 export default function Home(props) {
   const { error, products } = props;
   return (
@@ -30,12 +26,14 @@ export default function Home(props) {
         <Row>
           <Col
             xs={{ span: 6, offset: 3 }}
-            md={{ span: 4, offset: 4 }}
+            md={3}
             className="d-flex justify-content-center"
           >
-            <Button variant="dark" className="mb-2">
-              View More
-            </Button>
+            <Link href="/shop" passHref>
+              <Button variant="dark" className="mb-2">
+                View More
+              </Button>
+            </Link>
           </Col>
         </Row>
         <Blog />
@@ -52,10 +50,23 @@ export default function Home(props) {
               WHATs<i style={{ fontWeight: "100" }}>&nbsp;NEW</i>
             </h4>
             {products?.map((prod) => (
-              <Col xs={{ span: 5 }} md={3} key={prod.id}>
+              <Col xs={6} md={3} key={prod.id}>
                 <Card product={prod} />
               </Col>
             ))}
+          </Row>
+          <Row>
+            <Col
+              xs={{ span: 6, offset: 3 }}
+              md={3}
+              className="d-flex justify-content-center"
+            >
+              <Link href="/shop" passHref>
+                <Button variant="dark" className="mb-2">
+                  View More
+                </Button>
+              </Link>
+            </Col>
           </Row>
         </Container>
       </div>

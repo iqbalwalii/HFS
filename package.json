@@ -17,7 +17,6 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "bootstrap": "^5.1.0",
-    "chart.js": "^3.5.1",
     "cloudinary": "^1.27.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",

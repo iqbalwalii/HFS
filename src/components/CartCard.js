@@ -39,7 +39,7 @@ const CartCard = (props) => {
     <Row>
       <Col className={cart.info} xs={12} md={3}>
         <Image
-          src="/assets/images/shoes/jordan.png"
+          src={product?.bannerImage}
           width="100px"
           height="100px"
           alt="product image"

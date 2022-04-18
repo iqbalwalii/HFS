@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 const SingleProduct = (props) => {
   const router = useRouter();
   const { product } = props;
+  console.log(product);
   const [items, setItems] = useState({
     size: null,
     quantity: 1,

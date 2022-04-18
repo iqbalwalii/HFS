@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import single from "../styles/SingleImage.module.css";
 import Image from "next/image";
 import ReactImageMagnify from "react-image-magnify";
 const SingleImage = ({ productImages }) => {
-  console.log(productImages, "productimged");
+  console.log(productImages, "productimges");
   const [source, setSource] = useState(productImages[0]);
+  useEffect(() => {
+    setSource(productImages[0]);
+  }, [productImages]);
 
   return (
     <div>
@@ -19,7 +22,6 @@ const SingleImage = ({ productImages }) => {
             },
             largeImage: {
               src: source,
-              // src: `/assets/images/shoes/${source}`,
               width: 1200,
               height: 1800,
             },
@@ -37,8 +39,8 @@ const SingleImage = ({ productImages }) => {
             >
               <Image
                 src={imgUrl}
-                height="150px"
-                width="150px"
+                height="100px"
+                width="100px"
                 id={idx}
                 alt="product image"
               />

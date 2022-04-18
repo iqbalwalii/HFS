@@ -30,13 +30,15 @@ const Bloghome = () => {
             <BlogCard />
           </Col>
         </Row>
-        <Row style={{ margin: "2em 0rem" }}>
+        <Row>
           <Col
-            xs={{ span: 2, offset: 8 }}
+            xs={{ span: 6, offset: 3 }}
             md={{ span: 4, offset: 4 }}
             className="d-flex justify-content-center"
           >
-            <Button variant="dark">More</Button>
+            <Button variant="dark" className="mb-2">
+              View More
+            </Button>
           </Col>
         </Row>
       </div>

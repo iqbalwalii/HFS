@@ -16,6 +16,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import FullLayout from "../layout/fullLayout";
 const Bag = (props) => {
+  console.log(props);
   const router = useRouter();
   let total = 23;
   const subTotal = (props) => {

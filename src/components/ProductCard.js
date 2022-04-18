@@ -15,13 +15,12 @@ const ProductCard = ({ product }) => {
                 ? product.bannerImage
                 : "https://hips.hearstapps.com/harpersbazaaruk.cdnds.net/17/29/1500450899-cara-delevingne.jpg"
             }
-            width="200px"
-            height="170px"
+            width="220px"
+            height="190px"
             alt="product image"
             className={Cards.productImg}
           />
           <h5>{product.name}</h5>
-          {/* <p>{product.description.slice(0, 99)}</p> */}
         </div>
       )}
     </div>

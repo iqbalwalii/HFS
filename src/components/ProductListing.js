@@ -10,7 +10,8 @@ const ProductListing = (props) => {
   const { brand } = props;
   console.log("searchTerm", searchTerm);
   useEffect(() => {
-    const searchProducts = async (searchTerm, brand) => {
+    const searchProducts = async (searchTerm, brand, props) => {
+      console.log(props);
       if (brand) {
         const { data } = await Axios.get(`/api/products/?query=${searchTerm}`);
         if (data.message) {
@@ -60,14 +61,13 @@ const ProductListing = (props) => {
     };
     const fetchProducts = async () => {
       const { data } = await Axios.get(`/api/products`);
-      data = {};
       if (data.message) {
         setProducts([]);
         return;
       } else {
         setProducts(data.products);
-        console.log("All Products", data.products);
       }
+      console.log("All Products", data.products);
     };
     if (searchTerm) {
       searchProducts(searchTerm);
@@ -165,7 +165,16 @@ const ProductListing = (props) => {
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
-          <Button>Apply</Button>
+          <Row>
+            <Col
+              xs={{ span: 6, offset: 3 }}
+              className="d-flex justify-content-center mt-5"
+            >
+              <Button variant="dark" className="mb-2">
+                Apply
+              </Button>
+            </Col>
+          </Row>
         </Col>
         <Col md={9}>
           {products && products.length > 0 ? (
@@ -190,4 +199,5 @@ const ProductListing = (props) => {
     </Container>
   );
 };
+
 export default ProductListing;

@@ -27,7 +27,7 @@ export default function Home(props) {
         </Container>
         <Row>
           <Col
-            xs={{ span: 2, offset: 5 }}
+            xs={{ span: 6, offset: 3 }}
             md={{ span: 4, offset: 4 }}
             className="d-flex justify-content-center"
           >

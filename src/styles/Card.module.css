@@ -20,6 +20,11 @@
           align-items: center;
 }
 
+.main .productImg {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
 .main a {
   text-decoration: none;
   color: #212121;

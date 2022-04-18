@@ -26,7 +26,7 @@ export default function Home(props) {
         <Row>
           <Col
             xs={{ span: 6, offset: 3 }}
-            md={3}
+            md={{ span: 4, offset: 4 }}
             className="d-flex justify-content-center"
           >
             <Link href="/shop" passHref>
@@ -39,10 +39,6 @@ export default function Home(props) {
         <Blog />
 
         <VideoCard />
-
-        <h4 className="text-center my-5">
-          WHAT<i style={{ fontWeight: "100" }}>&apos;s new</i>
-        </h4>
 
         <Container>
           <Row>
@@ -58,7 +54,7 @@ export default function Home(props) {
           <Row>
             <Col
               xs={{ span: 6, offset: 3 }}
-              md={3}
+              md={{ span: 4, offset: 4 }}
               className="d-flex justify-content-center"
             >
               <Link href="/shop" passHref>

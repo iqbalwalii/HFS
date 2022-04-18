@@ -1,22 +1,4 @@
-.main .cards {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 1rem;
-}
-
-@media screen and (max-width: 480px) {
-  .cards {
-    -ms-grid-columns: (minmax(140px, 1fr))[auto-fill] !important;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .cards {
-    -ms-grid-columns: (minmax(100px, 1fr))[auto-fill] !important;
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) !important;
-  }
+.card:nth-child(odd) {
+  margin-left: 1.5rem;
 }
 /*# sourceMappingURL=Home.module.css.map */

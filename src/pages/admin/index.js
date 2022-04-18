@@ -20,11 +20,11 @@ import Header from "../../layout/header/adminHeader";
 const Home = (props) => {
   const router = useRouter();
   const { userData } = props;
-  // useEffect(() => {
-  //   userData.length === 0 || userData?.isAdmin == true
-  //     ? null
-  //     : router.push("/");
-  // }, []);
+  useEffect(() => {
+    userData.length === 0 || userData?.isAdmin == true
+      ? null
+      : router.push("/");
+  }, []);
   const [display, setDisplay] = useState("main");
   return userData?.isAdmin == false ? (
     <Spinner animation="border" />

@@ -17,11 +17,11 @@ const Add = ({ productId, userData }) => {
   const [images, setImages] = useState({});
   const [active, setActive] = useState(null);
   const router = useRouter();
-  // useEffect(() => {
-  //   userData.length === 0 || userData?.isAdmin == true
-  //     ? null
-  //     : router.push("/");
-  // }, []);
+  useEffect(() => {
+    userData.length === 0 || userData?.isAdmin == true
+      ? null
+      : router.push("/");
+  }, []);
 
   const onActiveHandler = (e) => {
     if (active === 0) {

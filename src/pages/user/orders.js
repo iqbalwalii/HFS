@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Table } from "react-bootstrap";
-import FullLayout from "../layout/fullLayout";
+import FullLayout from "../../layout/fullLayout";
 import Link from "next/link";
 const Orders = () => {
   return (

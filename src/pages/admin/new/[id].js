@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import {
   Container,
   Row,
@@ -8,18 +9,24 @@ import {
   Popover,
   OverlayTrigger,
   ButtonGroup,
+  Spinner,
 } from "react-bootstrap";
 import { useRouter } from "next/router";
 import Axios from "../../../utils/axios";
-const Add = ({ productId }) => {
+const Add = ({ productId, userData }) => {
   const [images, setImages] = useState({});
   const [active, setActive] = useState(null);
   const router = useRouter();
+  useEffect(() => {
+    userData.length === 0 || userData?.isAdmin == true
+      ? null
+      : router.push("/");
+  }, []);
 
   const onActiveHandler = (e) => {
     if (active === 0) {
       setActive(1);
-      //   e.target.style.background = "#BB2D3B";
+      // e.target.style.background = "#BB2D3B";
     } else {
       setActive(0);
       //   e.target.style.background = "#157347";
@@ -211,8 +218,9 @@ const Add = ({ productId }) => {
     }
   }
 
-  return (
-    //Add Products
+  return userData?.isAdmin == false ? (
+    <Spinner animation="border" />
+  ) : (
     <Container>
       <h3 className="text-center mt-5 mb-2 "> Update/Edit Product</h3>
       <Row>
@@ -488,5 +496,7 @@ export async function getServerSideProps({ params }) {
     },
   };
 }
-
-export default Add;
+const mapStateToProps = (state) => {
+  return { userData: state.userData };
+};
+export default connect(mapStateToProps)(Add);

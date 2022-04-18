@@ -1,10 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { Table, Container, Row, Col, Button, ListGroup } from "react-bootstrap";
+import {
+  Table,
+  Container,
+  Row,
+  Col,
+  Button,
+  ListGroup,
+  Spinner,
+} from "react-bootstrap";
 import Axios from "../../../utils/axios";
 import Image from "next/image";
 import Link from "next/link";
+import { connect } from "react-redux";
+import { useRouter } from "next/router";
 const OrderDetail = (props) => {
+  const router = useRouter();
   const [items, setItems] = useState({});
+  const { userData } = props;
+  useEffect(() => {
+    userData.length === 0 || userData?.isAdmin == true
+      ? null
+      : router.push("/");
+  }, []);
   useEffect(() => {
     async function fetchOrder(slug) {
       const { data } = await Axios.get(`/api/products/${slug}`);
@@ -14,7 +31,9 @@ const OrderDetail = (props) => {
     }
     fetchOrder(props.productSlug);
   }, [props.productSlug]);
-  return (
+  return userData?.isAdmin == false ? (
+    <Spinner animation="border" />
+  ) : (
     <Container>
       <Row>
         <Col xs={12}>
@@ -128,7 +147,6 @@ const OrderDetail = (props) => {
     </Container>
   );
 };
-export default OrderDetail;
 export async function getServerSideProps({ params }) {
   console.log("Productssssss", params);
   return {
@@ -137,3 +155,7 @@ export async function getServerSideProps({ params }) {
     },
   };
 }
+const mapStateToProps = (state) => {
+  return { userData: state.userData };
+};
+export default connect(mapStateToProps)(OrderDetail);

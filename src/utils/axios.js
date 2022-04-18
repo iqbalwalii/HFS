@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 export default Axios.create({
-  baseURL: "http://hfskicks.com",
+  baseURL: "https://hfskicks.com",
 
   headers: {
     Accept: "application/json",

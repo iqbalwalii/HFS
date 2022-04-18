@@ -20,8 +20,8 @@ export default function Home(props) {
             <h4 className="text-center mt-5">
               NEW<i style={{ fontWeight: "100" }}>&nbsp;ARRIVALS</i>
             </h4>
-            {products?.map((prod) => (
-              <Col xs={{ span: 5 }} md={3} className={index.card}>
+            {products?.map((prod, idx) => (
+              <Col xs={{ span: 5 }} md={3} className={index.card} key={idx}>
                 <Card product={prod} key={prod.id} />
               </Col>
             ))}
@@ -56,8 +56,8 @@ export default function Home(props) {
             <h4 className="text-center mt-5">
               WHATs<i style={{ fontWeight: "100" }}>&nbsp;NEW</i>
             </h4>
-            {products?.map((prod) => (
-              <Col xs={{ span: 5 }} md={3} className={index.card}>
+            {products?.map((prod, index) => (
+              <Col xs={{ span: 5 }} md={3} className={index.card} key={index}>
                 <Card product={prod} key={prod.id} />
               </Col>
             ))}

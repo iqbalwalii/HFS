@@ -3,9 +3,10 @@ import { Col, Container, Row, Button } from "react-bootstrap";
 import Pagination from "../../components/PaginationBasic";
 import Single from "../../components/SingleBlog";
 import Card from "../../components/Card";
+import FullLayout from "../../layout/fullLayout";
 const Blog = () => {
   return (
-    <div>
+    <FullLayout>
       <Single />
       <h4 className="text-center">
         What<i style={{ fontWeight: "100" }}>&apos;s Next</i>
@@ -27,7 +28,7 @@ const Blog = () => {
           <Button variant="dark">More</Button>
         </Col>
       </Row>
-    </div>
+    </FullLayout>
   );
 };
 

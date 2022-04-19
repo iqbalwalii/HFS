@@ -16,11 +16,9 @@ const SingleImage = ({ productImages }) => {
           style={{ zIndex: "1" }}
           {...{
             smallImage: {
-              alt: "Wristwatch by Ted Baker London",
               isFluidWidth: true,
               src: source,
-              width: 1200,
-              height: 1800,
+              width: 500,
             },
             largeImage: {
               src: source,

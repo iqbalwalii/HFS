@@ -7,7 +7,6 @@ import ACTIONS from "../../utils/store/actions";
 import { connect } from "react-redux";
 import Axios from "../../utils/axios";
 const Signup = (props, { dispatch }) => {
-  console.log("SIGNNNNNNN", props);
   const router = useRouter();
   const [user, setUser] = useState({
     email: "",

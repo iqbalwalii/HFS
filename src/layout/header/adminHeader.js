@@ -11,38 +11,23 @@ const Navigation = (props) => {
   console.log("props", props);
   return (
     <div className={Navstyle.nav}>
-      <Navbar
-        collapseOnSelect
-        expand="lg"
-        bg="light"
-        variant="dark"
-        fixed="top"
-      >
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
         <Container>
-          <Navbar.Brand href="/" className={Navstyle.brand}>
-            <Image
-              src="/assets/images/logo.png"
-              alt="High Fashion Society"
-              width="100px"
-              height="40px"
-            />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto ">
-              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">
-                  Dashboard
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Orders</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Users</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Products</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.3">Blog</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
-              </NavDropdown>
+          <Navbar.Brand href="#home">HFS-Admin Panel</Navbar.Brand>
+          {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav" className="adminPanel">
+            <Nav className="me-auto">
+              <Nav.Link href="#features">Orders</Nav.Link>
+              <Nav.Link href="#pricing">Products</Nav.Link>
+              <Nav.Link href="#pricing">Users</Nav.Link>
+              <Nav.Link href="#pricing">Blog</Nav.Link>
             </Nav>
-          </Navbar.Collapse>
+            <Nav>
+              <Nav.Link eventKey={2} href="#memes">
+                Logout
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse> */}
         </Container>
       </Navbar>
     </div>

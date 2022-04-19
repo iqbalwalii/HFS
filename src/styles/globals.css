@@ -31,3 +31,11 @@ a {
 .primary {
   color: rgb(27, 27, 190);
 }
+.adminPanel {
+  display: none !important;
+}
+@media screen and (max-width: 1400px) {
+  .adminPanel {
+    display: none !important;
+  }
+}

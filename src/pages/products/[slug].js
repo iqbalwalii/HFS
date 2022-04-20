@@ -24,7 +24,7 @@ export default function Single(props) {
     <FullLayout>
       <div>
         <SingleCard product={product} />
-        <h4 className="text-center">
+        <h4 className="text-center " style={{ marginTop: "8rem" }}>
           WHAT<i style={{ fontWeight: "100" }}>&apos;s Trending</i>
         </h4>
         <Card />

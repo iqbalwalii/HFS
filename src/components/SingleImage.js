@@ -16,9 +16,10 @@ const SingleImage = ({ productImages }) => {
           style={{ zIndex: "1" }}
           {...{
             smallImage: {
-              isFluidWidth: true,
+              isFluidWidth: false,
               src: source,
-              width: 500,
+              width: 400,
+              height: 400,
             },
             largeImage: {
               src: source,

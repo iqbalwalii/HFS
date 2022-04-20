@@ -5,6 +5,7 @@ import Axios from "../utils/axios";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import FullLayout from "../layout/fullLayout";
 import Link from "next/link";
+import LatestDrop from "../components/LatestDrop";
 export default function Home(props) {
   const { error, products } = props;
   return (
@@ -12,17 +13,18 @@ export default function Home(props) {
       <div>
         <VideoCard />
         <Container>
-          <Row>
-            <h4 className="text-center mt-5">
-              NEW<i style={{ fontWeight: "100" }}>&nbsp;ARRIVALS</i>
-            </h4>
+          <h4 className="text-center mt-5">
+            NEW<i style={{ fontWeight: "100" }}>&nbsp;ARRIVALS</i>
+          </h4>
+          <Row className="mainCardGrid">
             {products?.map((prod) => (
-              <Col xs={6} md={3} key={prod.id}>
+              <Col key={prod.id}>
                 <Card product={prod} />
               </Col>
             ))}
           </Row>
         </Container>
+
         <Row>
           <Col
             xs={{ span: 6, offset: 3 }}
@@ -37,16 +39,22 @@ export default function Home(props) {
           </Col>
         </Row>
         <Blog />
+        <Row>
+          <h4 className="text-center mt-5">
+            Latest<i style={{ fontWeight: "100" }}>&nbsp;Drop</i>
+          </h4>
+          <LatestDrop />
+        </Row>
 
         <VideoCard />
 
         <Container>
-          <Row>
-            <h4 className="text-center mt-5">
-              WHATs<i style={{ fontWeight: "100" }}>&nbsp;NEW</i>
-            </h4>
+          <h4 className="text-center mt-5">
+            WHATs<i style={{ fontWeight: "100" }}>&nbsp;NEW</i>
+          </h4>
+          <Row className="mainCardGrid">
             {products?.map((prod) => (
-              <Col xs={6} md={3} key={prod.id}>
+              <Col key={prod.id}>
                 <Card product={prod} />
               </Col>
             ))}

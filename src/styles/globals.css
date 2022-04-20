@@ -34,8 +34,23 @@ a {
 .adminPanel {
   display: none !important;
 }
-@media screen and (max-width: 1400px) {
-  .adminPanel {
-    display: none !important;
+
+.mainCardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1rem;
+}
+@media screen and (max-width: 425px) {
+  .mainCardGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mainCardGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
   }
 }

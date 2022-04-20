@@ -17,5 +17,6 @@ const ACTIONS = {
   saveShippingAddress: "ADD_SHIPPING_ADDRESS",
   setCurrency: "SET_CURRENCY",
   getProducts: "GET_PRODUCTS",
+  setProduct: "SET_PRODUCT",
 };
 export default ACTIONS;

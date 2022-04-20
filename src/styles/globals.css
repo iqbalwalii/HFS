@@ -47,10 +47,10 @@ a {
     grid-gap: 1rem;
   }
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .mainCardGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1rem;
   }
-}
+} */

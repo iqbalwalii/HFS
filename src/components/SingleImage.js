@@ -18,8 +18,8 @@ const SingleImage = ({ productImages }) => {
             smallImage: {
               isFluidWidth: false,
               src: source,
-              width: 400,
-              height: 400,
+              width: 300,
+              height: 300,
             },
             largeImage: {
               src: source,

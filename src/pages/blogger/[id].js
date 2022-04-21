@@ -12,23 +12,22 @@ const Create = ({ userData }) => {
     images: [],
   };
   const router = useRouter();
+  const id = router.query.id;
   const { register, handleSubmit, errors } = useForm(initialState);
+  console.log(userData);
   const onSubmit = (data) => {
     const file = data.images[0][0];
     data.images[0] = file;
-    data.author = "iqbalwali";
+    data.author = userData.name;
     console.log(data);
-    createBlog(data, userData.token).then((res) => {
-      console.log(res);
-      fileUpload(res.post._id, data, userData.token).then((res) => {
-        router.push("/blogger");
-      });
+    fileUpload(id, data, userData.token).then((res) => {
+      router.push("/blogger");
     });
   };
 
   return (
     <Container>
-      <h3 className="text-center">CREATE YOUR BLOG POST</h3>
+      <h3 className="text-center">UPDATE YOUR BLOG POST</h3>
       <Form name="form" onSubmit={handleSubmit(onSubmit)}>
         <Form.Group controlId="text" className="mb-3">
           <Form.Control

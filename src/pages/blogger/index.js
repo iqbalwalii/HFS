@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   Container,
@@ -13,24 +13,32 @@ import {
 import { Trash, PencilFill, PencilSquare } from "react-bootstrap-icons";
 import Image from "next/image";
 import blog from "../../styles/Blogger.module.css";
-const Blogger = () => {
-  const popover = (
-    <Popover id="popover-basic">
-      <Popover.Header as="h3" style={{ background: "#ec7171", color: "#fff" }}>
-        Are You sure
-      </Popover.Header>
-      <Popover.Body>
-        All Content for this Post will be deleted <br />
-        <i>(This Action cannot be undone)</i>
-        <div className={blog.pop}>
-          <ButtonGroup aria-label="Are you sure">
-            <Button variant="danger">Yes</Button>
-            <Button variant="success">No</Button>
-          </ButtonGroup>
-        </div>
-      </Popover.Body>
-    </Popover>
-  );
+import { connect } from "react-redux";
+import { deleteBlog, getBlogs } from "../../services/blogService";
+const Blogger = (props) => {
+  const { blogs, user } = props;
+  const [list, setList] = useState(12);
+  useEffect(() => {
+    getBlogs().then((blogs) => {
+      props.dispatch({
+        type: "GET_BLOGS",
+        payload: blogs.posts,
+      });
+    });
+  }, []);
+  const onDeleteHandler = (id) => {
+    console.log(user?.token);
+    deleteBlog(id, user?.token).then((res) => {
+      console.log(res);
+      getBlogs().then((blogs) => {
+        props.dispatch({
+          type: "GET_BLOGS",
+          payload: blogs.posts,
+        });
+      });
+    });
+  };
+
   return (
     <>
       <Row className={blog.main}>
@@ -42,8 +50,8 @@ const Blogger = () => {
               height="90px"
               alt="profile"
             />
-            <h6 className={blog.username}>Iqbalwali</h6>
-            <p>Iqbalwali786@gmail.com</p>
+            <h6 className={blog.username}>{user?.name}</h6>
+            <p>{user?.email}</p>
           </div>
           <ul>
             <li>
@@ -57,147 +65,36 @@ const Blogger = () => {
         <Col xs={12} md={8} className={blog.right}>
           <div className={blog.posts}>
             <h3 className="text-center">
-              <span style={{ color: "#5BD1E6" }}>Iqbalwali&apos;s</span> Latest
-              Posts
+              <span style={{ color: "#5BD1E6" }}>{user?.name}&apos;s</span>{" "}
+              Latest Posts
             </h3>
             <ListGroup>
-              <ListGroup.Item className={blog.item}>
-                A Thirsty Crow
-                <div className="">
-                  <PencilFill style={{ marginRight: "10px" }} />
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="left"
-                    overlay={popover}
+              {blogs?.slice(0, list).map((blog, index) => (
+                <ListGroup.Item className="blogItem">
+                  <div>
+                    ({index + 1})&nbsp;&nbsp;
+                    <Link href={`/blogger/${blog?._id}`}>{blog.title}</Link>
+                  </div>
+                  <Button
+                    variant="danger"
+                    onClick={() => {
+                      onDeleteHandler(blog?._id);
+                    }}
                   >
-                    <OverlayTrigger
-                      trigger="click"
-                      placement="left"
-                      overlay={popover}
-                    >
-                      <Trash color="red" />
-                    </OverlayTrigger>
-                  </OverlayTrigger>
-                </div>
-              </ListGroup.Item>
-              <ListGroup.Item className={blog.item}>
-                Monkey and the Cap Seller
-                <div className="">
-                  <PencilFill style={{ marginRight: "10px" }} />
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="left"
-                    overlay={popover}
-                  >
-                    <Trash color="red" />
-                  </OverlayTrigger>
-                </div>
-              </ListGroup.Item>
-              <ListGroup.Item className={blog.item}>
-                Rabbit and The Tortoise
-                <div className="">
-                  <PencilFill style={{ marginRight: "10px" }} />
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="left"
-                    overlay={popover}
-                  >
-                    <Trash color="red" />
-                  </OverlayTrigger>
-                </div>
-              </ListGroup.Item>
-              <ListGroup.Item className={blog.item}>
-                Rabbit and The Tortoise
-                <div className="">
-                  <PencilFill style={{ marginRight: "10px" }} />
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="left"
-                    overlay={popover}
-                  >
-                    <Trash color="red" />
-                  </OverlayTrigger>
-                </div>
-              </ListGroup.Item>
-              <ListGroup.Item className={blog.item}>
-                Rabbit and The Tortoise
-                <div className="">
-                  <PencilFill style={{ marginRight: "10px" }} />
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="left"
-                    overlay={popover}
-                  >
-                    <Trash color="red" />
-                  </OverlayTrigger>
-                </div>
-              </ListGroup.Item>
-              <ListGroup.Item className={blog.item}>
-                Rabbit and The Tortoise
-                <div className="">
-                  <PencilFill style={{ marginRight: "10px" }} />
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="left"
-                    overlay={popover}
-                  >
-                    <Trash color="red" />
-                  </OverlayTrigger>
-                </div>
-              </ListGroup.Item>
-              <ListGroup.Item className={blog.item}>
-                Rabbit and The Tortoise
-                <div className="">
-                  <PencilFill style={{ marginRight: "10px" }} />
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="left"
-                    overlay={popover}
-                  >
-                    <Trash color="red" />
-                  </OverlayTrigger>
-                </div>
-              </ListGroup.Item>
-              <ListGroup.Item className={blog.item}>
-                Marry and the Lamb
-                <div className="">
-                  <PencilFill style={{ marginRight: "10px" }} />
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="left"
-                    overlay={popover}
-                  >
-                    <Trash color="red" />
-                  </OverlayTrigger>
-                </div>
-              </ListGroup.Item>
-              <ListGroup.Item className={blog.item}>
-                The Grapes are Sour
-                <div className="">
-                  <PencilFill style={{ marginRight: "10px" }} />
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="left"
-                    overlay={popover}
-                  >
-                    <Trash color="red" />
-                  </OverlayTrigger>
-                </div>
-              </ListGroup.Item>
-              <ListGroup.Item className={blog.item}>
-                Kurkure and TEDHE MEDHE
-                <div className="">
-                  <PencilFill style={{ marginRight: "10px" }} />
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="left"
-                    overlay={popover}
-                  >
-                    <Trash color="red" />
-                  </OverlayTrigger>
-                </div>
-              </ListGroup.Item>
+                    Delete{" "}
+                  </Button>
+                </ListGroup.Item>
+              ))}
             </ListGroup>
+            {list > 12 && (
+              <Row>
+                <Col xs={12} md={{ span: 4, offset: 4 }} className="mt-4">
+                  <Button variant="dark" onClick={() => setList(list + 5)}>
+                    Load More
+                  </Button>
+                </Col>
+              </Row>
+            )}
           </div>
         </Col>
       </Row>
@@ -211,5 +108,9 @@ const Blogger = () => {
     </>
   );
 };
+const mapStateToProps = (state) => ({
+  user: state.userData,
+  blogs: state.blogs,
+});
 
-export default Blogger;
+export default connect(mapStateToProps)(Blogger);

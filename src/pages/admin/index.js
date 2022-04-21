@@ -52,7 +52,7 @@ const Home = (props) => {
               <ListCheck />
               &nbsp; Products
             </li>
-            <li onClick={(e) => setDisplay("blog")}>
+            <li onClick={(e) => router.push("/blogger")}>
               <JournalRichtext />
               &nbsp; Blog
             </li>
@@ -69,10 +69,8 @@ const Home = (props) => {
             <Orders />
           ) : display === "users" ? (
             <Users />
-          ) : display === "products" ? (
-            <Products />
           ) : (
-            <Blog />
+            <Products />
           )}
         </Col>
       </Row>

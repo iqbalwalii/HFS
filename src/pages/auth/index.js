@@ -10,15 +10,7 @@ const Auth = (props) => {
   const router = useRouter();
   return (
     <FullLayout>
-      {userData?.token ? (
-        userData.isAdmin === true ? (
-          router.push("/admin")
-        ) : (
-          <Profile />
-        )
-      ) : (
-        <Login />
-      )}
+      {userData && userData.isAdmin == true ? <Profile /> : <Login />}
     </FullLayout>
   );
 };

@@ -1,10 +1,8 @@
 .side {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: .5rem;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(100px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
 
 .side > div {

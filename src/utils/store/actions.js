@@ -18,5 +18,6 @@ const ACTIONS = {
   setCurrency: "SET_CURRENCY",
   getProducts: "GET_PRODUCTS",
   setProduct: "SET_PRODUCT",
+  getBlogs: "GET_BLOGS",
 };
 export default ACTIONS;

@@ -121,8 +121,10 @@ const reducer = (state = initialState, action) => {
       return { ...state, products: payload };
     }
     case ACTIONS.setProduct: {
-      console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaapppp", payload);
       return { ...state, product: payload };
+    }
+    case ACTIONS.getBlogs: {
+      return { ...state, blogs: payload };
     }
 
     // Default Case

@@ -70,7 +70,7 @@ const Blogger = (props) => {
             </h3>
             <ListGroup>
               {blogs?.slice(0, list).map((blog, index) => (
-                <ListGroup.Item className="blogItem">
+                <ListGroup.Item className="blogItem" key={index}>
                   <div>
                     ({index + 1})&nbsp;&nbsp;
                     <Link href={`/blogger/${blog?._id}`}>{blog.title}</Link>

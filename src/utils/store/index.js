@@ -121,6 +121,7 @@ const reducer = (state = initialState, action) => {
       return { ...state, products: payload };
     }
     case ACTIONS.setProduct: {
+      console.log("hyhay", payload);
       return { ...state, product: payload };
     }
     case ACTIONS.getBlogs: {

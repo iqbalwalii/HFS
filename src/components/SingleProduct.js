@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
 import single from "../styles/Single.module.css";
 import SingleImage from "./SingleImage";
@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 const SingleProduct = (props) => {
   const router = useRouter();
   const { product } = props;
-  console.log(product);
   const [items, setItems] = useState({
     size: null,
     quantity: 1,
@@ -31,7 +30,9 @@ const SingleProduct = (props) => {
     });
     router.push("/cart");
   };
-
+  useEffect(() => {
+    console.log(product);
+  }, [product]);
   return (
     <Container>
       <Row style={{ marginTop: "8rem" }}>
@@ -120,7 +121,7 @@ const SingleProduct = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    ...state,
+    product: state.product,
   };
 };
 export default connect(mapStateToProps)(SingleProduct);

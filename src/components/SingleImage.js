@@ -3,7 +3,6 @@ import single from "../styles/SingleImage.module.css";
 import Image from "next/image";
 import ReactImageMagnify from "react-image-magnify";
 const SingleImage = ({ productImages }) => {
-  console.log(productImages, "productimges");
   const [source, setSource] = useState(productImages[0]);
   useEffect(() => {
     setSource(productImages[0]);

@@ -30,8 +30,8 @@ const Blogs = (props) => {
           <h3 className="text-center mt-5">No Blog Posts</h3>
         ) : (
           <Row>
-            {blogs?.map((blog) => (
-              <Col xs={12} md={4}>
+            {blogs?.map((blog, index) => (
+              <Col xs={12} md={4} key={index}>
                 <Card detail={blog} />
               </Col>
             ))}

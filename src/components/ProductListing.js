@@ -178,7 +178,7 @@ const ProductListing = (props) => {
         </Col>
         <Col md={9}>
           {products && products.length > 0 ? (
-            <div className={style.products}>
+            <div className="mainCardGrid">
               {products.map((prod) => (
                 <Card product={prod} key={prod.id} />
               ))}

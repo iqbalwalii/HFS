@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import AuthLayout from "../../layout/AuthLayout";
 import {
   Container,
   Row,
@@ -40,7 +41,7 @@ const Blogger = (props) => {
   };
 
   return (
-    <>
+    <AuthLayout>
       <Row className={blog.main}>
         <Col XS={12} md={3} className={blog.left}>
           <div className={blog.profile}>
@@ -73,7 +74,7 @@ const Blogger = (props) => {
                 <ListGroup.Item className="blogItem" key={index}>
                   <div>
                     ({index + 1})&nbsp;&nbsp;
-                    <Link href={`/blogger/${blog?._id}`}>{blog.title}</Link>
+                    <Link href={`/blogger/${blog?.title}`}>{blog.title}</Link>
                   </div>
                   <Button
                     variant="danger"
@@ -105,7 +106,7 @@ const Blogger = (props) => {
           </div>
         </a>
       </Link>
-    </>
+    </AuthLayout>
   );
 };
 const mapStateToProps = (state) => ({

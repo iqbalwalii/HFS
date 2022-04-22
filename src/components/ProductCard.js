@@ -31,7 +31,7 @@ const ProductCard = (props) => {
             alt="product image"
             className={Cards.productImg}
           />
-          <h5>{product.name}</h5>
+          <p className="text-center mt-2">{product.name.slice(0, 21)}</p>
         </div>
       )}
     </div>

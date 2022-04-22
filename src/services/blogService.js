@@ -4,8 +4,12 @@ export async function getBlogs() {
   const { data } = await Axios.get("/api/admin/blog-posts");
   return data;
 }
+export async function getBlog(slug) {
+  const { data } = await Axios.get(`/api/admin/blog-posts/${slug}`);
+  return data;
+}
 export async function createBlog(input, token) {
-  console.log(form);
+  console.log(input);
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };

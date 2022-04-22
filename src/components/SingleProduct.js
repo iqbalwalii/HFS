@@ -5,8 +5,10 @@ import SingleImage from "./SingleImage";
 import Image from "next/image";
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
+import { getProduct } from "../services/product";
 const SingleProduct = (props) => {
   const router = useRouter();
+  const slug = router.query.slug;
   const { product } = props;
   const [items, setItems] = useState({
     size: null,
@@ -31,21 +33,29 @@ const SingleProduct = (props) => {
     router.push("/cart");
   };
   useEffect(() => {
-    console.log(product);
+    if (router.isReady) {
+      getProduct(slug).then((res) => {
+        console.log("hsjjjjjjjjjjjjjjjjjjjjjjjosh", product);
+        props.dispatch({
+          type: "SET_PRODUCT",
+          payload: res.product,
+        });
+      });
+    }
   }, [product]);
   return (
     <Container>
       <Row style={{ marginTop: "8rem" }}>
         <Col xs={10} md={5}>
-          <SingleImage productImages={product.images} />
+          {/* <SingleImage productImages={product.images} /> */}
         </Col>
         <Col
           xs={10}
           md={{ span: 5, offset: 1 }}
           className="justify-content-xs-center"
         >
-          <h2>{product.name}</h2>
-          <h4 style={{ color: "#f00" }}>{product.price}</h4>
+          <h2>{product?.name}</h2>
+          <h4 style={{ color: "#f00" }}>{product?.price}</h4>
           <div className={single.size}>
             <Button variant="outline-dark" id="4" onClick={onChangeHandler}>
               4

@@ -4,28 +4,44 @@ import { createBlog, fileUpload } from "../../services/blogService";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
+import Axios from "../../utils/axios";
 const Create = ({ userData }) => {
+  const [url, setUrl] = React.useState("");
   let initialState = {
     title: "",
     description: [],
     author: "",
-    images: [],
+    images: [url],
   };
+  console.log(initialState);
   const router = useRouter();
   const { register, handleSubmit, errors } = useForm(initialState);
   const onSubmit = (data) => {
-    const file = data.images[0][0];
-    data.images[0] = file;
-    data.author = "iqbalwali";
-    console.log(data);
+    data.images = [url];
     createBlog(data, userData.token).then((res) => {
       console.log(res);
-      fileUpload(res.post._id, data, userData.token).then((res) => {
-        router.push("/blogger");
-      });
+      router.push("/blogger");
     });
   };
+  async function onUploadHandler(e) {
+    console.log("called upload handler", e.target.id ? e.target.id : e.target);
+    const file = e.target.files[0];
+    let bodyFormData = new FormData();
+    bodyFormData.append("file", file);
+    try {
+      const { data } = await Axios.post("/api/admin/upload", bodyFormData, {
+        "Content-Type": "multipart/form-data",
+      }).then((res) => {
+        setUrl(res.data.result.secure_url);
+        console.log(data.result.secure_url);
+      });
+    } catch (error) {
+      console.log("error upload", error);
+      // dispatch({ type: 'UPLOAD_FAILED', payload: error.message });
 
+      // enqueueSnackbar(error.message, { variant: 'error' });
+    }
+  }
   return (
     <Container>
       <h3 className="text-center">CREATE YOUR BLOG POST</h3>
@@ -43,7 +59,7 @@ const Create = ({ userData }) => {
             type="file"
             placeholder="image"
             name="image"
-            {...register("images[0]")}
+            onChange={onUploadHandler}
           />
         </Form.Group>
         <FloatingLabel

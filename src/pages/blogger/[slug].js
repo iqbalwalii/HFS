@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button, Container, FloatingLabel } from "react-bootstrap";
 import { createBlog, fileUpload } from "../../services/blogService";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
+import { getBlog } from "../../services/blogService";
 import { useRouter } from "next/router";
 const Create = ({ userData }) => {
   let initialState = {
@@ -12,8 +13,17 @@ const Create = ({ userData }) => {
     images: [],
   };
   const router = useRouter();
-  const id = router.query.id;
+  const [state, setState] = useState(initialState);
+  const slug = router.query.slug;
   const { register, handleSubmit, errors } = useForm(initialState);
+  useEffect(() => {
+    if (router.isReady) {
+      getBlog(slug).then((res) => {
+        setState(res.post);
+        console.log(res);
+      });
+    }
+  }, [slug]);
   console.log(userData);
   const onSubmit = (data) => {
     const file = data.images[0][0];
@@ -32,7 +42,7 @@ const Create = ({ userData }) => {
         <Form.Group controlId="text" className="mb-3">
           <Form.Control
             type="text"
-            placeholder="title"
+            placeholder={state ? state?.title : "title"}
             {...register("title")}
             name="title"
           />
@@ -52,7 +62,7 @@ const Create = ({ userData }) => {
         >
           <Form.Control
             as="textarea"
-            placeholder="Your content (*required)"
+            placeholder={state ? state?.description[0] : "description"}
             style={{ height: "300px", marginBottom: "1rem" }}
             {...register("description[0]")}
           />
@@ -63,7 +73,7 @@ const Create = ({ userData }) => {
         >
           <Form.Control
             as="textarea"
-            placeholder="Your content (*Optional)"
+            placeholder={state ? state?.description[1] : "description"}
             {...register("description[1]")}
           />
         </FloatingLabel>
@@ -73,7 +83,7 @@ const Create = ({ userData }) => {
         >
           <Form.Control
             as="textarea"
-            placeholder="Leave a comment here"
+            placeholder={state ? state?.description[2] : "description"}
             style={{ marginBottom: "1rem" }}
             {...register("description[2]")}
           />

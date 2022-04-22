@@ -3,21 +3,21 @@
   border-radius: 2%;
   width: 200px;
   position: relative;
-  -webkit-transition: all .3s linear;
-  transition: all .3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
   margin: 1rem 0rem;
   cursor: pointer;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .main .productImg {
@@ -32,9 +32,9 @@
 
 .main:hover {
   -webkit-box-shadow: 3px 5px #00000025;
-          box-shadow: 3px 5px #00000025;
+  box-shadow: 3px 5px #00000025;
   -webkit-transform: scale(1.01);
-          transform: scale(1.01);
+  transform: scale(1.01);
 }
 
 .main h5 {
@@ -51,7 +51,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  background: #1C5D8C;
+  background: #1c5d8c;
   height: 140px;
   width: 170px;
   border-bottom-left-radius: 50%;

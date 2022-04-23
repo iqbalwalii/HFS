@@ -5,7 +5,8 @@ export async function getBlogs() {
   return data;
 }
 export async function getBlog(slug) {
-  const { data } = await Axios.get(`/api/admin/blog-posts/${slug}`);
+  let key = slug.toLowerCase();
+  const { data } = await Axios.get(`/api/admin/blog-posts/${key}`);
   return data;
 }
 export async function createBlog(input, token) {

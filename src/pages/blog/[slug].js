@@ -6,18 +6,12 @@ import Card from "../../components/Card";
 import FullLayout from "../../layout/fullLayout";
 import { getBlog } from "../../services/blogService";
 import { useRouter } from "next/router";
-const Blog = () => {
-  const [blog, setBlog] = useState([]);
+import { connect } from "react-redux";
+const Blog = ({ blog }) => {
   const router = useRouter();
-  const slug = router.query.slug.toLowerCase();
+  const slug = router.query.slug;
   console.log(slug);
-  useEffect(() => {
-    if (router.isReady) {
-      getBlog(slug).then((res) => {
-        setBlog(res.post);
-      });
-    }
-  }, [slug]);
+
   return (
     <FullLayout>
       <Single blog={blog} />
@@ -44,5 +38,9 @@ const Blog = () => {
     </FullLayout>
   );
 };
-
-export default Blog;
+const mapStateToProps = (state) => {
+  return {
+    blog: state.singlePost,
+  };
+};
+export default connect(mapStateToProps)(Blog);

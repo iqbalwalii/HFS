@@ -19,5 +19,6 @@ const ACTIONS = {
   getProducts: "GET_PRODUCTS",
   setProduct: "SET_PRODUCT",
   getBlogs: "GET_BLOGS",
+  setPost: "SET_POST",
 };
 export default ACTIONS;

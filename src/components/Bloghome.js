@@ -27,11 +27,9 @@ const Bloghome = (props) => {
         SNEAKER<i style={{ fontWeight: "100" }}>NEWS</i>
       </h4>
 
-      {/* Blog Cards */}
-      {/* Blog Cards */}
       <div className={blog.cards}>
         <Row className="justify-content-center">
-          {props?.blogs?.slice(0, 4).map((blog, index) => {
+          {blogs?.slice(0, 4).map((blog, index) => {
             return (
               <Col sm={8} md={6} key={index}>
                 <BlogCard data={blog} />

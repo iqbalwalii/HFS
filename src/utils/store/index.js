@@ -127,6 +127,9 @@ const reducer = (state = initialState, action) => {
     case ACTIONS.getBlogs: {
       return { ...state, blogs: payload };
     }
+    case ACTIONS.setPost: {
+      return { ...state, singlePost: payload };
+    }
 
     // Default Case
     default:

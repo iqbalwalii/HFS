@@ -7,14 +7,14 @@ const BlogCard = ({ data }) => {
     <div className={blog.blogcard}>
       <Image
         // src={`/${data.images[0]}`}
-        src="/assets/images/pant1.jpg"
+        src={data.images[0]}
         height="150px"
         width="150px"
         alt="blog image"
       />
       <div className={blog.container}>
         <h6>{data.title}</h6>
-        <p>{data.description.slice(0, 100)}</p>
+        <p>{data.description[0].slice(0, 100)}</p>
         <Link href={`/blog/${data?.title}`}>
           <h5>READ MORE</h5>
         </Link>

@@ -2,7 +2,8 @@ import React from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import FullLayout from "../../layout/authLayout";
 import dashboard from "../../styles/Dashboard.module.css";
-const Blog = () => {
+import { connect } from "react-redux";
+const Blog = (props) => {
   return (
     <FullLayout>
       <Container>

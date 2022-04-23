@@ -2,17 +2,13 @@ import React from "react";
 import Image from "next/image";
 import single from "../styles/SingleBlog.module.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { connect } from "react-redux";
 
 const SingleBlog = ({ blog }) => {
+  console.log("blog", blog);
   return (
     <div>
-      <Image
-        width="2560px"
-        height="900px"
-        alt="blog image"
-        src={blog?.images[0]}
-        className={single.image}
-      />
+      <img alt="blog image" src={blog?.images[0]} className={single.image} />
       <Container>
         <div className={single.rest}>
           <div className={single.title}>
@@ -28,5 +24,9 @@ const SingleBlog = ({ blog }) => {
     </div>
   );
 };
-
-export default SingleBlog;
+const mapStateToProps = (state) => {
+  return {
+    blog: state.singlePost,
+  };
+};
+export default connect(mapStateToProps)(SingleBlog);

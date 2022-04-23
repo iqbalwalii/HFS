@@ -31,6 +31,7 @@ const Login = (props) => {
           },
         });
       } else {
+        console.log("resp success", data);
 
         props.dispatch({
           type: "ADD_USER",
@@ -44,6 +45,8 @@ const Login = (props) => {
         });
         router.push("/");
       }
+    } catch (error) {
+      console.log(error);
     }
   };
   return (

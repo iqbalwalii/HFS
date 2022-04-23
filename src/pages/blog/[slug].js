@@ -23,7 +23,7 @@ const Blog = (props) => {
   return (
     <FullLayout>
       <Single blog={blog} />
-      <h4 className="text-center">
+      {/* <h4 className="text-center">
         What<i style={{ fontWeight: "100" }}>&apos;s Next</i>
       </h4>
       <p className="text-center mb-3">Hello Worldksjd sdkjs dkjs dk </p>
@@ -42,7 +42,7 @@ const Blog = (props) => {
         >
           <Button variant="dark">More</Button>
         </Col>
-      </Row>
+      </Row> */}
     </FullLayout>
   );
 };

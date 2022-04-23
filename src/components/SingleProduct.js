@@ -10,12 +10,15 @@ const SingleProduct = (props) => {
   const router = useRouter();
   const slug = router.query.slug;
   const [load, setLoad] = useState(false);
+  const [active, setActive] = useState(0);
   const { product } = props;
   const [items, setItems] = useState({
     size: null,
     quantity: 1,
   });
   const onChangeHandler = (e) => {
+    console.log(e.target.id);
+    setActive(e.target.id);
     setItems({
       ...items,
       size: e.target.id,
@@ -57,38 +60,84 @@ const SingleProduct = (props) => {
             className="justify-content-xs-center"
           >
             <h2>{product?.name}</h2>
-            <h4 style={{ fontWeight: "light" }}>${product?.price}</h4>
+            <h4 className="priceTag">${product?.price}</h4>
             <div className={single.size}>
-              <Button variant="outline-dark" id="4" onClick={onChangeHandler}>
+              <Button
+                variant="outline-dark "
+                id="4"
+                className={active == 4 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
                 4
               </Button>
-              <Button variant="outline-dark" id="5" onClick={onChangeHandler}>
+              <Button
+                variant="outline-dark"
+                id="5"
+                className={active == 5 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
                 5
               </Button>
-              <Button variant="outline-dark" id="6" onClick={onChangeHandler}>
+              <Button
+                variant="outline-dark"
+                id="6"
+                className={active == 6 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
                 6
               </Button>
-              <Button variant="outline-dark" id="7" onClick={onChangeHandler}>
+              <Button
+                variant="outline-dark"
+                id="7"
+                className={active == 7 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
                 7
               </Button>
-              <Button variant="outline-dark" id="8" onClick={onChangeHandler}>
+              <Button
+                variant="outline-dark"
+                id="8"
+                className={active == 8 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
                 8
               </Button>
-              <Button variant="outline-dark" id="9" onClick={onChangeHandler}>
+              <Button
+                variant="outline-dark"
+                id="9"
+                className={active == 9 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
                 9
               </Button>
-              <Button variant="outline-dark" id="10" onClick={onChangeHandler}>
+              <Button
+                variant="outline-dark"
+                id="10"
+                className={active == 10 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
                 10
               </Button>
-              <Button variant="outline-dark" id="8.5" onClick={onChangeHandler}>
+              <Button
+                variant="outline-dark"
+                id="8.5"
+                className={active == 8.5 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
                 8.5
               </Button>
-              <Button variant="outline-dark" id="9.5" onClick={onChangeHandler}>
+              <Button
+                variant="outline-dark"
+                id="9.5"
+                className={active == 9.5 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
                 9.5
               </Button>
               <Button
                 variant="outline-dark"
                 id="10.5"
+                className={active == 10.5 ? "active" : "null"}
                 onClick={onChangeHandler}
               >
                 10.5

@@ -15,7 +15,7 @@ const BlogCard = ({ data }) => {
       <div className={blog.container}>
         <h6>{data.title}</h6>
         <p>{data.description[0].slice(0, 100)}</p>
-        <Link href={`/blog/${data?.title}`}>
+        <Link href={`/blog/${data?.slug}`}>
           <h5>READ MORE</h5>
         </Link>
       </div>

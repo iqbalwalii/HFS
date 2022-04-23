@@ -52,7 +52,7 @@ const SingleProduct = (props) => {
           </Col>
           <Col xs={10} md={6} className="justify-content-xs-center">
             <h2>{product?.name}</h2>
-            <h4 style={{ color: "#f00" }}>{product?.price}</h4>
+            <h5 className="priceTag">{product?.price}</h5>
             <div className={single.size}>
               <Button
                 variant="outline-dark "
@@ -161,7 +161,7 @@ const SingleProduct = (props) => {
             </Form.Select>
             <p>
               <strong>Availibilty:</strong>{" "}
-              <span style={{ color: "red" }}> Sold out!</span>
+              <span style={{ color: "green" }}> In Stock</span>
             </p>
             <div className="d-grid gap-2">
               <Button

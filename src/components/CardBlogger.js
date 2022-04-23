@@ -11,12 +11,12 @@ const CardBlogger = (props) => {
   const { detail } = props;
   console.log("hsab", detail);
   const onClickHandler = () => {
-    getBlog(detail?.title).then((res) => {
+    getBlog(detail?.slug).then((res) => {
       props.dispatch({
         type: "SET_POST",
         payload: res.post,
       });
-      router.push(`/blog/${detail?.title}`);
+      router.push(`/blog/${detail?.slug}`);
     });
   };
   return (

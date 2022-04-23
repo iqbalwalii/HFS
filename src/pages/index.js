@@ -1,13 +1,14 @@
 import Card from "../components/ProductCard";
 import Blog from "../components/Bloghome";
 import VideoCard from "../components/VideoCard";
+import VideoCard2 from "../components/VideoCard2";
 import Axios from "../utils/axios";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import FullLayout from "../layout/fullLayout";
 import Link from "next/link";
 import LatestDrop from "../components/LatestDrop";
 export default function Home(props) {
-  const { error, products } = props;
+  const { products } = props;
   return (
     <FullLayout>
       <div>
@@ -32,7 +33,7 @@ export default function Home(props) {
             className="d-flex justify-content-center"
           >
             <Link href="/shop" passHref>
-              <Button variant="dark" className="mb-2">
+              <Button variant="dark" className="my-2">
                 View More
               </Button>
             </Link>
@@ -46,7 +47,7 @@ export default function Home(props) {
           <LatestDrop />
         </Row>
 
-        <VideoCard />
+        <VideoCard2 />
 
         <Container>
           <h4 className="text-center mt-5">
@@ -66,7 +67,7 @@ export default function Home(props) {
               className="d-flex justify-content-center"
             >
               <Link href="/shop" passHref>
-                <Button variant="dark" className="mb-2">
+                <Button variant="dark" className="my-2">
                   View More
                 </Button>
               </Link>

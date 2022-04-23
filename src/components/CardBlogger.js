@@ -15,11 +15,13 @@ const CardBlogger = ({ detail }) => {
         />
       </div>
       <p className={blog.date}>
-        <span>Aug 15 2021</span>
+        <span>{detail?.createdAt}24</span>
         <span>{detail?.author}</span>
       </p>
-      <h5 className="text-center p-1">{detail?.title}</h5>
-      <p className="text-center p-2">{detail?.description[0]}</p>
+      <h5 className="text-center p-1">{detail?.title?.slice(0, 25)}</h5>
+      <p className="text-center p-2">
+        {detail?.description[0].slice(0, 100)}...
+      </p>
       <div className="d-flex justify-content-center">
         <Link href={`/blog/${detail?.title}`} passHref>
           <Button variant="dark"> See more</Button>

@@ -1,24 +1,23 @@
 import React from "react";
 import blog from "../styles/Blog.module.css";
 import Image from "next/image";
-const BlogCard = () => {
+import Link from "next/link";
+const BlogCard = ({ data }) => {
   return (
     <div className={blog.blogcard}>
       <Image
-        src="/assets/images/shoes/dd.png"
+        // src={`/${data.images[0]}`}
+        src="/assets/images/pant1.jpg"
         height="150px"
         width="150px"
         alt="blog image"
       />
       <div className={blog.container}>
-        <h6>
-          READ MORE: MODI DIES AT LAST WATCH HIS FINAL KRIYAKARAM BELOW LINK
-        </h6>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
-          perferendis quo, iure asperiores itaque ducimus.
-        </p>
-        <h5>READ MORE</h5>
+        <h6>{data.title}</h6>
+        <p>{data.description.slice(0, 100)}</p>
+        <Link href={`/blog/${data?.title}`}>
+          <h5>READ MORE</h5>
+        </Link>
       </div>
     </div>
   );

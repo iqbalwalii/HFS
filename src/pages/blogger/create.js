@@ -18,6 +18,7 @@ const Create = ({ userData }) => {
   const { register, handleSubmit, errors } = useForm(initialState);
   const onSubmit = (data) => {
     data.images = [url];
+    data.author = userData.name;
     createBlog(data, userData.token).then((res) => {
       console.log(res);
       router.push("/blogger");

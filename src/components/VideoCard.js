@@ -8,11 +8,11 @@ const VideoCard = () => {
     <div className={video.cardMain}>
       <div className={video.details}>
         <h4>NIKE STORE</h4>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <p>Browse the Latest Sneakers.</p>
         <Button variant="dark">SHOP NOW</Button>
       </div>
       <ReactPlayer
-        url="/assets/videos/guy.mp4"
+        url="/assets/videos/gay.mp4"
         config={{ file: { attributes: { controlsList: "nodownload" } } }}
         onContextMenu={(e) => e.preventDefault()}
         width="100vw"

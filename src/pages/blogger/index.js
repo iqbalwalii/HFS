@@ -87,7 +87,7 @@ const Blogger = (props) => {
                 </ListGroup.Item>
               ))}
             </ListGroup>
-            {list > 12 && (
+            {blogs?.length > 12 && (
               <Row>
                 <Col xs={12} md={{ span: 4, offset: 4 }} className="mt-4">
                   <Button variant="dark" onClick={() => setList(list + 5)}>

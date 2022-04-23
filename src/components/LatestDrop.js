@@ -45,134 +45,139 @@ const SingleProduct = (props) => {
 
   return (
     <Container>
-      <Row style={{ marginTop: "8rem", marginBottom: "5rem" }}>
-        <Col xs={10} md={{ span: 4, offset: 1 }}>
-          {/* <SingleImage productImages={product?.images} /> */}
-        </Col>
-        <Col xs={10} md={6} className="justify-content-xs-center">
-          <h2>{product?.name}</h2>
-          <h4 style={{ color: "#f00" }}>{product?.price}</h4>
-          <div className={single.size}>
-            <Button
-              variant="outline-dark "
-              id="4"
-              className={active == 4 ? "active" : "null"}
-              onClick={onChangeHandler}
+      {product && (
+        <Row style={{ marginTop: "8rem", marginBottom: "5rem" }}>
+          <Col xs={10} md={{ span: 4, offset: 1 }}>
+            <SingleImage productImages={product?.images} />
+          </Col>
+          <Col xs={10} md={6} className="justify-content-xs-center">
+            <h2>{product?.name}</h2>
+            <h4 style={{ color: "#f00" }}>{product?.price}</h4>
+            <div className={single.size}>
+              <Button
+                variant="outline-dark "
+                id="4"
+                className={active == 4 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
+                4
+              </Button>
+              <Button
+                variant="outline-dark"
+                id="5"
+                className={active == 5 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
+                5
+              </Button>
+              <Button
+                variant="outline-dark"
+                id="6"
+                className={active == 6 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
+                6
+              </Button>
+              <Button
+                variant="outline-dark"
+                id="7"
+                className={active == 7 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
+                7
+              </Button>
+              <Button
+                variant="outline-dark"
+                id="8"
+                className={active == 8 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
+                8
+              </Button>
+              <Button
+                variant="outline-dark"
+                id="9"
+                className={active == 9 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
+                9
+              </Button>
+              <Button
+                variant="outline-dark"
+                id="10"
+                className={active == 10 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
+                10
+              </Button>
+              <Button
+                variant="outline-dark"
+                id="8.5"
+                className={active == 8.5 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
+                8.5
+              </Button>
+              <Button
+                variant="outline-dark"
+                id="9.5"
+                className={active == 9.5 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
+                9.5
+              </Button>
+              <Button
+                variant="outline-dark"
+                id="10.5"
+                className={active == 10.5 ? "active" : "null"}
+                onClick={onChangeHandler}
+              >
+                10.5
+              </Button>
+            </div>
+            <Form.Select
+              id="dropdown-basic-button"
+              title="Quantity&nbsp;&nbsp;&nbsp;"
+              variant="light"
+              className={single.quantity}
+              value={items.quantity}
+              onChange={(e) =>
+                setItems({
+                  ...items,
+                  quantity: e.target.value,
+                })
+              }
             >
-              4
-            </Button>
-            <Button
-              variant="outline-dark"
-              id="5"
-              className={active == 5 ? "active" : "null"}
-              onClick={onChangeHandler}
-            >
-              5
-            </Button>
-            <Button
-              variant="outline-dark"
-              id="6"
-              className={active == 6 ? "active" : "null"}
-              onClick={onChangeHandler}
-            >
-              6
-            </Button>
-            <Button
-              variant="outline-dark"
-              id="7"
-              className={active == 7 ? "active" : "null"}
-              onClick={onChangeHandler}
-            >
-              7
-            </Button>
-            <Button
-              variant="outline-dark"
-              id="8"
-              className={active == 8 ? "active" : "null"}
-              onClick={onChangeHandler}
-            >
-              8
-            </Button>
-            <Button
-              variant="outline-dark"
-              id="9"
-              className={active == 9 ? "active" : "null"}
-              onClick={onChangeHandler}
-            >
-              9
-            </Button>
-            <Button
-              variant="outline-dark"
-              id="10"
-              className={active == 10 ? "active" : "null"}
-              onClick={onChangeHandler}
-            >
-              10
-            </Button>
-            <Button
-              variant="outline-dark"
-              id="8.5"
-              className={active == 8.5 ? "active" : "null"}
-              onClick={onChangeHandler}
-            >
-              8.5
-            </Button>
-            <Button
-              variant="outline-dark"
-              id="9.5"
-              className={active == 9.5 ? "active" : "null"}
-              onClick={onChangeHandler}
-            >
-              9.5
-            </Button>
-            <Button
-              variant="outline-dark"
-              id="10.5"
-              className={active == 10.5 ? "active" : "null"}
-              onClick={onChangeHandler}
-            >
-              10.5
-            </Button>
-          </div>
-          <Form.Select
-            id="dropdown-basic-button"
-            title="Quantity&nbsp;&nbsp;&nbsp;"
-            variant="light"
-            className={single.quantity}
-            value={items.quantity}
-            onChange={(e) =>
-              setItems({
-                ...items,
-                quantity: e.target.value,
-              })
-            }
-          >
-            <option href="#/action-1">1</option>
-            <option href="#/action-2">2</option>
-            <option href="#/action-3">3</option>
-            <option href="#/action-3">4</option>
-            <option href="#/action-3">5</option>
-            <option href="#/action-3">6</option>
-            <option href="#/action-3">7</option>
-            <option href="#/action-3">8</option>
-            <option href="#/action-3">9</option>
-            <option href="#/action-3">10</option>
-          </Form.Select>
-          <p>
-            <strong>Availibilty:</strong>{" "}
-            <span style={{ color: "red" }}> Sold out!</span>
-          </p>
-          <div className="d-grid gap-2">
-            <Button variant="outline-dark" size="lg" onClick={onSubmitHandler}>
-              Add to Cart
-            </Button>
-            <Button variant="outline-dark" size="lg">
-              Pay
-            </Button>
-          </div>
-        </Col>
-      </Row>
-      ll
+              <option href="#/action-1">1</option>
+              <option href="#/action-2">2</option>
+              <option href="#/action-3">3</option>
+              <option href="#/action-3">4</option>
+              <option href="#/action-3">5</option>
+              <option href="#/action-3">6</option>
+              <option href="#/action-3">7</option>
+              <option href="#/action-3">8</option>
+              <option href="#/action-3">9</option>
+              <option href="#/action-3">10</option>
+            </Form.Select>
+            <p>
+              <strong>Availibilty:</strong>{" "}
+              <span style={{ color: "red" }}> Sold out!</span>
+            </p>
+            <div className="d-grid gap-2">
+              <Button
+                variant="outline-dark"
+                size="lg"
+                onClick={onSubmitHandler}
+              >
+                Add to Cart
+              </Button>
+              <Button variant="outline-dark" size="lg">
+                Pay
+              </Button>
+            </div>
+          </Col>
+        </Row>
+      )}
     </Container>
   );
 };

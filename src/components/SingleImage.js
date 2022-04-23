@@ -4,10 +4,6 @@ import Image from "next/image";
 import ReactImageMagnify from "react-image-magnify";
 const SingleImage = ({ productImages }) => {
   const [source, setSource] = useState(productImages[0]);
-  useEffect(() => {
-    setSource(productImages[0]);
-  }, [productImages]);
-
   return (
     <div>
       <div>
@@ -30,6 +26,7 @@ const SingleImage = ({ productImages }) => {
       </div>
       <div className={single.side}>
         {productImages.map((imgUrl, idx) => {
+          console.log(imgUrl);
           return (
             <div
               key={idx}

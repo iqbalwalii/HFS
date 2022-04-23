@@ -7,12 +7,7 @@ const CardBlogger = ({ detail }) => {
   return (
     <div className={blog.cardMain}>
       <div className="d-flex justify-content-center">
-        <Image
-          src="/assets/images/shoes/yeezy.png"
-          width="250px"
-          alt="Blog"
-          height="120px"
-        />
+        <img src={detail?.images[0]} width="250px" alt="Blog" height="120px" />
       </div>
       <p className={blog.date}>
         <span>{detail?.createdAt}24</span>

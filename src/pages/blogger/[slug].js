@@ -14,13 +14,13 @@ const Create = ({ userData }) => {
   };
   const router = useRouter();
   const [state, setState] = useState(initialState);
-  const slug = router.query.slug;
   const { register, handleSubmit, errors } = useForm(initialState);
+  const slug = router.query.slug;
   useEffect(() => {
     if (router.isReady) {
       getBlog(slug).then((res) => {
         setState(res.post);
-        console.log(res);
+        console.log("halay", res);
       });
     }
   }, [slug]);

@@ -13,12 +13,12 @@ const Create = ({ userData }) => {
     author: "",
     images: [url],
   };
-  console.log(initialState);
+  console.log(userData);
   const router = useRouter();
   const { register, handleSubmit, errors } = useForm(initialState);
   const onSubmit = (data) => {
     data.images = [url];
-    data.author = userData.name;
+    data.author = userData.id;
     createBlog(data, userData.token).then((res) => {
       console.log(res);
       router.push("/blogger");

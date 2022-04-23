@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Button } from "react-bootstrap";
 import Pagination from "../../components/PaginationBasic";
 import Single from "../../components/SingleBlog";
 import Card from "../../components/Card";
 import FullLayout from "../../layout/fullLayout";
+import { getBlog } from "../../services/blogService";
+import { useRouter } from "next/router";
 const Blog = () => {
+  const [blog, setBlog] = useState([]);
+  const router = useRouter();
+  const slug = router.query.slug.toLowerCase();
+  console.log(slug);
+  useEffect(() => {
+    if (router.isReady) {
+      getBlog(slug).then((res) => {
+        setBlog(res.post);
+      });
+    }
+  }, [slug]);
   return (
     <FullLayout>
-      <Single />
+      <Single blog={blog} />
       <h4 className="text-center">
         What<i style={{ fontWeight: "100" }}>&apos;s Next</i>
       </h4>

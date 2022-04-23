@@ -1,12 +1,22 @@
-.info
-    display: flex
-    justify-content: center
-    align-items: center
-.details
-    & .availibility
-        font-size: .8rem
-    & p
-        margin: 0
-@media  screen and (max-width:480px)
+.main
+    position: relative
+    margin-top: 2rem  
+    .info
+        display: flex
+        justify-content: center
+        align-items: center
+    .close
+        display: flex
+        justify-content: center
+        align-items: center
+
     .details
-        // text-align: center
+        & .availibility
+            font-size: .8rem
+        & p
+            margin: 0
+@media  screen and (max-width:480px)
+    .close
+        position: absolute
+        justify-content: flex-end !important
+        

@@ -38,7 +38,7 @@ const CartCard = (props) => {
   return (
     <Row>
       <Col className={cart.info} xs={12} md={3}>
-        <Image
+        <img
           src={product?.bannerImage}
           width="100px"
           height="100px"
@@ -81,7 +81,7 @@ const CartCard = (props) => {
       <Col className={cart.info} xs={12} md={2}>
         $ {product.total}
       </Col>
-      <Col className={cart.info} md={1}>
+      <Col className={cart.close} md={1}>
         <CloseButton onClick={onDeleteHandler} />
       </Col>
     </Row>

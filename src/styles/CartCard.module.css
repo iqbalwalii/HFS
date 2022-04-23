@@ -1,4 +1,9 @@
-.info {
+.main {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.main .info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,11 +15,32 @@
           align-items: center;
 }
 
-.details .availibility {
+.main .close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .details .availibility {
   font-size: .8rem;
 }
 
-.details p {
+.main .details p {
   margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .close {
+    position: absolute;
+    -webkit-box-pack: end !important;
+        -ms-flex-pack: end !important;
+            justify-content: flex-end !important;
+  }
 }
 /*# sourceMappingURL=CartCard.module.css.map */

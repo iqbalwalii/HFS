@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Container,
   Row,
@@ -25,6 +25,9 @@ const Bag = (props) => {
       return total;
     });
   };
+  useEffect(() => {
+    total = 0;
+  }, [props]);
   return (
     <FullLayout>
       <Container>

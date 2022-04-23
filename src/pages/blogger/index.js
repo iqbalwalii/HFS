@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import AuthLayout from "../../layout/AuthLayout";
+import AuthLayout from "../../layout/authLayout";
 import {
   Container,
   Row,

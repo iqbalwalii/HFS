@@ -8,8 +8,12 @@ import FullLayout from "../layout/fullLayout";
 import Link from "next/link";
 import LatestDrop from "../components/LatestDrop";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
 export default function Home(props) {
 	const { products } = props;
+	const router = useRouter();
+
 	return (
 		<FullLayout>
 			<div>
@@ -82,6 +86,12 @@ export default function Home(props) {
 					<Row className="my-4">
 						<Col
 							style={{ cursor: "pointer" }}
+							onClick={(e) => {
+								router.push({
+									pathname: "/shop",
+									query: { brand: "new balance" },
+								});
+							}}
 							className="bg-light flex-column brandHover align-items-center p-4  d-flex justify-content-center m-2 border border-dark rounded"
 						>
 							<Image
@@ -95,6 +105,12 @@ export default function Home(props) {
 						</Col>
 						<Col
 							style={{ cursor: "pointer" }}
+							onClick={(e) => {
+								router.push({
+									pathname: "/shop",
+									query: { brand: "balanciage" },
+								});
+							}}
 							className="bg-light flex-column brandHover align-items-center p-4  d-flex justify-content-center m-2 border border-dark rounded"
 						>
 							<Image
@@ -108,6 +124,12 @@ export default function Home(props) {
 						</Col>
 						<Col
 							style={{ cursor: "pointer" }}
+							onClick={(e) => {
+								router.push({
+									pathname: "/shop",
+									query: { brand: "nike" },
+								});
+							}}
 							className="bg-light flex-column brandHover align-items-center p-4  d-flex justify-content-center m-2 border border-dark rounded"
 						>
 							<Image

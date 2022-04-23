@@ -75,12 +75,14 @@ export default function Home(props) {
 						</Col>
 					</Row>
 				</Container>
-				<Container>
-					<h4 className="text-center mt-5">SHOP BY BRAND</h4>
-					<Row>
+				<div className="bg-dark p-4">
+					<h4 className="text-center mt-3 text-white ">
+						SHOP BY BRAND
+					</h4>
+					<Row className="my-4">
 						<Col
 							style={{ cursor: "pointer" }}
-							className=" flex-column brandHover align-items-center p-4  d-flex justify-content-center m-2 border border-dark rounded"
+							className="bg-light flex-column brandHover align-items-center p-4  d-flex justify-content-center m-2 border border-dark rounded"
 						>
 							<Image
 								src="/assets/images/Shoes/yeezy.png"
@@ -93,7 +95,7 @@ export default function Home(props) {
 						</Col>
 						<Col
 							style={{ cursor: "pointer" }}
-							className=" flex-column brandHover align-items-center p-4  d-flex justify-content-center m-2 border border-dark rounded"
+							className="bg-light flex-column brandHover align-items-center p-4  d-flex justify-content-center m-2 border border-dark rounded"
 						>
 							<Image
 								src="/assets/images/Shoes/yeezy.png"
@@ -106,7 +108,7 @@ export default function Home(props) {
 						</Col>
 						<Col
 							style={{ cursor: "pointer" }}
-							className=" flex-column brandHover align-items-center p-4  d-flex justify-content-center m-2 border border-dark rounded"
+							className="bg-light flex-column brandHover align-items-center p-4  d-flex justify-content-center m-2 border border-dark rounded"
 						>
 							<Image
 								src="/assets/images/Shoes/yeezy.png"
@@ -116,7 +118,7 @@ export default function Home(props) {
 							<h5 className="bold text-uppercase mt-3">nike</h5>
 						</Col>
 					</Row>
-				</Container>
+				</div>
 			</div>
 		</FullLayout>
 	);

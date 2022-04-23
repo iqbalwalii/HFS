@@ -1,63 +1,75 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 html {
-  overflow-x: hidden !important;
+	overflow-x: hidden !important;
 }
 .top {
-  margin-top: 2rem !important;
+	margin-top: 2rem !important;
 }
 a {
-  color: #000;
-  text-decoration: none;
+	color: #000;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 .main {
-  margin-top: 4rem !important;
+	margin-top: 4rem !important;
 }
 .imageCon {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 1rem;
 }
 .red {
-  color: #f00;
+	color: #f00;
 }
 .primary {
-  color: rgb(27, 27, 190);
+	color: rgb(27, 27, 190);
 }
 .adminPanel {
-  display: none !important;
+	display: none !important;
+}
+.brandHover {
+	transition: all 0.3s;
+}
+
+.brandHover:hover {
+	transform: scale(1.02);
+	transition: all 0.3s;
+}
+.brandHover:hover img {
+	transition: all 0.2s;
+	transform: scale(1.07);
 }
 
 .mainCardGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 1rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-gap: 1rem;
 }
 @media screen and (max-width: 425px) {
-  .mainCardGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
-  }
+	.mainCardGrid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 1rem;
+	}
 }
 .blogItem {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 .blogHeading {
-  background-color: #ccc;
-  padding: 1rem;
-  border-radius: 20px;
-  margin-top: 5rem;
-  margin-bottom: 3rem;
-  text-transform: capitalize;
-  border: 1px solid rgb(132, 170, 61);
-  color: rgb(58, 59, 74);
+	background-color: #ccc;
+	padding: 1rem;
+	border-radius: 20px;
+	margin-top: 5rem;
+	margin-bottom: 3rem;
+	text-transform: capitalize;
+	border: 1px solid rgb(132, 170, 61);
+	color: rgb(58, 59, 74);
 }

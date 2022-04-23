@@ -13,7 +13,6 @@ const ProductCard = (props) => {
       type: "SET_PRODUCT",
       payload: props.product,
     });
-    console.log("after", props);
     router.push(`/products/${prod?.slug}`);
   };
   return (

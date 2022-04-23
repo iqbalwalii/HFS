@@ -15,7 +15,6 @@ import {
 import ProductCard from "./ProductCard";
 const CartCard = (props) => {
   const product = props.product;
-  console.log("USERRRRRRRRRRRRRRRRRRRRR", product);
   const onChangeHandler = (e) => {
     props.dispatch({
       type: "UPDATE_PRODUCT",

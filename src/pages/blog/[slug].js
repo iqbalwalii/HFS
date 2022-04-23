@@ -7,10 +7,18 @@ import FullLayout from "../../layout/fullLayout";
 import { getBlog } from "../../services/blogService";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
-const Blog = ({ blog }) => {
+const Blog = (props) => {
+  const { blog } = props;
   const router = useRouter();
   const slug = router.query.slug;
-  console.log(slug);
+  useEffect(() => {
+    getBlog(slug).then((res) => {
+      props.dispatch({
+        type: "SET_POST",
+        payload: res.post,
+      });
+    });
+  }, []);
 
   return (
     <FullLayout>

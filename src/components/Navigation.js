@@ -20,14 +20,12 @@ import { useRouter } from "next//router";
 import { countries } from "./Countries";
 const Navigation = (props) => {
   const router = useRouter();
-  console.log("props", props);
   const [page, setPage] = useState("");
   const [box, setBox] = useState(false);
   const [country, setCountry] = useState("");
   const [code, setCode] = useState("");
 
   const onSearchHandler = (e) => {
-    console.log("value", e.target.value);
     if (e.key === "Enter") {
       router.push({ pathname: "/shop", query: { searchTerm: e.target.value } });
     }

@@ -8,7 +8,6 @@ import Axios from "../utils/axios";
 import { connect } from "react-redux";
 const Login = (props) => {
   const { alert, userData } = props;
-  console.log("alert", props);
   const router = useRouter();
   useEffect(() => {
     props.userData && props.userData.email ? router.push("/") : null;
@@ -23,9 +22,7 @@ const Login = (props) => {
       const { data } = await Axios.post("/api/users/auth/login", {
         ...user,
       });
-      console.log("resp.data", data);
       if (data.message) {
-        console.log("error", data.message);
         props.dispatch({
           type: ACTIONS.SET_ALERT,
           payload: {
@@ -34,7 +31,6 @@ const Login = (props) => {
           },
         });
       } else {
-        console.log("resp success", data);
 
         props.dispatch({
           type: "ADD_USER",
@@ -48,8 +44,6 @@ const Login = (props) => {
         });
         router.push("/");
       }
-    } catch (error) {
-      console.log(error);
     }
   };
   return (

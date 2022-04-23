@@ -7,20 +7,14 @@ import { Container, Col, Row, Button } from "react-bootstrap";
 import Link from "next/link";
 const Bloghome = (props) => {
   useEffect(() => {
-    getBlogs()
-      .then((blogs) => {
-        console.log(blogs);
-        props.dispatch({
-          type: "GET_BLOGS",
-          payload: blogs.posts,
-        });
-      })
-      .catch((err) => {
-        console.log("EndPoint Galat", err);
+    getBlogs().then((blogs) => {
+      props.dispatch({
+        type: "GET_BLOGS",
+        payload: blogs.posts,
       });
+    });
   }, []);
   const { blogs } = props;
-  console.log("peheraaa", props.blogs);
   return (
     <Container className={blog.main}>
       <h4 className="text-center mt-5">

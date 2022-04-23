@@ -20,7 +20,6 @@ function Card(props) {
       });
     });
   }, []);
-  console.log("Props", props);
   const { products } = props;
   return (
     <Container style={{ marginBottom: "3rem" }}>
@@ -61,7 +60,6 @@ function Card(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log("issssssssss", state);
   return {
     products: state.products,
   };

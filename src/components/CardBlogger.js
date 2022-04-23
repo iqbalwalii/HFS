@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 const CardBlogger = (props) => {
   const router = useRouter();
   const { detail } = props;
-  console.log("hsab", detail);
   const onClickHandler = () => {
     getBlog(detail?.slug).then((res) => {
       props.dispatch({
@@ -46,7 +45,6 @@ const CardBlogger = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log("salaaaaam", state);
   return {
     post: state.singlePost,
   };
